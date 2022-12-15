@@ -1,4 +1,8 @@
-# SSI Standardisation Overview
+<!-- <style>H1{color:blue; font-weight:700}</style> -->
+<!-- <style>H4{color:mediumblue; font-size:15px; font-weight:900}</style>
+<style>H5{color:mediumblue; font-weight:900}</style> -->
+
+#  SSI Standardisation Overview
 By [Maaike van Leuken](mailto:maaike.vanleuken@tno.nl) (TNO)\
 Last revision: 12-12-2022
 
@@ -31,15 +35,31 @@ The [Trust over IP model](https://trustoverip.org/toip-model/) is a very useful 
 
 ![The ToIP stack used to structure the overview of the standards.](/images/stack-background.png "The ToIP stack used to structure the overview of the standards.")
 
+___
+Standardisation body: []()\
+Most recent version:\
+Published on:\
+Link: []()
+___
+
 
 ### Layer 1: Trust Anchors
 Trust anchors form the basis of the entire stack. Without a strong foundation to anchor your trust to, you cannot have trust in credentials that are exchanged in layer three etc. Technologies in this layer include identifiers, decentralized public key infrastructure and registries.
 
 #### Identifier
+An identifier is used to identify a party and this identifier can be authenticated by another party. Identifiers in this context are usually bound to a key somehow. Strong identifiers must be self-certifying, i.e. there should be a strong binding between key and identifier.
 
 ##### DID
+Standardisation body: [W3C](https://www.w3.org/)\
+Most recent version: v1.0\
+Published on: 19-07-2022\
+Link: [Decentralized Identifiers (DIDs)](https://w3c.github.io/did-core/)
 
-##### x.509
+##### X.509
+Standardisation body: [ITU](https://www.itu.int/en/Pages/default.aspx)\
+Most recent version: (10/19)
+Published on: 14-10-2019\
+Link: [X.509](https://www.itu.int/rec/T-REC-X.509-201910-I/en)
 
 ##### Link Secret
 
@@ -57,6 +77,7 @@ Trust anchors form the basis of the entire stack. Without a strong foundation to
 
 #### OCA Definition
 (?)
+___
 
 ### Layer 2: Peer-to-Peer Connections
 To exchange data, first a trusted (mutually) authenticated channel has to be set up. Peer-to-peer connections have to be established.
@@ -73,6 +94,7 @@ To exchange data, first a trusted (mutually) authenticated channel has to be set
 
 ##### Self-Issued OpenID Provider
 
+___
 ### Layer 3: Credential Exchange Protocols 
 Now that a connection tunnel has been set up, credentials can be exchanged. This layer is about the trust triangle (or diamond).
 
@@ -100,7 +122,7 @@ Now that a connection tunnel has been set up, credentials can be exchanged. This
 
 Link to RWOT Credential Comparison Matrix + Paper
 
-
+___
 ### Layer 4: Application Ecosystems
 TBD
 
