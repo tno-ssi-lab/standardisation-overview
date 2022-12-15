@@ -1,6 +1,19 @@
 <!-- <style>H1{color:blue; font-weight:700}</style> -->
 <!-- <style>H4{color:mediumblue; font-size:15px; font-weight:900}</style>
 <style>H5{color:mediumblue; font-weight:900}</style> -->
+<style>
+      /* Whatever that is inside this <style> tag is all styling for your markup / content structure.
+      /* The . with the boxed represents that it is a class */
+      .boxed {
+        background: #F2F2F2;
+        color: black;
+        border: 3px solid #535353;
+        margin: 0px auto;
+        width: 456px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+    </style>
 
 #  SSI Standardisation Overview
 By [Maaike van Leuken](mailto:maaike.vanleuken@tno.nl) (TNO)\
@@ -39,7 +52,9 @@ ___
 Standardisation body: []()\
 Most recent version:\
 Published on:\
-Link: []()
+Link: []()\
+Competitive to:\
+Compatible with:
 ___
 
 
@@ -50,10 +65,15 @@ Trust anchors form the basis of the entire stack. Without a strong foundation to
 An identifier is used to identify a party and this identifier can be authenticated by another party. Identifiers in this context are usually bound to a key somehow. Strong identifiers must be self-certifying, i.e. there should be a strong binding between key and identifier.
 
 ##### DID
-Standardisation body: [W3C](https://www.w3.org/)\
-Most recent version: v1.0\
-Published on: 19-07-2022\
-Link: [Decentralized Identifiers (DIDs)](https://w3c.github.io/did-core/)
+- Standardisation body: [W3C](https://www.w3.org/)\
+- Most recent version: v1.0\
+- Published on: 19-07-2022\
+- Link: [Decentralized Identifiers (DIDs)](https://w3c.github.io/did-core/)\
+- Competitive with: other identifiers (X.509, link secrets)\
+- Compatible with: DID Exchange Protocol, DID Comm, Present Proof Protocol, Issue Credential Protocol 
+
+
+Decentralized identifiers that allow for the authentication of decentralized digital identities of a [DID subject](https://w3c.github.io/did-core/#did-subject). A DID is a URI that associates the DID subject with a DID document, which describes the DID subject and how they can authenticate themselves using cryptographic keys. DID documents are generated using a specific [DID method](https://w3c.github.io/did-spec-registries/#did-methods).
 
 ##### X.509
 Standardisation body: [ITU](https://www.itu.int/en/Pages/default.aspx)\
@@ -62,7 +82,8 @@ Published on: 14-10-2019\
 Link: [X.509](https://www.itu.int/rec/T-REC-X.509-201910-I/en)
 
 ##### Link Secret
-
+Not a standard, but a cryptographic technique.
+Based on [Pedersen commitments](https://www.cs.cornell.edu/courses/cs754/2001fa/129.PDF), see [link secrets](https://www.evernym.com/blog/how-does-a-verifier-know-the-credential-is-yours/).
 #### Decentralized Public Key Infrastructure
 
 ##### KERI
