@@ -1,7 +1,19 @@
 #  SSI Standardisation Overview
 By [Maaike van Leuken](mailto:maaike.vanleuken@tno.nl) (TNO)\
-Last revision: 12-12-2022
+Last revision: 17-01-2023
 ___
+## Glossary
+
+Standard
+
+Specification
+
+Technology
+
+The terms self-sovereign identity, party ... are defined in the [eSSIF-Lab Glossary](https://essif-lab.github.io/framework/docs/essifLab-glossary).
+
+___
+
 ## Introduction
 
 There is a large amount of standardisation developed and in development within the context of Self-Sovereign Identities (SSI). The standards and specifications vary from legacy technologies to new and upcoming technologies, from specifications on cryptographic signature schemes to usability and inclusivity concepts such as guardianship. Whenever looking into a standard or specification, it can be hard to place it in the bigger picture:
@@ -68,7 +80,6 @@ Compatible with: -->
 <br></br>
 -->
 
-
 ### Layer 1: Trust Anchors
 <div style="text-align: justify">Trust anchors form the basis of the entire stack. Without a strong foundation to anchor your trust to, you cannot have trust in credentials that are exchanged in layer three etc. Technologies in this layer include identifiers, decentralized public key infrastructure and registries.</div>
 
@@ -131,7 +142,7 @@ A DID can be a global unique identifier, but parties can also have multiple ([pe
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->-</a>
+    <a href=#->OIDC</a>
 </div>
 <br></br>
 
@@ -139,8 +150,42 @@ X.509 certificates are very widely used to define the binding between a party's 
 
 ##### Link Secret
 
+A link secret is a non-correlatable secret only known to the holder. During credential issuance, the link secret is sent as a blind attribute to the issuer. The issuer thus doesn't know the value of the link secret. The issuer can then sign all claims, including the blinded link secret. The holder can prove ownership over the credentials to a verifier without disclosing a persistent identifier.
+
 Not a standard, but a cryptographic technique.
 Based on [Pedersen commitments](https://www.cs.cornell.edu/courses/cs754/2001fa/129.PDF), see [link secrets](https://www.evernym.com/blog/how-does-a-verifier-know-the-credential-is-yours/).
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href=#->Anoncred</a>
+</div> 
+<br></br>
+
+##### Raw Public Key
+
+##### Recovery
+
+https://sovrin.org/wp-content/uploads/2019/03/What-if-someone-steals-my-phone-110319.pdf
 
 #### Decentralized Public Key Infrastructure
 As the name suggests, this is the decentralized version of the classic public key infrastructure. This ensures that no single party can compromise the integrity and security of the system as a whole. In decentralized PKI, there is no need to have a trusted third party.
@@ -180,10 +225,109 @@ Primary key management operation is key rotation, that can be performed using ke
 The trust is rooted in self-certifying identifiers. 
 
 
-#### Registry
-A registry is used to store information that could be checked by anyone. To provide more protection against malicious modifications and a single-point of failure, this registry should be implemented in a decentralized fashion. Examples of this are decentralized file systems or Decentralized Ledger Technologies (DLTs), such as a blockchain.
+#### Registry Technologies
+A registry is used to store information that could be checked by anyone. To provide more protection against malicious modifications and a single-point of failure, this registry should be implemented in a decentralized fashion. Examples of this are Decentralized File Systems (DFSs) or Decentralized Ledger Technologies (DLTs), such as a blockchain.
+
+##### Distributed Ledger Technology
+A blockchain is a distributed database, without a single central authority that you must trust.
+
+###### Hyperledger
+Hyperledger is a collection of projects related to DLTs and creates open-source DLT. Hyperledger falls under guardianship of the Linux Foundation.
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#distributed-ledger-technology">Other DLTs</a>,
+    <a href="#decentralized-file-system">DFS</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href=#did>DID</a>
+</div> 
+<br></br>
+
+###### 
+
+###### EBSI
+The European Blockchain Services Infrastructure (EBSI) is a European consortium that created a blockchain for the public sector. 
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#distributed-ledger-technology">Other DLTs</a>,
+    <a href="#decentralized-file-system">DFS</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href=#trusted-issuer>Trusted Issuer</a>
+</div> 
+<br></br>
+
+##### Decentralized File System
+
+Relation with DLT unsure. -> Remove
+
+#### Registry Applications
+
+##### Identifier
+
+##### Schema
+
+##### Revocation
+
+##### Delegation
+
+##### Trusted Issuer
+Link Oskar
+
+##### Trusted Verifier
+Link Oskar
+
+##### Trusted App
 
 #### Revocation Method
+
+##### Status List 2021
+
+##### VICAL (MDOC)
+
+##### Cryptographic Accumulator
+
+https://link.springer.com/content/pdf/10.1007/978-3-642-00468-1_27.pdf
+
+https://github.com/hyperledger/anoncreds-spec/blob/main/spec/ursaAnonCreds.pdf
+
+https://github.com/hyperledger/indy-sdk/blob/main/docs/concepts/revocation/cred-revocation.md
 
 #### Attribute Schema
 
