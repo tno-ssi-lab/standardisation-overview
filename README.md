@@ -23,8 +23,9 @@ There is a large amount of standardisation developed and in development within t
 - Are standards $x$ and $y$ competitors?
 
 We have made two graphical overviews of the situation answering most of these questions:
-- [Basic graphical overview](https://whimsical.com/overview-HAJbEJrV4RH5VbJ6UEURwF)
-- [Graphical overview with interconnections](tbd)
+<!-- - [Basic graphical overview](https://whimsical.com/overview-HAJbEJrV4RH5VbJ6UEURwF)
+- [Graphical overview with interconnections](tbd) -->
+- [Website](https://maaikevanleuken.github.io/SSI-Standardisation-Overview/)
 
 <!-- ![The graphical overview of standards and specifications related to SSI.](/images/overview.png "The graphical overview of standards and specifications related to SSI.") -->
 
