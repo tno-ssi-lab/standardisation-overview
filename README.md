@@ -10,22 +10,26 @@ Specification
 
 Technology
 
-The terms self-sovereign identity, party ... are defined in the [eSSIF-Lab Glossary](https://essif-lab.github.io/framework/docs/essifLab-glossary).
+The terms credential application and credential response are used as defined in the [DIF Credential Manifest Glossary](https://identity.foundation/credential-manifest/#term:credential-response).
+
+The terms self-sovereign identity, party, delegation, mandate ... are defined in the [eSSIF-Lab Glossary](https://essif-lab.github.io/framework/docs/essifLab-glossary).
 
 ___
 
 ## Introduction
 
-There is a large amount of standardisation developed and in development within the context of Self-Sovereign Identities (SSI). The standards and specifications vary from legacy technologies to new and upcoming technologies, from specifications on cryptographic signature schemes to usability and inclusivity concepts such as guardianship. Whenever looking into a standard or specification, it can be hard to place it in the bigger picture:
+There is a large amount of standardisation developed and in development within the context of <u>Self-Sovereign Identities (SSI)</u>. The <u>standards</u> and <u>specifications</u> vary from legacy technologies to new and upcoming technologies, from specifications on cryptographic signature schemes to usability and inclusivity concepts such as guardianship. Whenever looking into a standard or specification, it can be hard to place it in the bigger picture:
 - What problem does this standard tackle?
 - What is the context of this standard?
 - Is this standard $x$ compatible with standard $y$?
 - Are standards $x$ and $y$ competitors?
 
-We have made two graphical overviews of the situation answering most of these questions:
-<!-- - [Basic graphical overview](https://whimsical.com/overview-HAJbEJrV4RH5VbJ6UEURwF)
-- [Graphical overview with interconnections](tbd) -->
-- [Website](https://maaikevanleuken.github.io/SSI-Standardisation-Overview/)
+We have made a graphical overview of the situation trying to answer these questions, which can be found [here](https://maaikevanleuken.github.io/SSI-Standardisation-Overview/). Here you see the basic model. To answer the questions above, we want to give the relation between various technologies. This becomes fuzzy quickly. To keep it uncluttered, we have made buttons on the bottom that can be used to toggle specific views.
+- *General* shows the general interactions between technologies, that is, without choosing a specific technology.
+- *DIDComm* shows the DIDComm-based technologies.
+- *OIDC* shows the OIDC-based technologies.
+- *DDIP* shows the [Dutch Decentralised Interoperability Profile](https://github.com/DutchBlockchainCoalition/DDIP).
+<!-- - *AIP* shows the [Aries Interop Profile](https://github.com/hyperledger/aries-rfcs/blob/main/concepts/0302-aries-interop-profile/README.md). -->
 
 <!-- ![The graphical overview of standards and specifications related to SSI.](/images/overview.png "The graphical overview of standards and specifications related to SSI.") -->
 
@@ -578,17 +582,182 @@ Now that a connection tunnel has been set up, credentials can be exchanged. This
 
 #### Presentation Exchange
 
-#### Signature Scheme
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href=#->-</a>
+</div> 
+<br></br>
 
 #### Credential Profile
 
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href=#->-</a>
+</div> 
+<br></br>
+
 Link to RWOT Credential Comparison Matrix + Paper
+
+#### Credential Manifest
+To issue credentials, the <u>issuer</u> needs some inputs from the <u>subject</u> in order to process a request for credential issuance. The subject, i.e. the user agent, discovers the credential manifest and can then form a <u>credential application</u>, containing the information on the subject that the issuer needs. The issuer can then determine whether this application is accepted or declined and sends a <u>credential response</u>.
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="https://identity.foundation/">DIF</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    0.0.1
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="https://identity.foundation/credential-manifest/">Credential Manifest</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href=#->-</a>
+</div> 
+<br></br>
 
 ___
 ### Layer 4: Application Ecosystems
 TBD
 
 #### Delegation and Mandate
+It's very useful to be able to delegate and mandate rights and duties towards a third party to for example an employee.
+
+##### ACDC
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href=#->-</a>
+</div> 
+<br></br>
+
+
+##### ZCap
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href=#->-</a>
+</div> 
+<br></br>
+
+##### Chained Credential
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href=#->-</a>
+</div> 
+<br></br>
 
 #### Guardianship
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
@@ -667,8 +836,17 @@ TBD
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->-</a>
+    A variety of wallets
 </div> 
 <br></br>
 
 #### Accessibility
+
+## To Research
+- Sovrin governance & trust framework
+- AIP
+- Credential manifest
+- OCA
+- Timestamping
+- AnonCred accumulator
+- Presentation definition and submission
