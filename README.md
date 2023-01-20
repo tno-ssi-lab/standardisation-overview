@@ -1,6 +1,6 @@
 #  SSI Standardisation Overview
 By [Maaike van Leuken](mailto:maaike.vanleuken@tno.nl) (TNO)\
-Last revision: 17-01-2023
+Last revision: 20-01-2023
 ___
 ## Glossary
 
@@ -80,13 +80,13 @@ Compatible with: -->
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->-</a>
+    <a href="#-">-</a>
 </div> 
 <br></br>
 -->
 
 ### Layer 1: Trust Anchors
-<div style="text-align: justify">Trust anchors form the basis of the entire stack. Without a strong foundation to anchor your trust to, you cannot have trust in credentials that are exchanged in layer three etc. Technologies in this layer include identifiers, decentralized public key infrastructure and registries.</div>
+<div style="text-align: justify">Trust anchors form the basis of the entire stack. Without a strong foundation to anchor your trust to, you cannot have trust in credentials that are exchanged in layer three etc. Technologies in this layer include identifiers, decentralised public key infrastructure and registries.</div>
 
 #### Identifier
 <div style="text-align: justify"> An identifier is used to identify a party and this identifier can be authenticated by another party. Identifiers in this context are usually bound to a key somehow. Strong identifiers must be self-certifying, i.e. there should be a strong binding between key and identifier.</div>
@@ -100,25 +100,29 @@ Compatible with: -->
 <div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
 <div>19-07-2022</div>
 <div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
-<div><a href="[-](https://w3c.github.io/did-core/)">Decentralized Identifiers (DIDs)</a></div>
+<div><a href="https://w3c.github.io/did-core/">Decentralised Identifiers (DIDs)</a></div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
-<div><a href="#x509">X.509</a>, <a href="#link-secret">link secret</a></div>
+<div><a href="#x509">X.509</a>, <a href="#link-secret">link secret</a>, <a href="#raw-public-key">raw public key</a></div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->DID Exchange Protocol</a>, 
-    <a href=#->DID Comm</a>, 
+    <a href="#did-exchange-protocol">DID Exchange Protocol</a>, 
+    <a href="#didcomm">DIDComm</a>, 
 </div> 
 <div style="width:250px; height:auto; float:left; display:inline; color:white">Compatible with</div> 
 <div>
-    <a href=#->Issue Credential Protocol</a>,
+    <a href="#issue-credential-protocol">Issue Credential Protocol,</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline; color:white">Compatible with</div>
+<div>
+    <a href="#presentation-exchange">Presentation Exchange,</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline; color:white">Compatible with</div> 
 <div>
-    <a href=#->Present Proof Protocol</a>
+    <a href="#present-proof-protocol">Present Proof Protocol</a>
 </div>  
 <br></br>
 
-Decentralized identifiers that allow for the authentication of decentralized digital identities of a [DID subject](https://w3c.github.io/did-core/#did-subject). A DID is a URI that associates the DID subject with a DID document, which describes the DID subject and how they can authenticate themselves using cryptographic keys. DID documents are generated using a specific [DID method](https://w3c.github.io/did-spec-registries/#did-methods). It depends on the DID method whether the DID is a self-certifying identifier.
+Decentralised identifiers that allow for the authentication of decentralised digital identities of a [DID subject](https://w3c.github.io/did-core/#did-subject). A DID is a URI that associates the DID subject with a DID document, which describes the DID subject and how they can authenticate themselves using cryptographic keys. DID documents are generated using a specific [DID method](https://w3c.github.io/did-spec-registries/#did-methods). It depends on the DID method whether the DID is a self-certifying identifier.
 
 A DID can be a global unique identifier, but parties can also have multiple ([peer](https://identity.foundation/peer-did-method-spec/))DIDs to separate domains/personas. 
 
@@ -143,22 +147,18 @@ A DID can be a global unique identifier, but parties can also have multiple ([pe
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
     <a href="#did">DID</a>,
-    <a href="#link-secret">link secret</a>
+    <a href="#link-secret">link secret</a>,
+    <a href="#raw-public-key">raw public key</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->OIDC</a>
+    <a href="#oidc">OIDC</a>
 </div>
 <br></br>
 
 X.509 certificates are very widely used to define the binding between a party's (partial) identity and a public key. This certificate can be signed by a certificate authority, or it can be self-signed. It forms the basis for protocols like TLS in HTTPS. Because you can put attributes in the certificate, X.509 certificates can also be used as credential format.
 
 ##### Link Secret
-
-A link secret is a non-correlatable secret only known to the holder. During credential issuance, the link secret is sent as a blind attribute to the issuer. The issuer thus doesn't know the value of the link secret. The issuer can then sign all claims, including the blinded link secret. The holder can prove ownership over the credentials to a verifier without disclosing a persistent identifier.
-
-Not a standard, but a cryptographic technique.
-Based on [Pedersen commitments](https://www.cs.cornell.edu/courses/cs754/2001fa/129.PDF), see [link secrets](https://www.evernym.com/blog/how-does-a-verifier-know-the-credential-is-yours/).
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -178,22 +178,29 @@ Based on [Pedersen commitments](https://www.cs.cornell.edu/courses/cs754/2001fa/
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#did">DID</a>, <a href="#x509">X.509</a>, <a href="#raw-public-key">raw public key</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->Anoncred</a>
+    <a href="#-">AnonCred</a>, <a href="#didcomm">DIDComm</a>
 </div> 
 <br></br>
 
+A link secret is a non-correlatable secret only known to the holder. During credential issuance, the link secret is sent as a blind attribute to the issuer. The issuer thus doesn't know the value of the link secret. The issuer can then sign all claims, including the blinded link secret. The holder can prove ownership over the credentials to a verifier without disclosing a persistent identifier.
+
+Not a standard, but a cryptographic technique.
+Based on [Pedersen commitments](https://www.cs.cornell.edu/courses/cs754/2001fa/129.PDF), see [link secrets](https://www.evernym.com/blog/how-does-a-verifier-know-the-credential-is-yours/).
+
 ##### Raw Public Key
+Raw public keys can be used as an identifier. 
+
 
 ##### Recovery
 
 https://sovrin.org/wp-content/uploads/2019/03/What-if-someone-steals-my-phone-110319.pdf
 
-#### Decentralized Public Key Infrastructure
-As the name suggests, this is the decentralized version of the classic public key infrastructure. This ensures that no single party can compromise the integrity and security of the system as a whole. In decentralized PKI, there is no need to have a trusted third party.
+#### Decentralised Public Key Infrastructure
+As the name suggests, this is the decentralised version of the classic public key infrastructure. This ensures that no single party can compromise the integrity and security of the system as a whole. In decentralised PKI, there is no need to have a trusted third party.
 
 ##### KERI
 
@@ -219,27 +226,54 @@ As the name suggests, this is the decentralized version of the classic public ke
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#did>DID</a>
+    <a href="#did">DID</a>
 </div> 
 <br></br>
 
 
-KERI is a novel technology for Decentralized Key Management Infrastructure (DKMI). It has been brought under in an informational standard.
+KERI is a novel technology for Decentralised Key Management Infrastructure (DKMI). It has been brought under in an informational standard.
 Primary key management operation is key rotation, that can be performed using key event receipt logs (KERL)
 
 The trust is rooted in self-certifying identifiers. 
 
 
-#### Registry Technologies
-A registry is used to store information that could be checked by anyone. To provide more protection against malicious modifications and a single-point of failure, this registry should be implemented in a decentralized fashion. Examples of this are Decentralized File Systems (DFSs) or Decentralized Ledger Technologies (DLTs), such as a blockchain.
+#### Registry
+A registry is used to store information that could be checked by anyone. To provide more protection against malicious modifications and a single-point of failure, this registry should be implemented in a decentralised fashion. Examples of this are Decentralised File Systems (DFSs) or Decentralised Ledger Technologies (DLTs), such as a blockchain.
 
 ##### Distributed Ledger Technology
-A blockchain is a distributed database, without a single central authority that you must trust.
+A blockchain is a distributed database, without a single central authority that you must trust, leading to a higher level of privacy and security.
 
 ###### Hyperledger
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#distributed-ledger-technology">Other DLTs</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href="#did">DID</a>
+</div> 
+<br></br>
 Hyperledger is a collection of projects related to DLTs and creates open-source DLT. Hyperledger falls under guardianship of the Linux Foundation.
 
-<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+###### EBSI
+
+<div style="width:250px; height:auto; float:left">Standardisation body:</div> 
 <div>
     <a href="-">-</a>
 </div>
@@ -257,68 +291,33 @@ Hyperledger is a collection of projects related to DLTs and creates open-source 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#distributed-ledger-technology">Other DLTs</a>,
-    <a href="#decentralized-file-system">DFS</a>
+    <a href="#distributed-ledger-technology">Other DLTs</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#did>DID</a>
+    <a href="#trusted-issuer">Trusted Issuer</a>
 </div> 
 <br></br>
 
-###### 
-
-###### EBSI
 The European Blockchain Services Infrastructure (EBSI) is a European consortium that created a blockchain for the public sector. 
 
-<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
-<div>
-    <a href="-">-</a>
-</div>
-<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
-<div>
-    -
-</div>
-<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
-<div>
-    -
-</div>
-<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
-<div>
-    <a href="-">-</a>
-</div>
-<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
-<div>
-    <a href="#distributed-ledger-technology">Other DLTs</a>,
-    <a href="#decentralized-file-system">DFS</a>
-</div>
-<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
-<div>
-    <a href=#trusted-issuer>Trusted Issuer</a>
-</div> 
-<br></br>
+##### Registry Applications
 
-##### Decentralized File System
+###### Identifier
 
-Relation with DLT unsure. -> Remove
+###### Schema
 
-#### Registry Applications
+###### Revocation
 
-##### Identifier
+###### Delegation
 
-##### Schema
-
-##### Revocation
-
-##### Delegation
-
-##### Trusted Issuer
+###### Trusted Issuer
 Link Oskar
 
-##### Trusted Verifier
+###### Trusted Verifier
 Link Oskar
 
-##### Trusted App
+###### Trusted App
 
 #### Revocation Method
 
@@ -334,10 +333,6 @@ https://github.com/hyperledger/anoncreds-spec/blob/main/spec/ursaAnonCreds.pdf
 
 https://github.com/hyperledger/indy-sdk/blob/main/docs/concepts/revocation/cred-revocation.md
 
-#### Attribute Schema
-
-#### Credential Definition
-
 #### OCA Definition
 (?)
 ___
@@ -350,11 +345,11 @@ To exchange data, first a trusted (mutually) authenticated channel has to be set
 ##### DIDComm
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="-">DIF</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
 <div>
-    -
+    v2.0
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
 <div>
@@ -362,15 +357,22 @@ To exchange data, first a trusted (mutually) authenticated channel has to be set
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://identity.foundation/didcomm-messaging/spec/">DIDComm Messaging</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#oidc">OIDC</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->-</a>
+    <a href="#did">DID</a>,
+    <a href="#did-exchange-protocol">DID exchange protocol</a>,
+</div>
+<div style="width:250px; height:auto; float:left; display:inline; color:white">Compatible with</div>
+    <a href="#issue-credential-protocol">issue credential protocol</a>,
+</div>
+<div style="width:250px; height:auto; float:left; display:inline; color:white">Compatible with</div>
+    <a href="#present-proof-protocol">present proof protocol</a>,
 </div> 
 <br></br>
 
@@ -397,13 +399,13 @@ To exchange data, first a trusted (mutually) authenticated channel has to be set
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->-</a>
+    <a href="#-">-</a>
 </div> 
 <br></br>
 
-##### Open ID
+##### OpenID
 
-##### Open ID Connect
+##### OpenID Connect
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
     <a href="-">-</a>
@@ -418,7 +420,7 @@ To exchange data, first a trusted (mutually) authenticated channel has to be set
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
@@ -426,10 +428,10 @@ To exchange data, first a trusted (mutually) authenticated channel has to be set
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->-</a>
+    <a href="#-">-</a>
 </div> 
 <br></br>
-https://openid.net/specs/openid-connect-core-1_0.html
+Used in many systems. Less or no migration needed compared to moving to a DIDComm-based system
 
 
 ##### Self-Issued OpenID Provider
@@ -455,7 +457,7 @@ https://openid.net/specs/openid-connect-core-1_0.html
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->-</a>
+    <a href="#-">-</a>
 </div> 
 <br></br>
 
@@ -489,7 +491,7 @@ Now that a connection tunnel has been set up, credentials can be exchanged. This
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->-</a>
+    <a href="#-">-</a>
 </div> 
 <br></br>
 
@@ -518,7 +520,7 @@ Now that a connection tunnel has been set up, credentials can be exchanged. This
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->-</a>
+    <a href="#-">-</a>
 </div> 
 <br></br>
 
@@ -547,7 +549,7 @@ Now that a connection tunnel has been set up, credentials can be exchanged. This
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->-</a>
+    <a href="#-">-</a>
 </div> 
 <br></br>
 
@@ -576,7 +578,7 @@ Now that a connection tunnel has been set up, credentials can be exchanged. This
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->-</a>
+    <a href="#-">-</a>
 </div> 
 <br></br>
 
@@ -604,7 +606,7 @@ Now that a connection tunnel has been set up, credentials can be exchanged. This
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->-</a>
+    <a href="#-">-</a>
 </div> 
 <br></br>
 
@@ -632,7 +634,7 @@ Now that a connection tunnel has been set up, credentials can be exchanged. This
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->-</a>
+    <a href="#-">-</a>
 </div> 
 <br></br>
 
@@ -663,7 +665,7 @@ To issue credentials, the <u>issuer</u> needs some inputs from the <u>subject</u
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->-</a>
+    <a href="#-">-</a>
 </div> 
 <br></br>
 
@@ -698,7 +700,7 @@ It's very useful to be able to delegate and mandate rights and duties towards a 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->-</a>
+    <a href="#-">-</a>
 </div> 
 <br></br>
 
@@ -727,7 +729,7 @@ It's very useful to be able to delegate and mandate rights and duties towards a 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->-</a>
+    <a href="#-">-</a>
 </div> 
 <br></br>
 
@@ -755,7 +757,7 @@ It's very useful to be able to delegate and mandate rights and duties towards a 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->-</a>
+    <a href="#-">-</a>
 </div> 
 <br></br>
 
@@ -782,7 +784,7 @@ It's very useful to be able to delegate and mandate rights and duties towards a 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->-</a>
+    <a href="#-">-</a>
 </div> 
 <br></br>
 
@@ -809,7 +811,7 @@ It's very useful to be able to delegate and mandate rights and duties towards a 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href=#->-</a>
+    <a href="#-">-</a>
 </div> 
 <br></br>
 
@@ -845,7 +847,7 @@ It's very useful to be able to delegate and mandate rights and duties towards a 
 ## To Research
 - Sovrin governance & trust framework
 - AIP
-- Credential manifest
+- Decentralised file system?
 - OCA
 - Timestamping
 - AnonCred accumulator
