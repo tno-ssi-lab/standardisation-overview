@@ -1,24 +1,25 @@
 #  SSI Standardisation Overview
 By [Maaike van Leuken](mailto:maaike.vanleuken@tno.nl) (TNO)\
-Last revision: 20-01-2023
+Last revision: 23-01-2023
 ___
 ## Glossary
 
-Standard
+**Standard** <-> **Specification**: a *neat* document written by a **standardisation body** in which a **technology** is defined.
 
-Specification
+**Standardisation body**: 
 
-Technology
+**Technology**: a technical protocol, concept, architecture, ...
 
-The terms credential application and credential response are used as defined in the [DIF Credential Manifest Glossary](https://identity.foundation/credential-manifest/#term:credential-response).
+The terms **credential application** and **credential response** are used as defined in the [DIF Credential Manifest Glossary](https://identity.foundation/credential-manifest/#term:credential-response).
 
-The terms self-sovereign identity, party, delegation, mandate ... are defined in the [eSSIF-Lab Glossary](https://essif-lab.github.io/framework/docs/essifLab-glossary).
+The terms **self-sovereign identity**, **issuer**, **holder**, **verifier**, **subject**, **credential**, **claim**, **party**, **delegation**, **mandate** ... are defined in the [eSSIF-Lab Glossary](https://essif-lab.github.io/framework/docs/essifLab-glossary).
 
+The terms **link secret**, **presentation definition** and **presentation submission** are defined in the [DIF Presentation Exchange Terminology](https://identity.foundation/presentation-exchange/#terminology).
 ___
 
 ## Introduction
 
-There is a large amount of standardisation developed and in development within the context of <u>Self-Sovereign Identities (SSI)</u>. The <u>standards</u> and <u>specifications</u> vary from legacy technologies to new and upcoming technologies, from specifications on cryptographic signature schemes to usability and inclusivity concepts such as guardianship. Whenever looking into a standard or specification, it can be hard to place it in the bigger picture:
+There is a large amount of standardisation developed and in development within the context of **Self-Sovereign Identities (SSI)**. The ****standards**** and ****specifications**** vary from legacy technologies to new and upcoming technologies, from specifications on cryptographic signature schemes to usability and inclusivity concepts such as guardianship. Whenever looking into a standard or specification, it can be hard to place it in the bigger picture:
 - What problem does this standard tackle?
 - What is the context of this standard?
 - Is this standard $x$ compatible with standard $y$?
@@ -46,9 +47,29 @@ This document has been developed for the Dutch Blockchain Coalition (DBC) and ha
 Both this document and the graphical overview are living documents. The amount of specifications is ever-growing and updates of specifications are brought out periodically. We will try our best to keep our resources up-to-date. We also welcome any input from technical experts on the standards and their context. If you have any suggestions or questions, please contact us.
 ___
 ## Description of the Model
-The [Trust over IP model](https://trustoverip.org/toip-model/) is a very useful way to give insight in how an SSI solution can be build and of which layers it is built up. While looking through various specifications / standards, it seemed to make sense to arrange them according to the ToIP technology stack. Below you see the empty model, consisting of four layers. For each of these layers, we dedicate a section below and explain what the scope of the layer is, what technologies belong to the layer and a description of that technology. 
+The [Trust over IP (ToIP) model](https://trustoverip.org/toip-model/) consists of two stacks: the technology stack and the governance stack. We will here restrict ourselves to the technology stack, since we aim to give context for *technologies*. The stack consists of the following four layers:
+1. *Public utilities*. This forms the basis for the other layers through defining trust anchors such that the technologies in this layer create a trusted basis.
+2. *Peer-to-peer communication*. This layer defines the (private) digital wallets and agents, such that **credentials** can be stored and exchanged, via peer-to-peer protocols.
+3. *Trust task protocols*. This is the *trust triangle* comes into play and the credentials are exchanged. 
+4. *Application ecosystems*. This layer defined market applications built on top of the other layers.
 
-![The ToIP stack used to structure the overview of the standards.](/images/stack-background.png "The ToIP stack used to structure the overview of the standards.")
+![The two stacks in the ToIP model.](/images/toip.jpg "The two stacks in the ToIP model.")
+
+While looking through various specifications / standards, it seemed to make sense to arrange them according to the ToIP technology stack, as they seem to fit into these layers. We have made some small alterations to the layers in the ToIP technology stack, such that the scope is broadened (wider than just DID-based methods) and renamed the layers such that the fit our purpose better. The result is displayed below.  
+
+![The four layers from the ToIP stack used to structure the overview of the standards.](/images/stack-background.png "The four (altered) layers from the ToIP stack used to structure the overview of the standards.")
+
+For each of these layers, we dedicate a chapter below and explain what the scope of the layer is, what technologies belong to the layer. For each of the technologies we will
+- list some general information about the standard:
+  - the standardisation body
+  - the most recent version
+  - when the most recent version was published
+  - a link to the standard
+  - the technologies it is competitive to
+  - the technologies it is compatible with
+- give a short description of what the technology does
+
+
 
 <!-- Standardisation body: []()\
 Most recent version:\
@@ -108,15 +129,15 @@ Compatible with: -->
     <a href="#did-exchange-protocol">DID Exchange Protocol</a>, 
     <a href="#didcomm">DIDComm</a>, 
 </div> 
-<div style="width:250px; height:auto; float:left; display:inline; color:white">Compatible with</div> 
+<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with</div> 
 <div>
     <a href="#issue-credential-protocol">Issue Credential Protocol,</a>
 </div>
-<div style="width:250px; height:auto; float:left; display:inline; color:white">Compatible with</div>
+<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with</div>
 <div>
     <a href="#presentation-exchange">Presentation Exchange,</a>
 </div>
-<div style="width:250px; height:auto; float:left; display:inline; color:white">Compatible with</div> 
+<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with</div> 
 <div>
     <a href="#present-proof-protocol">Present Proof Protocol</a>
 </div>  
@@ -345,7 +366,7 @@ To exchange data, first a trusted (mutually) authenticated channel has to be set
 ##### DIDComm
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
-    <a href="-">DIF</a>
+    <a href="https://identity.foundation/">DIF</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
 <div>
@@ -368,10 +389,12 @@ To exchange data, first a trusted (mutually) authenticated channel has to be set
     <a href="#did">DID</a>,
     <a href="#did-exchange-protocol">DID exchange protocol</a>,
 </div>
-<div style="width:250px; height:auto; float:left; display:inline; color:white">Compatible with</div>
+<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div>
+<div>
     <a href="#issue-credential-protocol">issue credential protocol</a>,
 </div>
-<div style="width:250px; height:auto; float:left; display:inline; color:white">Compatible with</div>
+<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div>
+<div>
     <a href="#present-proof-protocol">present proof protocol</a>,
 </div> 
 <br></br>
@@ -379,19 +402,19 @@ To exchange data, first a trusted (mutually) authenticated channel has to be set
 ##### DID Exchange Protocol
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://github.com/hyperledger/aries-rfcs">Aries RFC</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
 <div>
-    -
+    1.0
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
 <div>
-    -
+    15-04-2021
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0023-did-exchange/README.md">DID Exchange Protocol 1.0</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
@@ -399,36 +422,34 @@ To exchange data, first a trusted (mutually) authenticated channel has to be set
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#didcomm">DIDComm</a>
 </div> 
 <br></br>
-
-##### OpenID
 
 ##### OpenID Connect
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://openid.net/foundation/">OpenID Foundation</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
 <div>
-    -
+    1.0
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
 <div>
-    -
+    08-11-2014
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
 <div>
-    <a href="https://openid.net/specs/openid-connect-core-1_0.html">OIDC</a>
+    <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect Core 1.0</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#didcomm">DIDComm</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#-">SIOP</a>, <a href="#-">OIDC4CI</a>, <a href="#-">OIDC4VP</a>, <a href="#-">presentation exchange</a>
 </div> 
 <br></br>
 Used in many systems. Less or no migration needed compared to moving to a DIDComm-based system
@@ -437,19 +458,19 @@ Used in many systems. Less or no migration needed compared to moving to a DIDCom
 ##### Self-Issued OpenID Provider
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://openid.net/foundation/">OpenID Foundation</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
 <div>
-    -
+    v2
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
 <div>
-    -
+    18-12-2021
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://openid.net/specs/openid-connect-self-issued-v2-1_0-06.html">Self-Issued OpenID Provider</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
@@ -457,7 +478,7 @@ Used in many systems. Less or no migration needed compared to moving to a DIDCom
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#oidc">OIDC</a>
 </div> 
 <br></br>
 
@@ -465,100 +486,105 @@ ___
 ### Layer 3: Credential Exchange Protocols 
 Now that a connection tunnel has been set up, credentials can be exchanged. This layer is about the trust triangle (or diamond).
 
-#### Issuer Protocol
+#### Issuance Protocol
 
 
 ##### Issue Credential Protocol
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://identity.foundation/">DIF</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
 <div>
-    -
+    3.0
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
 <div>
-    -
+    27-10-2021
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://github.com/decentralized-identity/waci-didcomm/blob/main/issue_credential/README.md">Issue Credential Protocol 3.0</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#oidc4ci">OIDC4CI</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#did">DID</a>, <a href="#link-secret">link secret</a>, <a href="#DIDComm">DIDComm</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> 
+<div>
+    <a href="#did-exchange-protocol">DID exchange protocol</a>, <a href="#present-proof-protocol">present proof protocol</a>,
+</div>
+<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div>
+<div>
+    <a href="#presentation-exchange">presentation exchange</a>
 </div> 
 <br></br>
-
-##### Credential Request (?)
 
 ##### OID4CI
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://openid.net/foundation/">OpenID Foundation</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
 <div>
-    -
+    1.0
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
 <div>
-    -
+    30-12-2022
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html">OpenID for Verifiable Credential Issuance</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#issue-credential-protocol">issue credential protocol</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#oidc">OIDC</a>, <a href="#oidc">OIDC</a>
 </div> 
 <br></br>
 
-#### Verifier Protocol
+#### Verification Protocol
 
 ##### Present Proof Protocol
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://identity.foundation/">DIF</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
 <div>
-    -
+    3.0
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
 <div>
-    -
+    22-06-2021
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://github.com/decentralized-identity/waci-presentation-exchange/blob/main/present_proof/present-proof-v3.md">Present Proof Protocol 3.0</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#oidc4vp">OIDC4VP</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#issue-credential-protocol">issue credential protocol</a>, 
+    <a href="#presentation-exchange">presentation exchange</a>
 </div> 
 <br></br>
-
-##### Presentation Request
 
 ##### OID4VP
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://openid.net/foundation/">OpenID Foundation</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
 <div>
@@ -574,23 +600,24 @@ Now that a connection tunnel has been set up, credentials can be exchanged. This
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#present-proof-protocol">present proof protocol</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#oidc4ci">OIDC4CI</a>,
+    <a href="#presentation-exchange">presentation exchange</a>
 </div> 
 <br></br>
 
-#### Presentation Exchange
+### Presentation Exchange
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://identity.foundation/">DIF</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
 <div>
-    -
+    2.0.0
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
 <div>
@@ -598,7 +625,44 @@ Now that a connection tunnel has been set up, credentials can be exchanged. This
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://identity.foundation/presentation-exchange/spec/v2.0.0/">Presentation Exchange 2.0.0</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    JSON-based credentials, <a href="#oidc">OIDC</a>,
+    <a href="#didcomm">DIDComm</a>, <a href="#chapi">CHAPI</a>
+</div> 
+<br></br>
+
+Holder -> verifier
+First two steps in proving exchange:
+1) verifier defines **proof requirements**
+2) holder defines submission of proof in alignment with verifier's requirements
+
+**Claim** format and transport envelope agnostic, as long as the format can be serialized as JSON.
+
+#### Credential Manifest
+To issue credentials, the **issuer** needs some inputs from the **subject** in order to process a request for credential issuance. The subject, i.e. the user agent, discovers the credential manifest and can then form a **credential application**, containing the information on the subject that the issuer needs. The issuer can then determine whether this application is accepted or declined and sends a **credential response**.
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="https://identity.foundation/">DIF</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    0.0.1
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="https://identity.foundation/credential-manifest/">Credential Manifest</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
@@ -639,35 +703,6 @@ Now that a connection tunnel has been set up, credentials can be exchanged. This
 <br></br>
 
 Link to RWOT Credential Comparison Matrix + Paper
-
-#### Credential Manifest
-To issue credentials, the <u>issuer</u> needs some inputs from the <u>subject</u> in order to process a request for credential issuance. The subject, i.e. the user agent, discovers the credential manifest and can then form a <u>credential application</u>, containing the information on the subject that the issuer needs. The issuer can then determine whether this application is accepted or declined and sends a <u>credential response</u>.
-
-<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
-<div>
-    <a href="https://identity.foundation/">DIF</a>
-</div>
-<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
-<div>
-    0.0.1
-</div>
-<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
-<div>
-    -
-</div>
-<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
-<div>
-    <a href="https://identity.foundation/credential-manifest/">Credential Manifest</a>
-</div>
-<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
-<div>
-    <a href="#-">-</a>
-</div>
-<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
-<div>
-    <a href="#-">-</a>
-</div> 
-<br></br>
 
 ___
 ### Layer 4: Application Ecosystems
