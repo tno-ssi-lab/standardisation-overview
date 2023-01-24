@@ -185,7 +185,7 @@ A DID can be a global unique identifier, but parties can also have multiple ([pe
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#oidc">OIDC</a>
+    <a href="#openid-connect">OIDC</a>
 </div>
 <br></br>
 
@@ -394,7 +394,7 @@ To exchange data, first a trusted (mutually) authenticated channel has to be set
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#oidc">OIDC</a>
+    <a href="#openid-connect">OIDC</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
@@ -490,7 +490,7 @@ Used in many systems. Less or no migration needed compared to moving to a DIDCom
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#oidc">OIDC</a>
+    <a href="#openid-connect">OIDC</a>
 </div> 
 <br></br>
 
@@ -520,7 +520,7 @@ Now that a connection tunnel has been set up, credentials can be exchanged. This
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#oidc4ci">OIDC4CI</a>
+    <a href="#openid-connect4ci">OIDC4CI</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
@@ -565,7 +565,7 @@ The **proof type** can be JWT, JSON-LID or ZKP.
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#oidc">OIDC</a>, <a href="#siop">SIOP</a>, <a href="#mdl">mDL</a>, <a href="#vc">VC</a>
+    <a href="#openid-connect">OIDC</a>, <a href="#self-issued-openid-provider">SIOP</a>, <a href="#mdl">mDL</a>, <a href="#vc">VC</a>
 </div> 
 <br></br>
 
@@ -593,7 +593,7 @@ The **proof type** must be JWT.
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#oidc4vp">OIDC4VP</a>
+    <a href="#openid-connect4vp">OIDC4VP</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
@@ -632,7 +632,7 @@ This standard formalizes the protocol for presentation exchange by specifying th
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#oidc4ci">OIDC4CI</a>, <a href="#siop">SIOP</a>,
+    <a href="#openid-connect4ci">OIDC4CI</a>, <a href="#self-issued-openid-provider">SIOP</a>,
     <a href="#presentation-exchange">presentation exchange</a>, <a href="#vp">VP</a>
 </div> 
 <br></br>
@@ -663,7 +663,7 @@ OIDC for Verifiable Presentations is, as the name suggests, an extension to OIDC
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    JSON-based credentials, <a href="#oidc">OIDC</a>,
+    JSON-based credentials, <a href="#openid-connect">OIDC</a>,
     <a href="#didcomm">DIDComm</a>, <a href="#chapi">CHAPI</a>
 </div> 
 <br></br>
@@ -793,7 +793,7 @@ The standard for Verifiable Presentations (VPs) leaves some room for choices in 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#oidc4ci">OIDC4CI</a>
+    <a href="#openid-connect4ci">OIDC4CI</a>
 </div> 
 <br></br>
 
