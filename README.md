@@ -4,11 +4,23 @@ Last revision: 23-01-2023
 ___
 ## Glossary
 
-**Standard** <-> **Specification**: a *neat* document written by a **standardisation body** in which a **technology** is defined.
+**Standard**: a *neat* document written by a **standardisation body** in which a **technology** is defined.
 
-**Standardisation body**: 
+**Specification**: a *neat* document in which a **technology** is defined. The difference with a standard is that the document was not written by a recognised **standardisation body**.
 
-**Technology**: a technical protocol, concept, architecture, ...
+**Standardisation body**: W3C, DIF, OIDF, Aries, ... 
+
+**Technology**: a technical protocol, concept, architecture, ... that can be used to achieve a certain goal.
+
+**Revocation mechanism**
+
+**Credential profile**
+
+The term **ID token** is used as defined in the [OIDC Terminology](https://openid.net/specs/openid-connect-core-1_0.html#Terminology).
+
+The term **VP token** is used as defined in the [OIDC4VP standard](https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0-07.html#name-vp_token).
+
+The terms **verifiable credential** and **verifiable presentation** are used as defined in the [W3C VC/VP Glossary](tbd).
 
 The terms **credential application** and **credential response** are used as defined in the [DIF Credential Manifest Glossary](https://identity.foundation/credential-manifest/#term:credential-response).
 
@@ -19,9 +31,9 @@ ___
 
 ## Introduction
 
-There is a large amount of standardisation developed and in development within the context of **Self-Sovereign Identities (SSI)**. The ****standards**** and ****specifications**** vary from legacy technologies to new and upcoming technologies, from specifications on cryptographic signature schemes to usability and inclusivity concepts such as guardianship. Whenever looking into a standard or specification, it can be hard to place it in the bigger picture:
-- What problem does this standard tackle?
-- What is the context of this standard?
+There is a large amount of standardisation developed and in development within the context of **Self-Sovereign Identities (SSI)**. The **standards** and **specifications** vary from legacy technologies to new and upcoming technologies, from specifications on cryptographic signature schemes to usability and inclusivity concepts such as guardianship. Whenever looking into a standard or specification, it can be hard to place it in the bigger picture:
+- What does the technology described in the standard achieve?
+- What is the context of this technology and its standard?
 - Is this standard $x$ compatible with standard $y$?
 - Are standards $x$ and $y$ competitors?
 
@@ -30,17 +42,17 @@ We have made a graphical overview of the situation trying to answer these questi
 - *DIDComm* shows the DIDComm-based technologies.
 - *OIDC* shows the OIDC-based technologies.
 - *DDIP* shows the [Dutch Decentralised Interoperability Profile](https://github.com/DutchBlockchainCoalition/DDIP).
-<!-- - *AIP* shows the [Aries Interop Profile](https://github.com/hyperledger/aries-rfcs/blob/main/concepts/0302-aries-interop-profile/README.md). -->
+- *AIP* shows the [Aries Interop Profile](https://github.com/hyperledger/aries-rfcs/blob/main/concepts/0302-aries-interop-profile/README.md).
 
 <!-- ![The graphical overview of standards and specifications related to SSI.](/images/overview.png "The graphical overview of standards and specifications related to SSI.") -->
 
 The overview graphically answers the questions above more or less. This document will describe the structure of the graphical overview and give a description for each technology mentioned in the graphical display.
 
 ### Audience
-This document is made in such a manner that it is accessible to all parties working with or wanting to work with SSI. We will explain each technology in the overview on a high level. For the technically inclined and completeness, links to the specification are given.
+This document is made in such a manner that it is accessible to all parties working with or wanting to work with SSI. We will explain each technology in the overview on a high level. Links to the specification are given for further (more technical) reading.
 
 ### Context and Continuation
-This document has been developed for the Dutch Blockchain Coalition (DBC) and has been verified with multiple technical experts.
+This document has been developed for the Dutch Blockchain Coalition (DBC) and has been discussed with multiple technical experts.
 
 <!-- Relation with interop profiles such as DDIP and AIP -->
 
@@ -253,7 +265,7 @@ As the name suggests, this is the decentralised version of the classic public ke
 
 
 KERI is a novel technology for Decentralised Key Management Infrastructure (DKMI). It has been brought under in an informational standard.
-Primary key management operation is key rotation, that can be performed using key event receipt logs (KERL)
+Primary key management operation is key rotation, that can be performed using key event receipt logs (KERL).
 
 The trust is rooted in self-certifying identifiers. 
 
@@ -516,15 +528,21 @@ Now that a connection tunnel has been set up, credentials can be exchanged. This
 </div>
 <div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> 
 <div>
-    <a href="#did-exchange-protocol">DID exchange protocol</a>, <a href="#present-proof-protocol">present proof protocol</a>,
+    <a href="#didcomm">DIDComm</a>,
+    <a href="#did-exchange-protocol">DID exchange protocol</a>, <a href="#present-proof-protocol">present proof protocol</a>
 </div>
-<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div>
-<div>
-    <a href="#presentation-exchange">presentation exchange</a>
-</div> 
 <br></br>
 
-##### OID4CI
+This standard formalizes the protocol to issue credentials by specifying the following four messages in the protocol:
+- Holder $\rightarrow$ issuer: what credential the holder would like to receive from the issuer.
+- Issuer $\rightarrow$ holder: offer the credential and possibly its notify the price.
+- Holder $\rightarrow$ issuer: request the credential.
+- Issuer $\rightarrow$ holder: issue the credential.
+
+The **proof type** can be JWT, JSON-LID or ZKP.
+
+
+##### OIDC4CI
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
     <a href="https://openid.net/foundation/">OpenID Foundation</a>
@@ -547,9 +565,12 @@ Now that a connection tunnel has been set up, credentials can be exchanged. This
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#oidc">OIDC</a>, <a href="#oidc">OIDC</a>
+    <a href="#oidc">OIDC</a>, <a href="#siop">SIOP</a>, <a href="#mdl">mDL</a>, <a href="#vc">VC</a>
 </div> 
 <br></br>
+
+This standard describes an API for credential issuance via OIDC (and OAuth2.0), by defining what the **credential offer** and **credential offer response** should look like.  
+The **proof type** must be JWT.
 
 #### Verification Protocol
 
@@ -576,10 +597,17 @@ Now that a connection tunnel has been set up, credentials can be exchanged. This
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
+    <a href="#didcomm">DIDComm</a>,
     <a href="#issue-credential-protocol">issue credential protocol</a>, 
     <a href="#presentation-exchange">presentation exchange</a>
 </div> 
 <br></br>
+
+This standard formalizes the protocol for presentation exchange by specifying the following three messages in the protocol:
+- Prover $\rightarrow$ verifier: propose what the presentation would look like.
+- Verifier $\rightarrow$ prover: request a presentation.
+- Prover $\rightarrow$ verifier: provide the presentation.
+
 
 ##### OID4VP
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
@@ -588,15 +616,15 @@ Now that a connection tunnel has been set up, credentials can be exchanged. This
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
 <div>
-    -
+    1.0
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
 <div>
-    -
+    17-12-2021
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0-07.html">OpenID Connect for Verifiable Presentations</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
@@ -604,10 +632,12 @@ Now that a connection tunnel has been set up, credentials can be exchanged. This
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#oidc4ci">OIDC4CI</a>,
-    <a href="#presentation-exchange">presentation exchange</a>
+    <a href="#oidc4ci">OIDC4CI</a>, <a href="#siop">SIOP</a>,
+    <a href="#presentation-exchange">presentation exchange</a>, <a href="#vp">VP</a>
 </div> 
 <br></br>
+
+OIDC for Verifiable Presentations is, as the name suggests, an extension to OIDC allowing the exchange of verifiable presentations (in a **VP token**) in addition to an **ID token**. The standard defines the protocol for this, by defining what the request and response must look like.
 
 ### Presentation Exchange
 
@@ -674,7 +704,12 @@ To issue credentials, the **issuer** needs some inputs from the **subject** in o
 </div> 
 <br></br>
 
-#### Credential Profile
+#### Credentials
+Overview: Link to RWOT Credential Comparison Matrix + Paper.
+
+In the next sections we will describe the credential formats that are standardised. Note that these still have a lot of degrees of freedom in there, as choices can be made in the used signature algorithm, revocation mechanism, identifiers... 
+
+##### VC
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -702,7 +737,94 @@ To issue credentials, the **issuer** needs some inputs from the **subject** in o
 </div> 
 <br></br>
 
-Link to RWOT Credential Comparison Matrix + Paper
+The standard for Verifiable Credentials (VCs) leaves some room for choices in credential (JSON vs JSON-LD) and proof (JWT vs linked data proofs) format.
+
+<!-- ##### Verifiable Presentation
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href="#-">-</a>
+</div> 
+<br></br>
+
+The standard for Verifiable Presentations (VPs) leaves some room for choices in credential (JSON vs JSON-LD) and proof (JWT vs linked data proofs) format. -->
+
+##### mDL
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="-">ISO</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    1
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    xx-09-2021
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="https://www.iso.org/standard/69084.html">ISO/IEC 18013-5:2021</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#-">other credential formats</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href="#oidc4ci">OIDC4CI</a>
+</div> 
+<br></br>
+
+##### AnonCred
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href="#-">-</a>
+</div> 
+<br></br>
+
 
 ___
 ### Layer 4: Application Ecosystems
