@@ -16,13 +16,17 @@ ___
 
 **Credential profile**
 
+**Proof format**: the cryptographic algorithm used to make a proof in the creation of the presentation. Examples of proof formats are JWS, Ed25519, ECDSA, RSA, ... .
+
+**Credential format**: the format along which the claims are structured, such as JSON, JSON-LD, ABC, ... .
+
 The term **ID token** is used as defined in the [OIDC Terminology](https://openid.net/specs/openid-connect-core-1_0.html#Terminology).
 
 The term **VP token** is used as defined in the [OIDC4VP standard](https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0-07.html#name-vp_token).
 
 The terms **verifiable credential** and **verifiable presentation** are used as defined in the [W3C VC/VP Glossary](tbd).
 
-The terms **credential application** and **credential response** are used as defined in the [DIF Credential Manifest Glossary](https://identity.foundation/credential-manifest/#term:credential-response).
+The terms **credential application** and **credential response** are used as defined in the [DIF Credential Manifest Glossary](https://identity.foundation/credential-manifest/#terminology).
 
 The terms **self-sovereign identity**, **issuer**, **holder**, **verifier**, **subject**, **credential**, **claim**, **party**, **delegation**, **mandate** ... are defined in the [eSSIF-Lab Glossary](https://essif-lab.github.io/framework/docs/essifLab-glossary).
 
@@ -499,7 +503,7 @@ ___
 Now that a connection tunnel has been set up, credentials can be exchanged. This layer is about the trust triangle (or diamond).
 
 #### Issuance Protocol
-
+This section describes protocols related to the issuance of credentials. We describe to standards to do so. Additionally, we also discuss the credential manifest.
 
 ##### Issue Credential Protocol
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
@@ -572,6 +576,42 @@ The **proof type** can be JWT, JSON-LID or ZKP.
 This standard describes an API for credential issuance via OIDC (and OAuth2.0), by defining what the **credential offer** and **credential offer response** should look like.  
 The **proof type** must be JWT.
 
+##### Credential Manifest
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="https://identity.foundation/">DIF</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    0.0.1
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="https://identity.foundation/credential-manifest/">Credential Manifest</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    JSON-based credentials, <a href="#openid-connect">OIDC</a>,
+    <a href="#didcomm">DIDComm</a>, <a href="#chapi">CHAPI</a>
+</div> 
+<br></br>
+
+In order for the issuer to send the soon-to-be holder a credential, the issuer needs to know some information about the subject. This specification a data format named the **credential manifest**, describing the inputs a subject must provide to an issuer in which format, in order for the issuer to determine whether to issue the credential to the subject. The subject, i.e. the user agent, discovers the credential manifest and can then form a **credential application**, containing the information on the subject that the issuer needs. The issuer can then determine whether this application is accepted or declined and sends a **credential response**. The formats for the credential application and credential response are also specified in this standard.
+
+We assume that the credential manifest is **claim format** and transport envelope agnostic, just like the formats in [presentation exchange](#presentation-exchange). However, this has not been clearly specified in this standard, but there are some hints.
+
+
+The credential manifest is the issuance equivalent to the **presentation definition** specified in [presentation exchange](#presentation-exchange).
+
 #### Verification Protocol
 
 ##### Present Proof Protocol
@@ -639,7 +679,7 @@ This standard formalizes the protocol for presentation exchange by specifying th
 
 OIDC for Verifiable Presentations is, as the name suggests, an extension to OIDC allowing the exchange of verifiable presentations (in a **VP token**) in addition to an **ID token**. The standard defines the protocol for this, by defining what the request and response must look like.
 
-### Presentation Exchange
+##### Presentation Exchange
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -668,41 +708,13 @@ OIDC for Verifiable Presentations is, as the name suggests, an extension to OIDC
 </div> 
 <br></br>
 
-Holder -> verifier
-First two steps in proving exchange:
-1) verifier defines **proof requirements**
-2) holder defines submission of proof in alignment with verifier's requirements
+In order for the holder to send the verifier a presentation, the holder needs to know (1) the verifier's proof requirements and (2) how to formulate the proof according to the requirements. This specification defines two data formats: 
+1. A **presentation definition** format for the verifier's proof requirements. A presentation definition defines which **proof formats** are allowed, and optionally a set of selection rules or a purpose.
+2. A **presentation submission** format for the holder to formulate proofs. It shows how the presented inputs are in accordance with the requirements specified in the presentation definition. 
 
-**Claim** format and transport envelope agnostic, as long as the format can be serialized as JSON.
+These formats are **claim format** and transport envelope agnostic, as long as the claim format can be serialized as JSON.
 
-#### Credential Manifest
-To issue credentials, the **issuer** needs some inputs from the **subject** in order to process a request for credential issuance. The subject, i.e. the user agent, discovers the credential manifest and can then form a **credential application**, containing the information on the subject that the issuer needs. The issuer can then determine whether this application is accepted or declined and sends a **credential response**.
-
-<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
-<div>
-    <a href="https://identity.foundation/">DIF</a>
-</div>
-<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
-<div>
-    0.0.1
-</div>
-<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
-<div>
-    -
-</div>
-<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
-<div>
-    <a href="https://identity.foundation/credential-manifest/">Credential Manifest</a>
-</div>
-<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
-<div>
-    <a href="#-">-</a>
-</div>
-<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
-<div>
-    <a href="#-">-</a>
-</div> 
-<br></br>
+The presentation definition is the verification equivalent of the [credential manifest](#credential-manifest).
 
 #### Credentials
 Overview: Link to RWOT Credential Comparison Matrix + Paper.
