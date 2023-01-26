@@ -24,13 +24,15 @@ The term **ID token** is used as defined in the [OIDC Terminology](https://openi
 
 The term **VP token** is used as defined in the [OIDC4VP standard](https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0-07.html#name-vp_token).
 
-The terms **verifiable credential** and **verifiable presentation** are used as defined in the [W3C VC/VP Glossary](tbd).
+The terms **credential**, **claim**, **presentation**, **verifiable credential** and **verifiable presentation** are used as defined in the [W3C VC Data Model Glossary](https://www.w3.org/TR/vc-data-model/#terminology).
 
 The terms **credential application** and **credential response** are used as defined in the [DIF Credential Manifest Glossary](https://identity.foundation/credential-manifest/#terminology).
 
-The terms **self-sovereign identity**, **issuer**, **holder**, **verifier**, **subject**, **credential**, **claim**, **party**, **delegation**, **mandate** ... are defined in the [eSSIF-Lab Glossary](https://essif-lab.github.io/framework/docs/essifLab-glossary).
+The terms **self-sovereign identity**, **issuer**, **holder**, **verifier**, **subject**, **party**, **delegation**, **mandate** ... are defined in the [eSSIF-Lab Glossary](https://essif-lab.github.io/framework/docs/essifLab-glossary).
 
 The terms **link secret**, **presentation definition** and **presentation submission** are defined in the [DIF Presentation Exchange Terminology](https://identity.foundation/presentation-exchange/#terminology).
+
+The terms **mdoc**, **mDL**, **mDL reader** and **mDL holder** are used as defined in [ISO/IEC 18013-5:2021 (mDL)](https://www.iso.org/standard/69084.html).
 ___
 
 ## Introduction
@@ -569,7 +571,7 @@ The **proof type** can be JWT, JSON-LID or ZKP.
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#openid-connect">OIDC</a>, <a href="#self-issued-openid-provider">SIOP</a>, <a href="#mdl">mDL</a>, <a href="#vc">VC</a>
+    <a href="#openid-connect">OIDC</a>, <a href="#self-issued-openid-provider">SIOP</a>, <a href="#mdl">mDL</a>, <a href="#verifiable-credential-vc">VC</a>
 </div> 
 <br></br>
 
@@ -600,8 +602,12 @@ The **proof type** must be JWT.
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    JSON-based credentials, <a href="#openid-connect">OIDC</a>,
-    <a href="#didcomm">DIDComm</a>, <a href="#chapi">CHAPI</a>
+    JSON-based credentials, <a href="#oidc4ci">OIDC4CI</a>,
+    <a href="#issue-credential-protocol">issue credential protocol</a>,
+</div> 
+<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> 
+<div>
+    <a href="#chapi">CHAPI</a>
 </div> 
 <br></br>
 
@@ -703,8 +709,12 @@ OIDC for Verifiable Presentations is, as the name suggests, an extension to OIDC
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    JSON-based credentials, <a href="#openid-connect">OIDC</a>,
-    <a href="#didcomm">DIDComm</a>, <a href="#chapi">CHAPI</a>
+    JSON-based credentials, <a href="#oidc4vp">OIDC4VP</a>,
+    <a href="#present-proof-protocol">present proof protocol</a>,
+</div> 
+<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> 
+<div>
+    <a href="#chapi">CHAPI</a>
 </div> 
 <br></br>
 
@@ -721,35 +731,41 @@ Overview: Link to RWOT Credential Comparison Matrix + Paper.
 
 In the next sections we will describe the credential formats that are standardised. Note that these still have a lot of degrees of freedom in there, as choices can be made in the used signature algorithm, revocation mechanism, identifiers... 
 
-##### VC
+##### Verifiable Credential (VC)
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://www.w3.org/">W3C</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
 <div>
-    -
+    v1.1
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
 <div>
-    -
+    03-03-2022
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#-">other credential formats</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#oidc4ci">OIDC4CI</a>, <a href="#oidc4vp">OIDC4VP</a>, 
+    <a href="#issue-credential-protocol">issue credential protocol</a>,
+</div>
+<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> 
+<div>
+    <a href="#present-proof-protocol">present proof protocol</a>
 </div> 
 <br></br>
 
-The standard for Verifiable Credentials (VCs) leaves some room for choices in credential (JSON vs JSON-LD) and proof (JWT vs linked data proofs) format.
+The data model defines the terms **claim**, **credential** and **presentation** that form the basis for the verifiable credentials. Verifiable credentials and verifiable presentations are defined by giving a format on how to specify them.
+The standard for Verifiable Credentials leaves some room for choices in **claim format** (JSON vs JSON-LD) and **proof format** (JWT vs linked data proofs).
 
 <!-- ##### Verifiable Presentation
 
@@ -805,9 +821,15 @@ The standard for Verifiable Presentations (VPs) leaves some room for choices in 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#openid-connect4ci">OIDC4CI</a>
+    <a href="#openid-connect4ci">OIDC4CI</a>, <a href="#vical-mdoc">VICAL</a>
 </div> 
 <br></br>
+
+The standard specifies the implementation of a driving license in association with a mobile device, through specifying amongst others:
+- the interface between the **mDL** and the **mDL reader**
+- the interface between the **mDL reader** and the issuing authority infrastructure
+- how to tie the **mDL** to the **mDL holder** (where the holder must be equal to the **data subject**), through the use of a portrait image of the **mDL holder**.
+
 
 ##### AnonCred
 
