@@ -1,0 +1,15 @@
+
+divt {
+    width:250px; 
+    height:auto; 
+    float:left; 
+    display:inline;
+}
+
+dive{
+    width:250px; 
+    height:auto; 
+    float:left; 
+    display:inline;
+    opacity:0;
+}

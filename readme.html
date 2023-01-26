@@ -1,0 +1,936 @@
+<h1 id="ssi-standardisation-overview">SSI Standardisation Overview</h1>
+<p>By <a href="mailto:maaike.vanleuken@tno.nl">Maaike van Leuken</a> (TNO)\
+Last revision: 23-01-2023</p>
+<hr>
+<h2 id="glossary">Glossary</h2>
+<p><strong>Standard</strong>: a <em>neat</em> document written by a <strong>standardisation body</strong> in which a <strong>technology</strong> is defined.</p>
+<p><strong>Specification</strong>: a <em>neat</em> document in which a <strong>technology</strong> is defined. The difference with a standard is that the document was not written by a recognised <strong>standardisation body</strong>.</p>
+<p><strong>Standardisation body</strong>: W3C, DIF, OIDF, Aries, ... </p>
+<p><strong>Technology</strong>: a technical protocol, concept, architecture, ... that can be used to achieve a certain goal.</p>
+<p><strong>Revocation mechanism</strong></p>
+<p><strong>Credential profile</strong></p>
+<p><strong>Proof format</strong>: the cryptographic algorithm used to make a proof in the creation of the presentation. Examples of proof formats are JWS, Ed25519, ECDSA, RSA, ... .</p>
+<p><strong>Credential format</strong>: the format along which the claims are structured, such as JSON, JSON-LD, ABC, ... .</p>
+<p>The term <strong>ID token</strong> is used as defined in the <a href="https://openid.net/specs/openid-connect-core-1_0.html#Terminology">OIDC Terminology</a>.</p>
+<p>The term <strong>VP token</strong> is used as defined in the <a href="https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0-07.html#name-vp_token">OIDC4VP standard</a>.</p>
+<p>The terms <strong>credential</strong>, <strong>claim</strong>, <strong>presentation</strong>, <strong>verifiable credential</strong> and <strong>verifiable presentation</strong> are used as defined in the <a href="https://www.w3.org/TR/vc-data-model/#terminology">W3C VC Data Model Glossary</a>.</p>
+<p>The terms <strong>credential application</strong> and <strong>credential response</strong> are used as defined in the <a href="https://identity.foundation/credential-manifest/#terminology">DIF Credential Manifest Glossary</a>.</p>
+<p>The terms <strong>self-sovereign identity</strong>, <strong>issuer</strong>, <strong>holder</strong>, <strong>verifier</strong>, <strong>subject</strong>, <strong>party</strong>, <strong>delegation</strong>, <strong>mandate</strong> ... are defined in the <a href="https://essif-lab.github.io/framework/docs/essifLab-glossary">eSSIF-Lab Glossary</a>.</p>
+<p>The terms <strong>link secret</strong>, <strong>presentation definition</strong> and <strong>presentation submission</strong> are defined in the <a href="https://identity.foundation/presentation-exchange/#terminology">DIF Presentation Exchange Terminology</a>.</p>
+<p>The terms <strong>mdoc</strong>, <strong>mDL</strong>, <strong>mDL reader</strong> and <strong>mDL holder</strong> are used as defined in <a href="https://www.iso.org/standard/69084.html">ISO/IEC 18013-5:2021 (mDL)</a>.</p>
+<hr>
+<h2 id="introduction">Introduction</h2>
+<p>There is a large amount of standardisation developed and in development within the context of <strong>Self-Sovereign Identities (SSI)</strong>. The <strong>standards</strong> and <strong>specifications</strong> vary from legacy technologies to new and upcoming technologies, from specifications on cryptographic signature schemes to usability and inclusivity concepts such as guardianship. Whenever looking into a standard or specification, it can be hard to place it in the bigger picture:</p>
+<ul>
+<li>What does the technology described in the standard achieve?</li>
+<li>What is the context of this technology and its standard?</li>
+<li>Is this standard $x$ compatible with standard $y$?</li>
+<li>Are standards $x$ and $y$ competitors?</li>
+</ul>
+<p>We have made a graphical overview of the situation trying to answer these questions, which can be found <a href="https://maaikevanleuken.github.io/SSI-Standardisation-Overview/">here</a>. Here you see the basic model. To answer the questions above, we want to give the relation between various technologies. This becomes fuzzy quickly. To keep it uncluttered, we have made buttons on the bottom that can be used to toggle specific views.</p>
+<ul>
+<li><em>General</em> shows the general interactions between technologies, that is, without choosing a specific technology.</li>
+<li><em>DIDComm</em> shows the DIDComm-based technologies.</li>
+<li><em>OIDC</em> shows the OIDC-based technologies.</li>
+<li><em>DDIP</em> shows the <a href="https://github.com/DutchBlockchainCoalition/DDIP">Dutch Decentralised Interoperability Profile</a>.</li>
+<li><em>AIP</em> shows the <a href="https://github.com/hyperledger/aries-rfcs/blob/main/concepts/0302-aries-interop-profile/README.md">Aries Interop Profile</a>.</li>
+</ul>
+<!-- ![The graphical overview of standards and specifications related to SSI.](/images/overview.png "The graphical overview of standards and specifications related to SSI.") -->
+<p>The overview graphically answers the questions above more or less. This document will describe the structure of the graphical overview and give a description for each technology mentioned in the graphical display.</p>
+<h3 id="audience">Audience</h3>
+<p>This document is made in such a manner that it is accessible to all parties working with or wanting to work with SSI. We will explain each technology in the overview on a high level. Links to the specification are given for further (more technical) reading.</p>
+<h3 id="context-and-continuation">Context and Continuation</h3>
+<p>This document has been developed for the Dutch Blockchain Coalition (DBC) and has been discussed with multiple technical experts.</p>
+<!-- Relation with interop profiles such as DDIP and AIP -->
+<p>Both this document and the graphical overview are living documents. The amount of specifications is ever-growing and updates of specifications are brought out periodically. We will try our best to keep our resources up-to-date. We also welcome any input from technical experts on the standards and their context. If you have any suggestions or questions, please contact us.</p>
+<hr>
+<h2 id="description-of-the-model">Description of the Model</h2>
+<p>The <a href="https://trustoverip.org/toip-model/">Trust over IP (ToIP) model</a> consists of two stacks: the technology stack and the governance stack. We will here restrict ourselves to the technology stack, since we aim to give context for <em>technologies</em>. The stack consists of the following four layers:</p>
+<ol>
+<li><em>Public utilities</em>. This forms the basis for the other layers through defining trust anchors such that the technologies in this layer create a trusted basis.</li>
+<li><em>Peer-to-peer communication</em>. This layer defines the (private) digital wallets and agents, such that <strong>credentials</strong> can be stored and exchanged, via peer-to-peer protocols.</li>
+<li><em>Trust task protocols</em>. This is the <em>trust triangle</em> comes into play and the credentials are exchanged. </li>
+<li><em>Application ecosystems</em>. This layer defined market applications built on top of the other layers.</li>
+</ol>
+<p><img src="/images/toip.jpg" alt="The two stacks in the ToIP model." title="The two stacks in the ToIP model."></p>
+<p>While looking through various specifications / standards, it seemed to make sense to arrange them according to the ToIP technology stack, as they seem to fit into these layers. We have made some small alterations to the layers in the ToIP technology stack, such that the scope is broadened (wider than just DID-based methods) and renamed the layers such that the fit our purpose better. The result is displayed below.  </p>
+<p><img src="/images/stack-background.png" alt="The four layers from the ToIP stack used to structure the overview of the standards." title="The four (altered) layers from the ToIP stack used to structure the overview of the standards."></p>
+<p>For each of these layers, we dedicate a chapter below and explain what the scope of the layer is, what technologies belong to the layer. For each of the technologies we will</p>
+<ul>
+<li>list some general information about the standard:<ul>
+<li>the standardisation body</li>
+<li>the most recent version</li>
+<li>when the most recent version was published</li>
+<li>a link to the standard</li>
+<li>the technologies it is competitive to</li>
+<li>the technologies it is compatible with</li>
+</ul>
+</li>
+<li>give a short description of what the technology does</li>
+</ul>
+<!-- Standardisation body: []()\
+Most recent version:\
+Published on:\
+Link: []()\
+Competitive to:\
+Compatible with: -->
+<!-- 
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href="#-">-</a>
+</div> 
+<br></br>
+
+| Standardisation body  | Content Cell  |
+| ------------- | ------------- |
+| Most recent version  | Content Cell  |
+| Published on  | Content Cell  |
+| Link  | Content Cell  |
+| Compatible with  | Content Cell  |
+| Competitive with  | Content Cell  |
+-->
+<h3 id="layer-1-trust-anchors">Layer 1: Trust Anchors</h3>
+<div style="text-align: justify">Trust anchors form the basis of the entire stack. Without a strong foundation to anchor your trust to, you cannot have trust in credentials that are exchanged in layer three etc. Technologies in this layer include identifiers, decentralised public key infrastructure and registries.</div>
+
+<h4 id="identifier">Identifier</h4>
+<div style="text-align: justify"> An identifier is used to identify a party and this identifier can be authenticated by another party. Identifiers in this context are usually bound to a key somehow. Strong identifiers must be self-certifying, i.e. there should be a strong binding between key and identifier.</div>
+
+<h5 id="did">DID</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div><a href="https://www.w3.org/">W3C</a></div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>v1.0</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>19-07-2022</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div><a href="https://w3c.github.io/did-core/">Decentralised Identifiers (DIDs)</a></div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div><a href="#x509">X.509</a>, <a href="#link-secret">link secret</a>, <a href="#raw-public-key">raw public key</a></div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#did-exchange-protocol">DID Exchange Protocol</a>, 
+    <a href="#didcomm">DIDComm</a>, 
+</div> </p>
+<p><div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with</div> </p>
+<p><div>
+    <a href="#issue-credential-protocol">Issue Credential Protocol,</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with</div></p>
+<p><div>
+    <a href="#presentation-exchange">Presentation Exchange,</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with</div> </p>
+<p><div>
+    <a href="#present-proof-protocol">Present Proof Protocol</a>
+</div><br><br></br></p>
+<p>Decentralised identifiers that allow for the authentication of decentralised digital identities of a <a href="https://w3c.github.io/did-core/#did-subject">DID subject</a>. A DID is a URI that associates the DID subject with a DID document, which describes the DID subject and how they can authenticate themselves using cryptographic keys. DID documents are generated using a specific <a href="https://w3c.github.io/did-spec-registries/#did-methods">DID method</a>. It depends on the DID method whether the DID is a self-certifying identifier.</p>
+<p>A DID can be a global unique identifier, but parties can also have multiple (<a href="https://identity.foundation/peer-did-method-spec/">peer</a>)DIDs to separate domains/personas. </p>
+<h5 id="x-509">X.509</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="https://www.itu.int/en/Pages/default.aspx">ITU</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    10/19
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    14-10-2019
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="https://www.itu.int/rec/T-REC-X.509-201910-I/en">X.509</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#did">DID</a>,
+    <a href="#link-secret">link secret</a>,
+    <a href="#raw-public-key">raw public key</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#openid-connect">OIDC</a>
+</div>
+<br></br></p>
+<p>X.509 certificates are very widely used to define the binding between a party&#39;s (partial) identity and a public key. This certificate can be signed by a certificate authority, or it can be self-signed. It forms the basis for protocols like TLS in HTTPS. Because you can put attributes in the certificate, X.509 certificates can also be used as credential format.</p>
+<h5 id="link-secret">Link Secret</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#did">DID</a>, <a href="#x509">X.509</a>, <a href="#raw-public-key">raw public key</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#-">AnonCred</a>, <a href="#didcomm">DIDComm</a>
+</div> 
+<br></br></p>
+<p>A link secret is a non-correlatable secret only known to the holder. During credential issuance, the link secret is sent as a blind attribute to the issuer. The issuer thus doesn&#39;t know the value of the link secret. The issuer can then sign all claims, including the blinded link secret. The holder can prove ownership over the credentials to a verifier without disclosing a persistent identifier.</p>
+<p>Not a standard, but a cryptographic technique.
+Based on <a href="https://www.cs.cornell.edu/courses/cs754/2001fa/129.PDF">Pedersen commitments</a>, see <a href="https://www.evernym.com/blog/how-does-a-verifier-know-the-credential-is-yours/">link secrets</a>.</p>
+<h5 id="raw-public-key">Raw Public Key</h5>
+<p>Raw public keys can be used as an identifier. </p>
+<h5 id="recovery">Recovery</h5>
+<p><a href="https://sovrin.org/wp-content/uploads/2019/03/What-if-someone-steals-my-phone-110319.pdf">https://sovrin.org/wp-content/uploads/2019/03/What-if-someone-steals-my-phone-110319.pdf</a></p>
+<h4 id="decentralised-public-key-infrastructure">Decentralised Public Key Infrastructure</h4>
+<p>As the name suggests, this is the decentralised version of the classic public key infrastructure. This ensures that no single party can compromise the integrity and security of the system as a whole. In decentralised PKI, there is no need to have a trusted third party.</p>
+<h5 id="keri">KERI</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="-">Web of Trust</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    N.A.
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    16-07-2022
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="https://weboftrust.github.io/ietf-keri/draft-ssmith-keri.html">KERI</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    PKI
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#did">DID</a>
+</div> 
+<br></br></p>
+<p>KERI is a novel technology for Decentralised Key Management Infrastructure (DKMI). It has been brought under in an informational standard.
+Primary key management operation is key rotation, that can be performed using key event receipt logs (KERL).</p>
+<p>The trust is rooted in self-certifying identifiers. </p>
+<h4 id="registry">Registry</h4>
+<p>A registry is used to store information that could be checked by anyone. To provide more protection against malicious modifications and a single-point of failure, this registry should be implemented in a decentralised fashion. Examples of this are Decentralised File Systems (DFSs) or Decentralised Ledger Technologies (DLTs), such as a blockchain.</p>
+<h5 id="distributed-ledger-technology">Distributed Ledger Technology</h5>
+<p>A blockchain is a distributed database, without a single central authority that you must trust, leading to a higher level of privacy and security.</p>
+<h6 id="hyperledger">Hyperledger</h6>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#distributed-ledger-technology">Other DLTs</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#did">DID</a>
+</div> 
+<br></br>
+Hyperledger is a collection of projects related to DLTs and creates open-source DLT. Hyperledger falls under guardianship of the Linux Foundation.</p>
+<h6 id="ebsi">EBSI</h6>
+<p><div style="width:250px; height:auto; float:left">Standardisation body:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#distributed-ledger-technology">Other DLTs</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#trusted-issuer">Trusted Issuer</a>
+</div> 
+<br></br></p>
+<p>The European Blockchain Services Infrastructure (EBSI) is a European consortium that created a blockchain for the public sector. </p>
+<h5 id="registry-applications">Registry Applications</h5>
+<h6 id="identifier">Identifier</h6>
+<h6 id="schema">Schema</h6>
+<h6 id="revocation">Revocation</h6>
+<h6 id="delegation">Delegation</h6>
+<h6 id="trusted-issuer">Trusted Issuer</h6>
+<p>Link Oskar</p>
+<h6 id="trusted-verifier">Trusted Verifier</h6>
+<p>Link Oskar</p>
+<h6 id="trusted-app">Trusted App</h6>
+<h4 id="revocation-method">Revocation Method</h4>
+<h5 id="status-list-2021">Status List 2021</h5>
+<h5 id="vical-mdoc-">VICAL (MDOC)</h5>
+<h5 id="cryptographic-accumulator">Cryptographic Accumulator</h5>
+<p><a href="https://link.springer.com/content/pdf/10.1007/978-3-642-00468-1_27.pdf">https://link.springer.com/content/pdf/10.1007/978-3-642-00468-1_27.pdf</a></p>
+<p><a href="https://github.com/hyperledger/anoncreds-spec/blob/main/spec/ursaAnonCreds.pdf">https://github.com/hyperledger/anoncreds-spec/blob/main/spec/ursaAnonCreds.pdf</a></p>
+<p><a href="https://github.com/hyperledger/indy-sdk/blob/main/docs/concepts/revocation/cred-revocation.md">https://github.com/hyperledger/indy-sdk/blob/main/docs/concepts/revocation/cred-revocation.md</a></p>
+<h4 id="oca-definition">OCA Definition</h4>
+<p>(?)</p>
+<hr>
+<h3 id="layer-2-peer-to-peer-connections">Layer 2: Peer-to-Peer Connections</h3>
+<p>To exchange data, first a trusted (mutually) authenticated channel has to be set up. Peer-to-peer connections have to be established.</p>
+<h4 id="protocols">Protocols</h4>
+<h5 id="didcomm">DIDComm</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="https://identity.foundation/">DIF</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    v2.0
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="https://identity.foundation/didcomm-messaging/spec/">DIDComm Messaging</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#openid-connect">OIDC</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#did">DID</a>,
+    <a href="#did-exchange-protocol">DID exchange protocol</a>,
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div></p>
+<p><div>
+    <a href="#issue-credential-protocol">issue credential protocol</a>,
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div></p>
+<p><div>
+    <a href="#present-proof-protocol">present proof protocol</a>,
+</div> 
+<br></br></p>
+<h5 id="did-exchange-protocol">DID Exchange Protocol</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="https://github.com/hyperledger/aries-rfcs">Aries RFC</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    1.0
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    15-04-2021
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0023-did-exchange/README.md">DID Exchange Protocol 1.0</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#didcomm">DIDComm</a>
+</div> 
+<br></br></p>
+<h5 id="openid-connect">OpenID Connect</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="https://openid.net/foundation/">OpenID Foundation</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    1.0
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    08-11-2014
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect Core 1.0</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#didcomm">DIDComm</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#-">SIOP</a>, <a href="#-">OIDC4CI</a>, <a href="#-">OIDC4VP</a>, <a href="#-">presentation exchange</a>
+</div> 
+<br></br>
+Used in many systems. Less or no migration needed compared to moving to a DIDComm-based system</p>
+<h5 id="self-issued-openid-provider">Self-Issued OpenID Provider</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="https://openid.net/foundation/">OpenID Foundation</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    v2
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    18-12-2021
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="https://openid.net/specs/openid-connect-self-issued-v2-1_0-06.html">Self-Issued OpenID Provider</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#openid-connect">OIDC</a>
+</div> 
+<br></br></p>
+<hr>
+<h3 id="layer-3-credential-exchange-protocols">Layer 3: Credential Exchange Protocols</h3>
+<p>Now that a connection tunnel has been set up, credentials can be exchanged. This layer is about the trust triangle (or diamond).</p>
+<h4 id="issuance-protocol">Issuance Protocol</h4>
+<p>This section describes protocols related to the issuance of credentials. We describe to standards to do so. Additionally, we also discuss the credential manifest.</p>
+<h5 id="issue-credential-protocol">Issue Credential Protocol</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="https://identity.foundation/">DIF</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    3.0
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    27-10-2021
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="https://github.com/decentralized-identity/waci-didcomm/blob/main/issue_credential/README.md">Issue Credential Protocol 3.0</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#openid-connect4ci">OIDC4CI</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#did">DID</a>, <a href="#link-secret">link secret</a>, <a href="#DIDComm">DIDComm</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> </p>
+<p><div>
+    <a href="#didcomm">DIDComm</a>,
+    <a href="#did-exchange-protocol">DID exchange protocol</a>, <a href="#present-proof-protocol">present proof protocol</a>
+</div>
+<br></br></p>
+<p>This standard formalizes the protocol to issue credentials by specifying the following four messages in the protocol:</p>
+<ul>
+<li>Holder $\rightarrow$ issuer: what credential the holder would like to receive from the issuer.</li>
+<li>Issuer $\rightarrow$ holder: offer the credential and possibly its notify the price.</li>
+<li>Holder $\rightarrow$ issuer: request the credential.</li>
+<li>Issuer $\rightarrow$ holder: issue the credential.</li>
+</ul>
+<p>The <strong>proof type</strong> can be JWT, JSON-LID or ZKP.</p>
+<h5 id="oidc4ci">OIDC4CI</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="https://openid.net/foundation/">OpenID Foundation</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    1.0
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    30-12-2022
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html">OpenID for Verifiable Credential Issuance</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#issue-credential-protocol">issue credential protocol</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#openid-connect">OIDC</a>, <a href="#self-issued-openid-provider">SIOP</a>, <a href="#mdl">mDL</a>, <a href="#verifiable-credential-vc">VC</a>
+</div> 
+<br></br></p>
+<p>This standard describes an API for credential issuance via OIDC (and OAuth2.0), by defining what the <strong>credential offer</strong> and <strong>credential offer response</strong> should look like.<br>The <strong>proof type</strong> must be JWT.</p>
+<h5 id="credential-manifest">Credential Manifest</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="https://identity.foundation/">DIF</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    0.0.1
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="https://identity.foundation/credential-manifest/">Credential Manifest</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    JSON-based credentials, <a href="#oidc4ci">OIDC4CI</a>,
+    <a href="#issue-credential-protocol">issue credential protocol</a>,
+</div> </p>
+<p><div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> </p>
+<p><div>
+    <a href="#chapi">CHAPI</a>
+</div> 
+<br></br></p>
+<p>In order for the issuer to send the soon-to-be holder a credential, the issuer needs to know some information about the subject. This specification a data format named the <strong>credential manifest</strong>, describing the inputs a subject must provide to an issuer in which format, in order for the issuer to determine whether to issue the credential to the subject. The subject, i.e. the user agent, discovers the credential manifest and can then form a <strong>credential application</strong>, containing the information on the subject that the issuer needs. The issuer can then determine whether this application is accepted or declined and sends a <strong>credential response</strong>. The formats for the credential application and credential response are also specified in this standard.</p>
+<p>We assume that the credential manifest is <strong>claim format</strong> and transport envelope agnostic, just like the formats in <a href="#presentation-exchange">presentation exchange</a>. However, this has not been clearly specified in this standard, but there are some hints.</p>
+<p>The credential manifest is the issuance equivalent to the <strong>presentation definition</strong> specified in <a href="#presentation-exchange">presentation exchange</a>.</p>
+<h4 id="verification-protocol">Verification Protocol</h4>
+<h5 id="present-proof-protocol">Present Proof Protocol</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="https://identity.foundation/">DIF</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    3.0
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    22-06-2021
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="https://github.com/decentralized-identity/waci-presentation-exchange/blob/main/present_proof/present-proof-v3.md">Present Proof Protocol 3.0</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#openid-connect4vp">OIDC4VP</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#didcomm">DIDComm</a>,
+    <a href="#issue-credential-protocol">issue credential protocol</a>, 
+    <a href="#presentation-exchange">presentation exchange</a>
+</div> 
+<br></br></p>
+<p>This standard formalizes the protocol for presentation exchange by specifying the following three messages in the protocol:</p>
+<ul>
+<li>Prover $\rightarrow$ verifier: propose what the presentation would look like.</li>
+<li>Verifier $\rightarrow$ prover: request a presentation.</li>
+<li>Prover $\rightarrow$ verifier: provide the presentation.</li>
+</ul>
+<h5 id="oid4vp">OID4VP</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="https://openid.net/foundation/">OpenID Foundation</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    1.0
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    17-12-2021
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0-07.html">OpenID Connect for Verifiable Presentations</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#present-proof-protocol">present proof protocol</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#openid-connect4ci">OIDC4CI</a>, <a href="#self-issued-openid-provider">SIOP</a>,
+    <a href="#presentation-exchange">presentation exchange</a>, <a href="#vp">VP</a>
+</div> 
+<br></br></p>
+<p>OIDC for Verifiable Presentations is, as the name suggests, an extension to OIDC allowing the exchange of verifiable presentations (in a <strong>VP token</strong>) in addition to an <strong>ID token</strong>. The standard defines the protocol for this, by defining what the request and response must look like.</p>
+<h5 id="presentation-exchange">Presentation Exchange</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="https://identity.foundation/">DIF</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    2.0.0
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="https://identity.foundation/presentation-exchange/spec/v2.0.0/">Presentation Exchange 2.0.0</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    JSON-based credentials, <a href="#oidc4vp">OIDC4VP</a>,
+    <a href="#present-proof-protocol">present proof protocol</a>,
+</div> </p>
+<p><div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> </p>
+<p><div>
+    <a href="#chapi">CHAPI</a>
+</div> 
+<br></br></p>
+<p>In order for the holder to send the verifier a presentation, the holder needs to know (1) the verifier&#39;s proof requirements and (2) how to formulate the proof according to the requirements. This specification defines two data formats: </p>
+<ol>
+<li>A <strong>presentation definition</strong> format for the verifier&#39;s proof requirements. A presentation definition defines which <strong>proof formats</strong> are allowed, and optionally a set of selection rules or a purpose.</li>
+<li>A <strong>presentation submission</strong> format for the holder to formulate proofs. It shows how the presented inputs are in accordance with the requirements specified in the presentation definition. </li>
+</ol>
+<p>These formats are <strong>claim format</strong> and transport envelope agnostic, as long as the claim format can be serialized as JSON.</p>
+<p>The presentation definition is the verification equivalent of the <a href="#credential-manifest">credential manifest</a>.</p>
+<h4 id="credentials">Credentials</h4>
+<p>Overview: Link to RWOT Credential Comparison Matrix + Paper.</p>
+<p>In the next sections we will describe the credential formats that are standardised. Note that these still have a lot of degrees of freedom in there, as choices can be made in the used signature algorithm, revocation mechanism, identifiers... </p>
+<h5 id="verifiable-credential-vc-">Verifiable Credential (VC)</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="https://www.w3.org/">W3C</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    v1.1
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    03-03-2022
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#-">other credential formats</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#oidc4ci">OIDC4CI</a>, <a href="#oidc4vp">OIDC4VP</a>, 
+    <a href="#issue-credential-protocol">issue credential protocol</a>,
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> </p>
+<p><div>
+    <a href="#present-proof-protocol">present proof protocol</a>
+</div> 
+<br></br></p>
+<p>The data model defines the terms <strong>claim</strong>, <strong>credential</strong> and <strong>presentation</strong> that form the basis for the verifiable credentials. Verifiable credentials and verifiable presentations are defined by giving a format on how to specify them.
+The standard for Verifiable Credentials leaves some room for choices in <strong>claim format</strong> (JSON vs JSON-LD) and <strong>proof format</strong> (JWT vs linked data proofs).</p>
+<!-- ##### Verifiable Presentation
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href="#-">-</a>
+</div> 
+<br></br>
+
+The standard for Verifiable Presentations (VPs) leaves some room for choices in credential (JSON vs JSON-LD) and proof (JWT vs linked data proofs) format. -->
+<h5 id="mdl">mDL</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="-">ISO</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    1
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    xx-09-2021
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="https://www.iso.org/standard/69084.html">ISO/IEC 18013-5:2021</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#-">other credential formats</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#openid-connect4ci">OIDC4CI</a>, <a href="#vical-mdoc">VICAL</a>
+</div> 
+<br></br></p>
+<p>The standard specifies the implementation of a driving license in association with a mobile device, through specifying amongst others:</p>
+<ul>
+<li>the interface between the <strong>mDL</strong> and the <strong>mDL reader</strong></li>
+<li>the interface between the <strong>mDL reader</strong> and the issuing authority infrastructure</li>
+<li>how to tie the <strong>mDL</strong> to the <strong>mDL holder</strong> (where the holder must be equal to the <strong>data subject</strong>), through the use of a portrait image of the <strong>mDL holder</strong>.</li>
+</ul>
+<h5 id="anoncred">AnonCred</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#-">-</a>
+</div> 
+<br></br></p>
+<hr>
+<h3 id="layer-4-application-ecosystems">Layer 4: Application Ecosystems</h3>
+<p>TBD</p>
+<h4 id="delegation-and-mandate">Delegation and Mandate</h4>
+<p>It&#39;s very useful to be able to delegate and mandate rights and duties towards a third party to for example an employee.</p>
+<h5 id="acdc">ACDC</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#-">-</a>
+</div> 
+<br></br></p>
+<h5 id="zcap">ZCap</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#-">-</a>
+</div> 
+<br></br></p>
+<h5 id="chained-credential">Chained Credential</h5>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#-">-</a>
+</div> 
+<br></br></p>
+<h4 id="guardianship">Guardianship</h4>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#-">-</a>
+</div> 
+<br></br></p>
+<h4 id="chapi">CHAPI</h4>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    <a href="#-">-</a>
+</div> 
+<br></br></p>
+<h4 id="eassi">EASSI</h4>
+<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
+<p><div>
+    -
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
+<p><div>
+    <a href="-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
+<p><div>
+    <a href="#-">-</a>
+</div></p>
+<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
+<p><div>
+    A variety of wallets
+</div> 
+<br></br></p>
+<h4 id="accessibility">Accessibility</h4>
+<h2 id="to-research">To Research</h2>
+<ul>
+<li>Sovrin governance &amp; trust framework</li>
+<li>AIP</li>
+<li>Decentralised file system?</li>
+<li>OCA</li>
+<li>Timestamping</li>
+<li>AnonCred accumulator</li>
+<li>Presentation definition and submission</li>
+</ul>

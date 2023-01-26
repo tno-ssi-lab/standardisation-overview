@@ -122,6 +122,14 @@ Compatible with: -->
     <a href="#-">-</a>
 </div> 
 <br></br>
+
+| Standardisation body  | Content Cell  |
+| ------------- | ------------- |
+| Most recent version  | Content Cell  |
+| Published on  | Content Cell  |
+| Link  | Content Cell  |
+| Compatible with  | Content Cell  |
+| Competitive with  | Content Cell  |
 -->
 
 ### Layer 1: Trust Anchors
@@ -160,6 +168,10 @@ Compatible with: -->
     <a href="#present-proof-protocol">Present Proof Protocol</a>
 </div>  
 <br></br>
+
+
+
+
 
 Decentralised identifiers that allow for the authentication of decentralised digital identities of a [DID subject](https://w3c.github.io/did-core/#did-subject). A DID is a URI that associates the DID subject with a DID document, which describes the DID subject and how they can authenticate themselves using cryptographic keys. DID documents are generated using a specific [DID method](https://w3c.github.io/did-spec-registries/#did-methods). It depends on the DID method whether the DID is a self-certifying identifier.
 
