@@ -1,11 +1,3 @@
-lsi: false
-safe: true
-source: [your repo's top level directory]
-incremental: false
-highlighter: rouge
-gist:
-  noscript: false
-kramdown:
-  math_engine: mathjax
-  syntax_highlighter: rouge
-theme: minima 
+title: SSI standardisation Overview
+description: TNO, the Netherlands
+theme: jekyll-theme-cayman
