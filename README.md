@@ -169,10 +169,6 @@ Compatible with: -->
 </div>  
 <br></br>
 
-
-
-
-
 Decentralised identifiers that allow for the authentication of decentralised digital identities of a [DID subject](https://w3c.github.io/did-core/#did-subject). A DID is a URI that associates the DID subject with a DID document, which describes the DID subject and how they can authenticate themselves using cryptographic keys. DID documents are generated using a specific [DID method](https://w3c.github.io/did-spec-registries/#did-methods). It depends on the DID method whether the DID is a self-certifying identifier.
 
 A DID can be a global unique identifier, but parties can also have multiple ([peer](https://identity.foundation/peer-did-method-spec/))DIDs to separate domains/personas. 
@@ -207,7 +203,7 @@ A DID can be a global unique identifier, but parties can also have multiple ([pe
 </div>
 <br></br>
 
-X.509 certificates are very widely used to define the binding between a party's (partial) identity and a public key. This certificate can be signed by a certificate authority, or it can be self-signed. It forms the basis for protocols like TLS in HTTPS. Because you can put attributes in the certificate, X.509 certificates can also be used as credential format.
+X.509 certificates are very widely used to define the binding between a party's (partial) identity and a public key. This certificate can be signed by a certificate authority, or it can be self-signed. It forms the basis for protocols like TLS in HTTPS. Because you can put attributes in the certificate, X.509 certificates can also be used as [credential](#credential) format.
 
 ##### Link Secret
 
@@ -365,6 +361,8 @@ The European Blockchain Services Infrastructure (EBSI) is a European consortium 
 ###### Trusted Issuer
 Link Oskar
 
+In the [mDL](#mobile-driving-license-mdl) standard, the notion of Verified Issuer Certificate Authority List (VICAL) is introduced. This list can be used as a trust anchor for verifiers.
+
 ###### Trusted Verifier
 Link Oskar
 
@@ -373,8 +371,6 @@ Link Oskar
 #### Revocation Method
 
 ##### Status List 2021
-
-##### VICAL (MDOC)
 
 ##### Cryptographic Accumulator
 
@@ -738,7 +734,7 @@ These formats are **claim format** and transport envelope agnostic, as long as t
 
 The presentation definition is the verification equivalent of the [credential manifest](#credential-manifest).
 
-#### Credentials
+#### Credential
 Overview: Link to RWOT Credential Comparison Matrix + Paper.
 
 In the next sections we will describe the credential formats that are standardised. Note that these still have a lot of degrees of freedom in there, as choices can be made in the used signature algorithm, revocation mechanism, identifiers... 
@@ -809,7 +805,7 @@ The standard for Verifiable Credentials leaves some room for choices in **claim 
 
 The standard for Verifiable Presentations (VPs) leaves some room for choices in credential (JSON vs JSON-LD) and proof (JWT vs linked data proofs) format. -->
 
-##### mDL
+##### mobile Driving License (mDL)
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>

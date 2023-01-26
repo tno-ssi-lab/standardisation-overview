@@ -1,11 +1,276 @@
-<h1 id="ssi-standardisation-overview">SSI Standardisation Overview</h1>
-<p>By <a href="mailto:maaike.vanleuken@tno.nl">Maaike van Leuken</a> (TNO)\
+<!DOCTYPE html><html><head>
+      <title>README</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\leukenmscv\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.7\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="--ssi-standardisation-overview-">SSI Standardisation Overview</h1>
+
+<p>By <a href="mailto:maaike.vanleuken@tno.nl">Maaike van Leuken</a> (TNO)<br>
 Last revision: 23-01-2023</p>
 <hr>
-<h2 id="glossary">Glossary</h2>
+<h2 class="mume-header" id="-glossary-">Glossary</h2>
+
 <p><strong>Standard</strong>: a <em>neat</em> document written by a <strong>standardisation body</strong> in which a <strong>technology</strong> is defined.</p>
 <p><strong>Specification</strong>: a <em>neat</em> document in which a <strong>technology</strong> is defined. The difference with a standard is that the document was not written by a recognised <strong>standardisation body</strong>.</p>
-<p><strong>Standardisation body</strong>: W3C, DIF, OIDF, Aries, ... </p>
+<p><strong>Standardisation body</strong>: W3C, DIF, OIDF, Aries, ...</p>
 <p><strong>Technology</strong>: a technical protocol, concept, architecture, ... that can be used to achieve a certain goal.</p>
 <p><strong>Revocation mechanism</strong></p>
 <p><strong>Credential profile</strong></p>
@@ -19,13 +284,14 @@ Last revision: 23-01-2023</p>
 <p>The terms <strong>link secret</strong>, <strong>presentation definition</strong> and <strong>presentation submission</strong> are defined in the <a href="https://identity.foundation/presentation-exchange/#terminology">DIF Presentation Exchange Terminology</a>.</p>
 <p>The terms <strong>mdoc</strong>, <strong>mDL</strong>, <strong>mDL reader</strong> and <strong>mDL holder</strong> are used as defined in <a href="https://www.iso.org/standard/69084.html">ISO/IEC 18013-5:2021 (mDL)</a>.</p>
 <hr>
-<h2 id="introduction">Introduction</h2>
+<h2 class="mume-header" id="-introduction-">Introduction</h2>
+
 <p>There is a large amount of standardisation developed and in development within the context of <strong>Self-Sovereign Identities (SSI)</strong>. The <strong>standards</strong> and <strong>specifications</strong> vary from legacy technologies to new and upcoming technologies, from specifications on cryptographic signature schemes to usability and inclusivity concepts such as guardianship. Whenever looking into a standard or specification, it can be hard to place it in the bigger picture:</p>
 <ul>
 <li>What does the technology described in the standard achieve?</li>
 <li>What is the context of this technology and its standard?</li>
-<li>Is this standard $x$ compatible with standard $y$?</li>
-<li>Are standards $x$ and $y$ competitors?</li>
+<li>Is this standard <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> compatible with standard <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>?</li>
+<li>Are standards <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> competitors?</li>
 </ul>
 <p>We have made a graphical overview of the situation trying to answer these questions, which can be found <a href="https://maaikevanleuken.github.io/SSI-Standardisation-Overview/">here</a>. Here you see the basic model. To answer the questions above, we want to give the relation between various technologies. This becomes fuzzy quickly. To keep it uncluttered, we have made buttons on the bottom that can be used to toggle specific views.</p>
 <ul>
@@ -35,29 +301,31 @@ Last revision: 23-01-2023</p>
 <li><em>DDIP</em> shows the <a href="https://github.com/DutchBlockchainCoalition/DDIP">Dutch Decentralised Interoperability Profile</a>.</li>
 <li><em>AIP</em> shows the <a href="https://github.com/hyperledger/aries-rfcs/blob/main/concepts/0302-aries-interop-profile/README.md">Aries Interop Profile</a>.</li>
 </ul>
-<!-- ![The graphical overview of standards and specifications related to SSI.](/images/overview.png "The graphical overview of standards and specifications related to SSI.") -->
 <p>The overview graphically answers the questions above more or less. This document will describe the structure of the graphical overview and give a description for each technology mentioned in the graphical display.</p>
-<h3 id="audience">Audience</h3>
+<h3 class="mume-header" id="-audience-">Audience</h3>
+
 <p>This document is made in such a manner that it is accessible to all parties working with or wanting to work with SSI. We will explain each technology in the overview on a high level. Links to the specification are given for further (more technical) reading.</p>
-<h3 id="context-and-continuation">Context and Continuation</h3>
+<h3 class="mume-header" id="-context-and-continuation-">Context and Continuation</h3>
+
 <p>This document has been developed for the Dutch Blockchain Coalition (DBC) and has been discussed with multiple technical experts.</p>
-<!-- Relation with interop profiles such as DDIP and AIP -->
 <p>Both this document and the graphical overview are living documents. The amount of specifications is ever-growing and updates of specifications are brought out periodically. We will try our best to keep our resources up-to-date. We also welcome any input from technical experts on the standards and their context. If you have any suggestions or questions, please contact us.</p>
 <hr>
-<h2 id="description-of-the-model">Description of the Model</h2>
+<h2 class="mume-header" id="-description-of-the-model-">Description of the Model</h2>
+
 <p>The <a href="https://trustoverip.org/toip-model/">Trust over IP (ToIP) model</a> consists of two stacks: the technology stack and the governance stack. We will here restrict ourselves to the technology stack, since we aim to give context for <em>technologies</em>. The stack consists of the following four layers:</p>
 <ol>
 <li><em>Public utilities</em>. This forms the basis for the other layers through defining trust anchors such that the technologies in this layer create a trusted basis.</li>
 <li><em>Peer-to-peer communication</em>. This layer defines the (private) digital wallets and agents, such that <strong>credentials</strong> can be stored and exchanged, via peer-to-peer protocols.</li>
-<li><em>Trust task protocols</em>. This is the <em>trust triangle</em> comes into play and the credentials are exchanged. </li>
+<li><em>Trust task protocols</em>. This is the <em>trust triangle</em> comes into play and the credentials are exchanged.</li>
 <li><em>Application ecosystems</em>. This layer defined market applications built on top of the other layers.</li>
 </ol>
-<p><img src="/images/toip.jpg" alt="The two stacks in the ToIP model." title="The two stacks in the ToIP model."></p>
-<p>While looking through various specifications / standards, it seemed to make sense to arrange them according to the ToIP technology stack, as they seem to fit into these layers. We have made some small alterations to the layers in the ToIP technology stack, such that the scope is broadened (wider than just DID-based methods) and renamed the layers such that the fit our purpose better. The result is displayed below.  </p>
-<p><img src="/images/stack-background.png" alt="The four layers from the ToIP stack used to structure the overview of the standards." title="The four (altered) layers from the ToIP stack used to structure the overview of the standards."></p>
+<p><img src="images\toip.jpg" alt="The two stacks in the ToIP model." title="The two stacks in the ToIP model."></p>
+<p>While looking through various specifications / standards, it seemed to make sense to arrange them according to the ToIP technology stack, as they seem to fit into these layers. We have made some small alterations to the layers in the ToIP technology stack, such that the scope is broadened (wider than just DID-based methods) and renamed the layers such that the fit our purpose better. The result is displayed below.</p>
+<p><img src="images\stack-background.png" alt="The four layers from the ToIP stack used to structure the overview of the standards." title="The four (altered) layers from the ToIP stack used to structure the overview of the standards."></p>
 <p>For each of these layers, we dedicate a chapter below and explain what the scope of the layer is, what technologies belong to the layer. For each of the technologies we will</p>
 <ul>
-<li>list some general information about the standard:<ul>
+<li>list some general information about the standard:
+<ul>
 <li>the standardisation body</li>
 <li>the most recent version</li>
 <li>when the most recent version was published</li>
@@ -68,13 +336,76 @@ Last revision: 23-01-2023</p>
 </li>
 <li>give a short description of what the technology does</li>
 </ul>
-<!-- Standardisation body: []()\
-Most recent version:\
-Published on:\
-Link: []()\
-Competitive to:\
-Compatible with: -->
-<!-- 
+<h3 class="mume-header" id="-layer-1-trust-anchors-">Layer 1: Trust Anchors</h3>
+
+<div style="text-align: justify">Trust anchors form the basis of the entire stack. Without a strong foundation to anchor your trust to, you cannot have trust in credentials that are exchanged in layer three etc. Technologies in this layer include identifiers, decentralised public key infrastructure and registries.</div>
+<h4 class="mume-header" id="-identifier-">Identifier</h4>
+
+<div style="text-align: justify"> An identifier is used to identify a party and this identifier can be authenticated by another party. Identifiers in this context are usually bound to a key somehow. Strong identifiers must be self-certifying, i.e. there should be a strong binding between key and identifier.</div>
+<h5 class="mume-header" id="-did-">DID</h5>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div><a href="https://www.w3.org/">W3C</a></div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>v1.0</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>19-07-2022</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div><a href="https://w3c.github.io/did-core/">Decentralised Identifiers (DIDs)</a></div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div><a href="#x509">X.509</a>, <a href="#link-secret">link secret</a>, <a href="#raw-public-key">raw public key</a></div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href="#did-exchange-protocol">DID Exchange Protocol</a>, 
+    <a href="#didcomm">DIDComm</a>, 
+</div> 
+<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with</div> 
+<div>
+    <a href="#issue-credential-protocol">Issue Credential Protocol,</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with</div>
+<div>
+    <a href="#presentation-exchange">Presentation Exchange,</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with</div> 
+<div>
+    <a href="#present-proof-protocol">Present Proof Protocol</a>
+</div>  
+<br><br>
+<p>Decentralised identifiers that allow for the authentication of decentralised digital identities of a <a href="https://w3c.github.io/did-core/#did-subject">DID subject</a>. A DID is a URI that associates the DID subject with a DID document, which describes the DID subject and how they can authenticate themselves using cryptographic keys. DID documents are generated using a specific <a href="https://w3c.github.io/did-spec-registries/#did-methods">DID method</a>. It depends on the DID method whether the DID is a self-certifying identifier.</p>
+<p>A DID can be a global unique identifier, but parties can also have multiple (<a href="https://identity.foundation/peer-did-method-spec/">peer</a>)DIDs to separate domains/personas.</p>
+<h5 class="mume-header" id="-x509-">X.509</h5>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="https://www.itu.int/en/Pages/default.aspx">ITU</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    10/19
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    14-10-2019
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="https://www.itu.int/rec/T-REC-X.509-201910-I/en">X.509</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#did">DID</a>,
+    <a href="#link-secret">link secret</a>,
+    <a href="#raw-public-key">raw public key</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href="#openid-connect">OIDC</a>
+</div>
+<br><br>
+<p>X.509 certificates are very widely used to define the binding between a party&apos;s (partial) identity and a public key. This certificate can be signed by a certificate authority, or it can be self-signed. It forms the basis for protocols like TLS in HTTPS. Because you can put attributes in the certificate, X.509 certificates can also be used as <a href="#credential">credential</a> format.</p>
+<h5 class="mume-header" id="-link-secret-">Link Secret</h5>
+
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
     <a href="-">-</a>
@@ -93,597 +424,458 @@ Compatible with: -->
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
+    <a href="#did">DID</a>, <a href="#x509">X.509</a>, <a href="#raw-public-key">raw public key</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href="#-">AnonCred</a>, <a href="#didcomm">DIDComm</a>
+</div> 
+<br><br>
+<p>A link secret is a non-correlatable secret only known to the holder. During credential issuance, the link secret is sent as a blind attribute to the issuer. The issuer thus doesn&apos;t know the value of the link secret. The issuer can then sign all claims, including the blinded link secret. The holder can prove ownership over the credentials to a verifier without disclosing a persistent identifier.</p>
+<p>Not a standard, but a cryptographic technique.<br>
+Based on <a href="https://www.cs.cornell.edu/courses/cs754/2001fa/129.PDF">Pedersen commitments</a>, see <a href="https://www.evernym.com/blog/how-does-a-verifier-know-the-credential-is-yours/">link secrets</a>.</p>
+<h5 class="mume-header" id="-raw-public-key-">Raw Public Key</h5>
+
+<p>Raw public keys can be used as an identifier.</p>
+<h5 class="mume-header" id="-recovery-">Recovery</h5>
+
+<p><a href="https://sovrin.org/wp-content/uploads/2019/03/What-if-someone-steals-my-phone-110319.pdf">https://sovrin.org/wp-content/uploads/2019/03/What-if-someone-steals-my-phone-110319.pdf</a></p>
+<h4 class="mume-header" id="-decentralised-public-key-infrastructure-">Decentralised Public Key Infrastructure</h4>
+
+<p>As the name suggests, this is the decentralised version of the classic public key infrastructure. This ensures that no single party can compromise the integrity and security of the system as a whole. In decentralised PKI, there is no need to have a trusted third party.</p>
+<h5 class="mume-header" id="-keri-">KERI</h5>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="-">Web of Trust</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    N.A.
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    16-07-2022
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="https://weboftrust.github.io/ietf-keri/draft-ssmith-keri.html">KERI</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    PKI
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href="#did">DID</a>
+</div> 
+<br><br>
+<p>KERI is a novel technology for Decentralised Key Management Infrastructure (DKMI). It has been brought under in an informational standard.<br>
+Primary key management operation is key rotation, that can be performed using key event receipt logs (KERL).</p>
+<p>The trust is rooted in self-certifying identifiers.</p>
+<h4 class="mume-header" id="-registry-">Registry</h4>
+
+<p>A registry is used to store information that could be checked by anyone. To provide more protection against malicious modifications and a single-point of failure, this registry should be implemented in a decentralised fashion. Examples of this are Decentralised File Systems (DFSs) or Decentralised Ledger Technologies (DLTs), such as a blockchain.</p>
+<h5 class="mume-header" id="-distributed-ledger-technology-">Distributed Ledger Technology</h5>
+
+<p>A blockchain is a distributed database, without a single central authority that you must trust, leading to a higher level of privacy and security.</p>
+<h6 class="mume-header" id="-hyperledger-">Hyperledger</h6>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#distributed-ledger-technology">Other DLTs</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href="#did">DID</a>
+</div> 
+<br><br>
+Hyperledger is a collection of projects related to DLTs and creates open-source DLT. Hyperledger falls under guardianship of the Linux Foundation.
+<h6 class="mume-header" id="-ebsi-">EBSI</h6>
+
+<div style="width:250px; height:auto; float:left">Standardisation body:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#distributed-ledger-technology">Other DLTs</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href="#trusted-issuer">Trusted Issuer</a>
+</div> 
+<br><br>
+<p>The European Blockchain Services Infrastructure (EBSI) is a European consortium that created a blockchain for the public sector.</p>
+<h5 class="mume-header" id="-registry-applications-">Registry Applications</h5>
+
+<h6 class="mume-header" id="-identifier--1">Identifier</h6>
+
+<h6 class="mume-header" id="-schema-">Schema</h6>
+
+<h6 class="mume-header" id="-revocation-">Revocation</h6>
+
+<h6 class="mume-header" id="-delegation-">Delegation</h6>
+
+<h6 class="mume-header" id="-trusted-issuer-">Trusted Issuer</h6>
+
+<p>Link Oskar</p>
+<p>In the <a href="#mobile-driving-license-mdl">mDL</a> standard, the notion of Verified Issuer Certificate Authority List (VICAL) is introduced. This list can be used as a trust anchor for verifiers.</p>
+<h6 class="mume-header" id="-trusted-verifier-">Trusted Verifier</h6>
+
+<p>Link Oskar</p>
+<h6 class="mume-header" id="-trusted-app-">Trusted App</h6>
+
+<h4 class="mume-header" id="-revocation-method-">Revocation Method</h4>
+
+<h5 class="mume-header" id="-status-list-2021-">Status List 2021</h5>
+
+<h5 class="mume-header" id="-cryptographic-accumulator-">Cryptographic Accumulator</h5>
+
+<p><a href="https://link.springer.com/content/pdf/10.1007/978-3-642-00468-1_27.pdf">https://link.springer.com/content/pdf/10.1007/978-3-642-00468-1_27.pdf</a></p>
+<p><a href="https://github.com/hyperledger/anoncreds-spec/blob/main/spec/ursaAnonCreds.pdf">https://github.com/hyperledger/anoncreds-spec/blob/main/spec/ursaAnonCreds.pdf</a></p>
+<p><a href="https://github.com/hyperledger/indy-sdk/blob/main/docs/concepts/revocation/cred-revocation.md">https://github.com/hyperledger/indy-sdk/blob/main/docs/concepts/revocation/cred-revocation.md</a></p>
+<h4 class="mume-header" id="-oca-definition-">OCA Definition</h4>
+
+<p>(?)</p>
+<hr>
+<h3 class="mume-header" id="-layer-2-peer-to-peer-connections-">Layer 2: Peer-to-Peer Connections</h3>
+
+<p>To exchange data, first a trusted (mutually) authenticated channel has to be set up. Peer-to-peer connections have to be established.</p>
+<h4 class="mume-header" id="-protocols-">Protocols</h4>
+
+<h5 class="mume-header" id="-didcomm-">DIDComm</h5>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="https://identity.foundation/">DIF</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    v2.0
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="https://identity.foundation/didcomm-messaging/spec/">DIDComm Messaging</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#openid-connect">OIDC</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href="#did">DID</a>,
+    <a href="#did-exchange-protocol">DID exchange protocol</a>,
+</div>
+<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div>
+<div>
+    <a href="#issue-credential-protocol">issue credential protocol</a>,
+</div>
+<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div>
+<div>
+    <a href="#present-proof-protocol">present proof protocol</a>,
+</div> 
+<br><br>
+<h5 class="mume-header" id="-did-exchange-protocol-">DID Exchange Protocol</h5>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="https://github.com/hyperledger/aries-rfcs">Aries RFC</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    1.0
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    15-04-2021
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0023-did-exchange/README.md">DID Exchange Protocol 1.0</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
     <a href="#-">-</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">-</a>
-</div> 
-<br></br>
-
-| Standardisation body  | Content Cell  |
-| ------------- | ------------- |
-| Most recent version  | Content Cell  |
-| Published on  | Content Cell  |
-| Link  | Content Cell  |
-| Compatible with  | Content Cell  |
-| Competitive with  | Content Cell  |
--->
-<h3 id="layer-1-trust-anchors">Layer 1: Trust Anchors</h3>
-<div style="text-align: justify">Trust anchors form the basis of the entire stack. Without a strong foundation to anchor your trust to, you cannot have trust in credentials that are exchanged in layer three etc. Technologies in this layer include identifiers, decentralised public key infrastructure and registries.</div>
-
-<h4 id="identifier">Identifier</h4>
-<div style="text-align: justify"> An identifier is used to identify a party and this identifier can be authenticated by another party. Identifiers in this context are usually bound to a key somehow. Strong identifiers must be self-certifying, i.e. there should be a strong binding between key and identifier.</div>
-
-<h5 id="did">DID</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div><a href="https://www.w3.org/">W3C</a></div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>v1.0</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>19-07-2022</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div><a href="https://w3c.github.io/did-core/">Decentralised Identifiers (DIDs)</a></div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div><a href="#x509">X.509</a>, <a href="#link-secret">link secret</a>, <a href="#raw-public-key">raw public key</a></div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
-    <a href="#did-exchange-protocol">DID Exchange Protocol</a>, 
-    <a href="#didcomm">DIDComm</a>, 
-</div> </p>
-<p><div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with</div> </p>
-<p><div>
-    <a href="#issue-credential-protocol">Issue Credential Protocol,</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with</div></p>
-<p><div>
-    <a href="#presentation-exchange">Presentation Exchange,</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with</div> </p>
-<p><div>
-    <a href="#present-proof-protocol">Present Proof Protocol</a>
-</div><br><br></br></p>
-<p>Decentralised identifiers that allow for the authentication of decentralised digital identities of a <a href="https://w3c.github.io/did-core/#did-subject">DID subject</a>. A DID is a URI that associates the DID subject with a DID document, which describes the DID subject and how they can authenticate themselves using cryptographic keys. DID documents are generated using a specific <a href="https://w3c.github.io/did-spec-registries/#did-methods">DID method</a>. It depends on the DID method whether the DID is a self-certifying identifier.</p>
-<p>A DID can be a global unique identifier, but parties can also have multiple (<a href="https://identity.foundation/peer-did-method-spec/">peer</a>)DIDs to separate domains/personas. </p>
-<h5 id="x-509">X.509</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
-    <a href="https://www.itu.int/en/Pages/default.aspx">ITU</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
-    10/19
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
-    14-10-2019
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
-    <a href="https://www.itu.int/rec/T-REC-X.509-201910-I/en">X.509</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
-    <a href="#did">DID</a>,
-    <a href="#link-secret">link secret</a>,
-    <a href="#raw-public-key">raw public key</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
-    <a href="#openid-connect">OIDC</a>
-</div>
-<br></br></p>
-<p>X.509 certificates are very widely used to define the binding between a party&#39;s (partial) identity and a public key. This certificate can be signed by a certificate authority, or it can be self-signed. It forms the basis for protocols like TLS in HTTPS. Because you can put attributes in the certificate, X.509 certificates can also be used as credential format.</p>
-<h5 id="link-secret">Link Secret</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
-    <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
-    -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
-    -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
-    <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
-    <a href="#did">DID</a>, <a href="#x509">X.509</a>, <a href="#raw-public-key">raw public key</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
-    <a href="#-">AnonCred</a>, <a href="#didcomm">DIDComm</a>
-</div> 
-<br></br></p>
-<p>A link secret is a non-correlatable secret only known to the holder. During credential issuance, the link secret is sent as a blind attribute to the issuer. The issuer thus doesn&#39;t know the value of the link secret. The issuer can then sign all claims, including the blinded link secret. The holder can prove ownership over the credentials to a verifier without disclosing a persistent identifier.</p>
-<p>Not a standard, but a cryptographic technique.
-Based on <a href="https://www.cs.cornell.edu/courses/cs754/2001fa/129.PDF">Pedersen commitments</a>, see <a href="https://www.evernym.com/blog/how-does-a-verifier-know-the-credential-is-yours/">link secrets</a>.</p>
-<h5 id="raw-public-key">Raw Public Key</h5>
-<p>Raw public keys can be used as an identifier. </p>
-<h5 id="recovery">Recovery</h5>
-<p><a href="https://sovrin.org/wp-content/uploads/2019/03/What-if-someone-steals-my-phone-110319.pdf">https://sovrin.org/wp-content/uploads/2019/03/What-if-someone-steals-my-phone-110319.pdf</a></p>
-<h4 id="decentralised-public-key-infrastructure">Decentralised Public Key Infrastructure</h4>
-<p>As the name suggests, this is the decentralised version of the classic public key infrastructure. This ensures that no single party can compromise the integrity and security of the system as a whole. In decentralised PKI, there is no need to have a trusted third party.</p>
-<h5 id="keri">KERI</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
-    <a href="-">Web of Trust</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
-    N.A.
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
-    16-07-2022
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
-    <a href="https://weboftrust.github.io/ietf-keri/draft-ssmith-keri.html">KERI</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
-    PKI
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
-    <a href="#did">DID</a>
-</div> 
-<br></br></p>
-<p>KERI is a novel technology for Decentralised Key Management Infrastructure (DKMI). It has been brought under in an informational standard.
-Primary key management operation is key rotation, that can be performed using key event receipt logs (KERL).</p>
-<p>The trust is rooted in self-certifying identifiers. </p>
-<h4 id="registry">Registry</h4>
-<p>A registry is used to store information that could be checked by anyone. To provide more protection against malicious modifications and a single-point of failure, this registry should be implemented in a decentralised fashion. Examples of this are Decentralised File Systems (DFSs) or Decentralised Ledger Technologies (DLTs), such as a blockchain.</p>
-<h5 id="distributed-ledger-technology">Distributed Ledger Technology</h5>
-<p>A blockchain is a distributed database, without a single central authority that you must trust, leading to a higher level of privacy and security.</p>
-<h6 id="hyperledger">Hyperledger</h6>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
-    <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
-    -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
-    -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
-    <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
-    <a href="#distributed-ledger-technology">Other DLTs</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
-    <a href="#did">DID</a>
-</div> 
-<br></br>
-Hyperledger is a collection of projects related to DLTs and creates open-source DLT. Hyperledger falls under guardianship of the Linux Foundation.</p>
-<h6 id="ebsi">EBSI</h6>
-<p><div style="width:250px; height:auto; float:left">Standardisation body:</div> </p>
-<p><div>
-    <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
-    -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
-    -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
-    <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
-    <a href="#distributed-ledger-technology">Other DLTs</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
-    <a href="#trusted-issuer">Trusted Issuer</a>
-</div> 
-<br></br></p>
-<p>The European Blockchain Services Infrastructure (EBSI) is a European consortium that created a blockchain for the public sector. </p>
-<h5 id="registry-applications">Registry Applications</h5>
-<h6 id="identifier">Identifier</h6>
-<h6 id="schema">Schema</h6>
-<h6 id="revocation">Revocation</h6>
-<h6 id="delegation">Delegation</h6>
-<h6 id="trusted-issuer">Trusted Issuer</h6>
-<p>Link Oskar</p>
-<h6 id="trusted-verifier">Trusted Verifier</h6>
-<p>Link Oskar</p>
-<h6 id="trusted-app">Trusted App</h6>
-<h4 id="revocation-method">Revocation Method</h4>
-<h5 id="status-list-2021">Status List 2021</h5>
-<h5 id="vical-mdoc-">VICAL (MDOC)</h5>
-<h5 id="cryptographic-accumulator">Cryptographic Accumulator</h5>
-<p><a href="https://link.springer.com/content/pdf/10.1007/978-3-642-00468-1_27.pdf">https://link.springer.com/content/pdf/10.1007/978-3-642-00468-1_27.pdf</a></p>
-<p><a href="https://github.com/hyperledger/anoncreds-spec/blob/main/spec/ursaAnonCreds.pdf">https://github.com/hyperledger/anoncreds-spec/blob/main/spec/ursaAnonCreds.pdf</a></p>
-<p><a href="https://github.com/hyperledger/indy-sdk/blob/main/docs/concepts/revocation/cred-revocation.md">https://github.com/hyperledger/indy-sdk/blob/main/docs/concepts/revocation/cred-revocation.md</a></p>
-<h4 id="oca-definition">OCA Definition</h4>
-<p>(?)</p>
-<hr>
-<h3 id="layer-2-peer-to-peer-connections">Layer 2: Peer-to-Peer Connections</h3>
-<p>To exchange data, first a trusted (mutually) authenticated channel has to be set up. Peer-to-peer connections have to be established.</p>
-<h4 id="protocols">Protocols</h4>
-<h5 id="didcomm">DIDComm</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
-    <a href="https://identity.foundation/">DIF</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
-    v2.0
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
-    -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
-    <a href="https://identity.foundation/didcomm-messaging/spec/">DIDComm Messaging</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
-    <a href="#openid-connect">OIDC</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
-    <a href="#did">DID</a>,
-    <a href="#did-exchange-protocol">DID exchange protocol</a>,
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div></p>
-<p><div>
-    <a href="#issue-credential-protocol">issue credential protocol</a>,
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div></p>
-<p><div>
-    <a href="#present-proof-protocol">present proof protocol</a>,
-</div> 
-<br></br></p>
-<h5 id="did-exchange-protocol">DID Exchange Protocol</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
-    <a href="https://github.com/hyperledger/aries-rfcs">Aries RFC</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
-    1.0
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
-    15-04-2021
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
-    <a href="https://github.com/hyperledger/aries-rfcs/blob/main/features/0023-did-exchange/README.md">DID Exchange Protocol 1.0</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
-    <a href="#-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
     <a href="#didcomm">DIDComm</a>
 </div> 
-<br></br></p>
-<h5 id="openid-connect">OpenID Connect</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
+<br><br>
+<h5 class="mume-header" id="-openid-connect-">OpenID Connect</h5>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
     <a href="https://openid.net/foundation/">OpenID Foundation</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
     1.0
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
     08-11-2014
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
     <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect Core 1.0</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
     <a href="#didcomm">DIDComm</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
     <a href="#-">SIOP</a>, <a href="#-">OIDC4CI</a>, <a href="#-">OIDC4VP</a>, <a href="#-">presentation exchange</a>
 </div> 
-<br></br>
-Used in many systems. Less or no migration needed compared to moving to a DIDComm-based system</p>
-<h5 id="self-issued-openid-provider">Self-Issued OpenID Provider</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
+<br><br>
+Used in many systems. Less or no migration needed compared to moving to a DIDComm-based system
+<h5 class="mume-header" id="-self-issued-openid-provider-">Self-Issued OpenID Provider</h5>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
     <a href="https://openid.net/foundation/">OpenID Foundation</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
     v2
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
     18-12-2021
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
     <a href="https://openid.net/specs/openid-connect-self-issued-v2-1_0-06.html">Self-Issued OpenID Provider</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
     <a href="#-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
     <a href="#openid-connect">OIDC</a>
 </div> 
-<br></br></p>
+<br><br>
 <hr>
-<h3 id="layer-3-credential-exchange-protocols">Layer 3: Credential Exchange Protocols</h3>
+<h3 class="mume-header" id="-layer-3-credential-exchange-protocols--">Layer 3: Credential Exchange Protocols</h3>
+
 <p>Now that a connection tunnel has been set up, credentials can be exchanged. This layer is about the trust triangle (or diamond).</p>
-<h4 id="issuance-protocol">Issuance Protocol</h4>
+<h4 class="mume-header" id="-issuance-protocol-">Issuance Protocol</h4>
+
 <p>This section describes protocols related to the issuance of credentials. We describe to standards to do so. Additionally, we also discuss the credential manifest.</p>
-<h5 id="issue-credential-protocol">Issue Credential Protocol</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
+<h5 class="mume-header" id="-issue-credential-protocol-">Issue Credential Protocol</h5>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
     <a href="https://identity.foundation/">DIF</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
     3.0
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
     27-10-2021
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
     <a href="https://github.com/decentralized-identity/waci-didcomm/blob/main/issue_credential/README.md">Issue Credential Protocol 3.0</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
     <a href="#openid-connect4ci">OIDC4CI</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
     <a href="#did">DID</a>, <a href="#link-secret">link secret</a>, <a href="#DIDComm">DIDComm</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> 
+<div>
     <a href="#didcomm">DIDComm</a>,
     <a href="#did-exchange-protocol">DID exchange protocol</a>, <a href="#present-proof-protocol">present proof protocol</a>
 </div>
-<br></br></p>
+<br><br>
 <p>This standard formalizes the protocol to issue credentials by specifying the following four messages in the protocol:</p>
 <ul>
-<li>Holder $\rightarrow$ issuer: what credential the holder would like to receive from the issuer.</li>
-<li>Issuer $\rightarrow$ holder: offer the credential and possibly its notify the price.</li>
-<li>Holder $\rightarrow$ issuer: request the credential.</li>
-<li>Issuer $\rightarrow$ holder: issue the credential.</li>
+<li>Holder <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&#x2192;</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">&#x2192;</span></span></span></span> issuer: what credential the holder would like to receive from the issuer.</li>
+<li>Issuer <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&#x2192;</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">&#x2192;</span></span></span></span> holder: offer the credential and possibly its notify the price.</li>
+<li>Holder <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&#x2192;</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">&#x2192;</span></span></span></span> issuer: request the credential.</li>
+<li>Issuer <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&#x2192;</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">&#x2192;</span></span></span></span> holder: issue the credential.</li>
 </ul>
 <p>The <strong>proof type</strong> can be JWT, JSON-LID or ZKP.</p>
-<h5 id="oidc4ci">OIDC4CI</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
+<h5 class="mume-header" id="-oidc4ci-">OIDC4CI</h5>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
     <a href="https://openid.net/foundation/">OpenID Foundation</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
     1.0
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
     30-12-2022
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
     <a href="https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html">OpenID for Verifiable Credential Issuance</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
     <a href="#issue-credential-protocol">issue credential protocol</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
     <a href="#openid-connect">OIDC</a>, <a href="#self-issued-openid-provider">SIOP</a>, <a href="#mdl">mDL</a>, <a href="#verifiable-credential-vc">VC</a>
 </div> 
-<br></br></p>
-<p>This standard describes an API for credential issuance via OIDC (and OAuth2.0), by defining what the <strong>credential offer</strong> and <strong>credential offer response</strong> should look like.<br>The <strong>proof type</strong> must be JWT.</p>
-<h5 id="credential-manifest">Credential Manifest</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
+<br><br>
+<p>This standard describes an API for credential issuance via OIDC (and OAuth2.0), by defining what the <strong>credential offer</strong> and <strong>credential offer response</strong> should look like.<br>
+The <strong>proof type</strong> must be JWT.</p>
+<h5 class="mume-header" id="-credential-manifest-">Credential Manifest</h5>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
     <a href="https://identity.foundation/">DIF</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
     0.0.1
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
     -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
     <a href="https://identity.foundation/credential-manifest/">Credential Manifest</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
     <a href="#-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
     JSON-based credentials, <a href="#oidc4ci">OIDC4CI</a>,
     <a href="#issue-credential-protocol">issue credential protocol</a>,
-</div> </p>
-<p><div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> </p>
-<p><div>
+</div> 
+<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> 
+<div>
     <a href="#chapi">CHAPI</a>
 </div> 
-<br></br></p>
+<br><br>
 <p>In order for the issuer to send the soon-to-be holder a credential, the issuer needs to know some information about the subject. This specification a data format named the <strong>credential manifest</strong>, describing the inputs a subject must provide to an issuer in which format, in order for the issuer to determine whether to issue the credential to the subject. The subject, i.e. the user agent, discovers the credential manifest and can then form a <strong>credential application</strong>, containing the information on the subject that the issuer needs. The issuer can then determine whether this application is accepted or declined and sends a <strong>credential response</strong>. The formats for the credential application and credential response are also specified in this standard.</p>
 <p>We assume that the credential manifest is <strong>claim format</strong> and transport envelope agnostic, just like the formats in <a href="#presentation-exchange">presentation exchange</a>. However, this has not been clearly specified in this standard, but there are some hints.</p>
 <p>The credential manifest is the issuance equivalent to the <strong>presentation definition</strong> specified in <a href="#presentation-exchange">presentation exchange</a>.</p>
-<h4 id="verification-protocol">Verification Protocol</h4>
-<h5 id="present-proof-protocol">Present Proof Protocol</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
+<h4 class="mume-header" id="-verification-protocol-">Verification Protocol</h4>
+
+<h5 class="mume-header" id="-present-proof-protocol-">Present Proof Protocol</h5>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
     <a href="https://identity.foundation/">DIF</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
     3.0
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
     22-06-2021
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
     <a href="https://github.com/decentralized-identity/waci-presentation-exchange/blob/main/present_proof/present-proof-v3.md">Present Proof Protocol 3.0</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
     <a href="#openid-connect4vp">OIDC4VP</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
     <a href="#didcomm">DIDComm</a>,
     <a href="#issue-credential-protocol">issue credential protocol</a>, 
     <a href="#presentation-exchange">presentation exchange</a>
 </div> 
-<br></br></p>
+<br><br>
 <p>This standard formalizes the protocol for presentation exchange by specifying the following three messages in the protocol:</p>
 <ul>
-<li>Prover $\rightarrow$ verifier: propose what the presentation would look like.</li>
-<li>Verifier $\rightarrow$ prover: request a presentation.</li>
-<li>Prover $\rightarrow$ verifier: provide the presentation.</li>
+<li>Prover <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&#x2192;</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">&#x2192;</span></span></span></span> verifier: propose what the presentation would look like.</li>
+<li>Verifier <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&#x2192;</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">&#x2192;</span></span></span></span> prover: request a presentation.</li>
+<li>Prover <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&#x2192;</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">&#x2192;</span></span></span></span> verifier: provide the presentation.</li>
 </ul>
-<h5 id="oid4vp">OID4VP</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
-    <a href="https://openid.net/foundation/">OpenID Foundation</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
-    1.0
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
-    17-12-2021
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
-    <a href="https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0-07.html">OpenID Connect for Verifiable Presentations</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
-    <a href="#present-proof-protocol">present proof protocol</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
-    <a href="#openid-connect4ci">OIDC4CI</a>, <a href="#self-issued-openid-provider">SIOP</a>,
-    <a href="#presentation-exchange">presentation exchange</a>, <a href="#vp">VP</a>
-</div> 
-<br></br></p>
-<p>OIDC for Verifiable Presentations is, as the name suggests, an extension to OIDC allowing the exchange of verifiable presentations (in a <strong>VP token</strong>) in addition to an <strong>ID token</strong>. The standard defines the protocol for this, by defining what the request and response must look like.</p>
-<h5 id="presentation-exchange">Presentation Exchange</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
-    <a href="https://identity.foundation/">DIF</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
-    2.0.0
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
-    -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
-    <a href="https://identity.foundation/presentation-exchange/spec/v2.0.0/">Presentation Exchange 2.0.0</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
-    <a href="#-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
-    JSON-based credentials, <a href="#oidc4vp">OIDC4VP</a>,
-    <a href="#present-proof-protocol">present proof protocol</a>,
-</div> </p>
-<p><div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> </p>
-<p><div>
-    <a href="#chapi">CHAPI</a>
-</div> 
-<br></br></p>
-<p>In order for the holder to send the verifier a presentation, the holder needs to know (1) the verifier&#39;s proof requirements and (2) how to formulate the proof according to the requirements. This specification defines two data formats: </p>
-<ol>
-<li>A <strong>presentation definition</strong> format for the verifier&#39;s proof requirements. A presentation definition defines which <strong>proof formats</strong> are allowed, and optionally a set of selection rules or a purpose.</li>
-<li>A <strong>presentation submission</strong> format for the holder to formulate proofs. It shows how the presented inputs are in accordance with the requirements specified in the presentation definition. </li>
-</ol>
-<p>These formats are <strong>claim format</strong> and transport envelope agnostic, as long as the claim format can be serialized as JSON.</p>
-<p>The presentation definition is the verification equivalent of the <a href="#credential-manifest">credential manifest</a>.</p>
-<h4 id="credentials">Credentials</h4>
-<p>Overview: Link to RWOT Credential Comparison Matrix + Paper.</p>
-<p>In the next sections we will describe the credential formats that are standardised. Note that these still have a lot of degrees of freedom in there, as choices can be made in the used signature algorithm, revocation mechanism, identifiers... </p>
-<h5 id="verifiable-credential-vc-">Verifiable Credential (VC)</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
-    <a href="https://www.w3.org/">W3C</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
-    v1.1
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
-    03-03-2022
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
-    <a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
-    <a href="#-">other credential formats</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
-    <a href="#oidc4ci">OIDC4CI</a>, <a href="#oidc4vp">OIDC4VP</a>, 
-    <a href="#issue-credential-protocol">issue credential protocol</a>,
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> </p>
-<p><div>
-    <a href="#present-proof-protocol">present proof protocol</a>
-</div> 
-<br></br></p>
-<p>The data model defines the terms <strong>claim</strong>, <strong>credential</strong> and <strong>presentation</strong> that form the basis for the verifiable credentials. Verifiable credentials and verifiable presentations are defined by giving a format on how to specify them.
-The standard for Verifiable Credentials leaves some room for choices in <strong>claim format</strong> (JSON vs JSON-LD) and <strong>proof format</strong> (JWT vs linked data proofs).</p>
-<!-- ##### Verifiable Presentation
+<h5 class="mume-header" id="-oid4vp-">OID4VP</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://openid.net/foundation/">OpenID Foundation</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
 <div>
-    -
+    1.0
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    17-12-2021
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="https://openid.net/specs/openid-connect-4-verifiable-presentations-1_0-07.html">OpenID Connect for Verifiable Presentations</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#present-proof-protocol">present proof protocol</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href="#openid-connect4ci">OIDC4CI</a>, <a href="#self-issued-openid-provider">SIOP</a>,
+    <a href="#presentation-exchange">presentation exchange</a>, <a href="#vp">VP</a>
+</div> 
+<br><br>
+<p>OIDC for Verifiable Presentations is, as the name suggests, an extension to OIDC allowing the exchange of verifiable presentations (in a <strong>VP token</strong>) in addition to an <strong>ID token</strong>. The standard defines the protocol for this, by defining what the request and response must look like.</p>
+<h5 class="mume-header" id="-presentation-exchange-">Presentation Exchange</h5>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="https://identity.foundation/">DIF</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    2.0.0
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
 <div>
@@ -691,7 +883,7 @@ The standard for Verifiable Credentials leaves some room for choices in <strong>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://identity.foundation/presentation-exchange/spec/v2.0.0/">Presentation Exchange 2.0.0</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
@@ -699,232 +891,292 @@ The standard for Verifiable Credentials leaves some room for choices in <strong>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">-</a>
+    JSON-based credentials, <a href="#oidc4vp">OIDC4VP</a>,
+    <a href="#present-proof-protocol">present proof protocol</a>,
 </div> 
-<br></br>
+<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> 
+<div>
+    <a href="#chapi">CHAPI</a>
+</div> 
+<br><br>
+<p>In order for the holder to send the verifier a presentation, the holder needs to know (1) the verifier&apos;s proof requirements and (2) how to formulate the proof according to the requirements. This specification defines two data formats:</p>
+<ol>
+<li>A <strong>presentation definition</strong> format for the verifier&apos;s proof requirements. A presentation definition defines which <strong>proof formats</strong> are allowed, and optionally a set of selection rules or a purpose.</li>
+<li>A <strong>presentation submission</strong> format for the holder to formulate proofs. It shows how the presented inputs are in accordance with the requirements specified in the presentation definition.</li>
+</ol>
+<p>These formats are <strong>claim format</strong> and transport envelope agnostic, as long as the claim format can be serialized as JSON.</p>
+<p>The presentation definition is the verification equivalent of the <a href="#credential-manifest">credential manifest</a>.</p>
+<h4 class="mume-header" id="-credential-">Credential</h4>
 
-The standard for Verifiable Presentations (VPs) leaves some room for choices in credential (JSON vs JSON-LD) and proof (JWT vs linked data proofs) format. -->
-<h5 id="mdl">mDL</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
-    <a href="-">ISO</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
-    1
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
-    xx-09-2021
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
-    <a href="https://www.iso.org/standard/69084.html">ISO/IEC 18013-5:2021</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
+<p>Overview: Link to RWOT Credential Comparison Matrix + Paper.</p>
+<p>In the next sections we will describe the credential formats that are standardised. Note that these still have a lot of degrees of freedom in there, as choices can be made in the used signature algorithm, revocation mechanism, identifiers...</p>
+<h5 class="mume-header" id="-verifiable-credential-vc-">Verifiable Credential (VC)</h5>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="https://www.w3.org/">W3C</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    v1.1
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    03-03-2022
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model v1.1</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
     <a href="#-">other credential formats</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href="#oidc4ci">OIDC4CI</a>, <a href="#oidc4vp">OIDC4VP</a>, 
+    <a href="#issue-credential-protocol">issue credential protocol</a>,
+</div>
+<div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> 
+<div>
+    <a href="#present-proof-protocol">present proof protocol</a>
+</div> 
+<br><br>
+<p>The data model defines the terms <strong>claim</strong>, <strong>credential</strong> and <strong>presentation</strong> that form the basis for the verifiable credentials. Verifiable credentials and verifiable presentations are defined by giving a format on how to specify them.<br>
+The standard for Verifiable Credentials leaves some room for choices in <strong>claim format</strong> (JSON vs JSON-LD) and <strong>proof format</strong> (JWT vs linked data proofs).</p>
+<h5 class="mume-header" id="-mobile-driving-license-mdl-">mobile Driving License (mDL)</h5>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="-">ISO</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    1
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    xx-09-2021
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="https://www.iso.org/standard/69084.html">ISO/IEC 18013-5:2021</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#-">other credential formats</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
     <a href="#openid-connect4ci">OIDC4CI</a>, <a href="#vical-mdoc">VICAL</a>
 </div> 
-<br></br></p>
+<br><br>
 <p>The standard specifies the implementation of a driving license in association with a mobile device, through specifying amongst others:</p>
 <ul>
 <li>the interface between the <strong>mDL</strong> and the <strong>mDL reader</strong></li>
 <li>the interface between the <strong>mDL reader</strong> and the issuing authority infrastructure</li>
 <li>how to tie the <strong>mDL</strong> to the <strong>mDL holder</strong> (where the holder must be equal to the <strong>data subject</strong>), through the use of a portrait image of the <strong>mDL holder</strong>.</li>
 </ul>
-<h5 id="anoncred">AnonCred</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
+<h5 class="mume-header" id="-anoncred-">AnonCred</h5>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
     <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
     -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
     -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
     <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
     <a href="#-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
     <a href="#-">-</a>
 </div> 
-<br></br></p>
+<br><br>
 <hr>
-<h3 id="layer-4-application-ecosystems">Layer 4: Application Ecosystems</h3>
+<h3 class="mume-header" id="-layer-4-application-ecosystems-">Layer 4: Application Ecosystems</h3>
+
 <p>TBD</p>
-<h4 id="delegation-and-mandate">Delegation and Mandate</h4>
-<p>It&#39;s very useful to be able to delegate and mandate rights and duties towards a third party to for example an employee.</p>
-<h5 id="acdc">ACDC</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
+<h4 class="mume-header" id="-delegation-and-mandate-">Delegation and Mandate</h4>
+
+<p>It&apos;s very useful to be able to delegate and mandate rights and duties towards a third party to for example an employee.</p>
+<h5 class="mume-header" id="-acdc-">ACDC</h5>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
     <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
     -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
     -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
     <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
     <a href="#-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
-    <a href="#-">-</a>
-</div> 
-<br></br></p>
-<h5 id="zcap">ZCap</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
-    <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
-    -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
-    -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
-    <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
-    <a href="#-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
     <a href="#-">-</a>
 </div> 
-<br></br></p>
-<h5 id="chained-credential">Chained Credential</h5>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
+<br><br>
+<h5 class="mume-header" id="-zcap-">ZCap</h5>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
     <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
     -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
     -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
     <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
     <a href="#-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
-    <a href="#-">-</a>
-</div> 
-<br></br></p>
-<h4 id="guardianship">Guardianship</h4>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
-    <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
-    -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
-    -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
-    <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
-    <a href="#-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
     <a href="#-">-</a>
 </div> 
-<br></br></p>
-<h4 id="chapi">CHAPI</h4>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
+<br><br>
+<h5 class="mume-header" id="-chained-credential-">Chained Credential</h5>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
     <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
     -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
     -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
     <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
     <a href="#-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
     <a href="#-">-</a>
 </div> 
-<br></br></p>
-<h4 id="eassi">EASSI</h4>
-<p><div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> </p>
-<p><div>
+<br><br>
+<h4 class="mume-header" id="-guardianship-">Guardianship</h4>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
     <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
     -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Published on:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
     -
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Link:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
     <a href="-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
     <a href="#-">-</a>
-</div></p>
-<p><div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> </p>
-<p><div>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href="#-">-</a>
+</div> 
+<br><br>
+<h4 class="mume-header" id="-chapi-">CHAPI</h4>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href="#-">-</a>
+</div> 
+<br><br>
+<h4 class="mume-header" id="-eassi-">EASSI</h4>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="#-">-</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
     A variety of wallets
 </div> 
-<br></br></p>
-<h4 id="accessibility">Accessibility</h4>
-<h2 id="to-research">To Research</h2>
+<br><br>
+<h4 class="mume-header" id="-accessibility-">Accessibility</h4>
+
+<h2 class="mume-header" id="-to-research-">To Research</h2>
+
 <ul>
 <li>Sovrin governance &amp; trust framework</li>
 <li>AIP</li>
@@ -934,3 +1186,17 @@ The standard for Verifiable Presentations (VPs) leaves some room for choices in 
 <li>AnonCred accumulator</li>
 <li>Presentation definition and submission</li>
 </ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
