@@ -138,7 +138,7 @@ Compatible with: -->
 #### Identifier
 <div style="text-align: justify"> An identifier is used to identify a party and this identifier can be authenticated by another party. Identifiers in this context are usually bound to a key somehow. Strong identifiers must be self-certifying, i.e. there should be a strong binding between key and identifier.</div>
 
-##### DID
+##### Decentralised Identifier
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div><a href="https://www.w3.org/">W3C</a></div>
@@ -173,7 +173,7 @@ Compatible with: -->
 </div>  
 <br></br>
 
-Decentralised identifiers that allow for the authentication of decentralised digital identities of a [DID subject](https://w3c.github.io/did-core/#did-subject). A DID is a URI that associates the DID subject with a DID document, which describes the DID subject and how they can authenticate themselves using cryptographic keys. DID documents are generated using a specific [DID method](https://w3c.github.io/did-spec-registries/#did-methods). It depends on the DID method whether the DID is a self-certifying identifier.
+Decentralised identifiers (DIDs) allow for the authentication of decentralised digital identities of a [DID subject](https://w3c.github.io/did-core/#did-subject). A DID is a URI that associates the DID subject with a DID document, which describes the DID subject and how they can authenticate themselves using cryptographic keys. DID documents are generated using a specific [DID method](https://w3c.github.io/did-spec-registries/#did-methods). It depends on the DID method whether the DID is a self-certifying identifier.
 
 A DID can be a global unique identifier, but parties can also have multiple ([peer](https://identity.foundation/peer-did-method-spec/))DIDs to separate domains/personas. 
 
@@ -197,13 +197,13 @@ A DID can be a global unique identifier, but parties can also have multiple ([pe
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-did-">DID</a>,
+    <a href="#-decentralised-identifier-">DID</a>,
     <a href="#-link-secret-">link secret</a>,
     <a href="#-raw-public-key-">raw public key</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-openid-connect-">OIDC</a>
+    <a href="#-oidc-">OIDC</a>
 </div>
 <br></br>
 
@@ -229,7 +229,7 @@ X.509 certificates are very widely used to define the binding between a party's 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-did-">DID</a>, 
+    <a href="#-decentralised-identifier-">DID</a>, 
     <a href="#-x509-">X.509</a>, 
     <a href="#-raw-public-key-">raw public key</a>
 </div>
@@ -256,7 +256,7 @@ https://sovrin.org/wp-content/uploads/2019/03/What-if-someone-steals-my-phone-11
 #### Decentralised Public Key Infrastructure
 As the name suggests, this is the decentralised version of the classic public key infrastructure. This ensures that no single party can compromise the integrity and security of the system as a whole. In decentralised PKI, there is no need to have a trusted third party.
 
-##### KERI
+##### Key Event Receipt Infrastructure {#-keri-}
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -280,10 +280,9 @@ As the name suggests, this is the decentralised version of the classic public ke
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-did-">DID</a>
+    <a href="#-decentralised-identifier-">DID</a>
 </div> 
 <br></br>
-
 
 KERI is a novel technology for Decentralised Key Management Infrastructure (DKMI). It has been brought under in an informational standard.
 Primary key management operation is key rotation, that can be performed using key event receipt logs (KERL).
@@ -320,7 +319,7 @@ A blockchain is a distributed database, without a single central authority that 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-did-">DID</a>
+    <a href="#-decentralised-identifier-">DID</a>
 </div> 
 <br></br>
 Hyperledger is a collection of projects related to DLTs and creates open-source DLT. Hyperledger falls under guardianship of the Linux Foundation.
@@ -368,7 +367,7 @@ The European Blockchain Services Infrastructure (EBSI) is a European consortium 
 ###### Trusted Issuer
 Link Oskar
 
-In the [mDL](#-mobile-driving-license-mdl-) standard, the notion of Verified Issuer Certificate Authority List (VICAL) is introduced. This list can be used as a trust anchor for verifiers.
+In the [mDL](#-mobile-driving-license-) standard, the notion of Verified Issuer Certificate Authority List (VICAL) is introduced. This list can be used as a trust anchor for verifiers.
 
 ###### Trusted Verifier
 Link Oskar
@@ -419,7 +418,7 @@ To exchange data, first a trusted (mutually) authenticated channel has to be set
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-did-">DID</a>,
+    <a href="#-decentralised-identifier-">DID</a>,
     <a href="#-did-exchange-protocol-">DID exchange protocol</a>,
 </div>
 <div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div>
@@ -459,7 +458,7 @@ To exchange data, first a trusted (mutually) authenticated channel has to be set
 </div> 
 <br></br>
 
-##### OpenID Connect
+##### OpenID Connect {#-oidc-}
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
     <a href="https://openid.net/foundation/">OpenID Foundation</a>
@@ -482,7 +481,7 @@ To exchange data, first a trusted (mutually) authenticated channel has to be set
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-self-issued-openid-provider-">SIOP</a>, 
+    <a href="#-siop-">SIOP</a>, 
     <a href="#-oidc4ci-">OIDC4CI</a>, 
     <a href="#-oidc4vp-">OIDC4VP</a>, 
     <a href="#--">presentation exchange</a>
@@ -491,7 +490,7 @@ To exchange data, first a trusted (mutually) authenticated channel has to be set
 Used in many systems. Less or no migration needed compared to moving to a DIDComm-based system
 
 
-##### Self-Issued OpenID Provider
+##### Self-Issued OpenID Provider {#-siop-}
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
     <a href="https://openid.net/foundation/">OpenID Foundation</a>
@@ -514,7 +513,7 @@ Used in many systems. Less or no migration needed compared to moving to a DIDCom
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-openid-connect-">OIDC</a>
+    <a href="#-oidc-">OIDC</a>
 </div> 
 <br></br>
 
@@ -544,16 +543,16 @@ This section describes protocols related to the issuance of credentials. We desc
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-openid-connect4ci">OIDC4CI</a>
+    <a href="#-oidc4ci-">OIDC4CI</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-did">DID</a>, <a href="#-link-secret">link secret</a>, <a href="#-DIDComm">DIDComm</a>
+    <a href="#-did-">DID</a>, <a href="#-link-secret">link secret</a>, <a href="#-DIDComm-">DIDComm</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> 
 <div>
-    <a href="#-didcomm">DIDComm</a>,
-    <a href="#-did-exchange-protocol">DID exchange protocol</a>, <a href="#-present-proof-protocol">present proof protocol</a>
+    <a href="#-didcomm-">DIDComm</a>,
+    <a href="#-did-exchange-protocol-">DID exchange protocol</a>, <a href="#-present-proof-protocol-">present proof protocol</a>
 </div>
 <br></br>
 
@@ -566,7 +565,7 @@ This standard formalizes the protocol to issue credentials by specifying the fol
 The **proof type** can be JWT, JSON-LID or ZKP.
 
 
-##### OIDC4CI
+##### OpenID Connect for Verifiable Credential Issuance {#-oidc4ci-}
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
     <a href="https://openid.net/foundation/">OpenID Foundation</a>
@@ -589,10 +588,10 @@ The **proof type** can be JWT, JSON-LID or ZKP.
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-openid-connect-">OIDC</a>, 
-    <a href="#-self-issued-openid-provider-">SIOP</a>, 
+    <a href="#-oidc-">OIDC</a>, 
+    <a href="#-siop-">SIOP</a>, 
     <a href="#-mdl-">mDL</a>, 
-    <a href="#-verifiable-credential-vc-">VC</a>
+    <a href="#-verifiable-credential-">VC</a>
 </div> 
 <br></br>
 
@@ -677,7 +676,8 @@ This standard formalizes the protocol for presentation exchange by specifying th
 - Prover $\rightarrow$ verifier: provide the presentation.
 
 
-##### OID4VP
+##### OpenID Connect for Verifiable Presentations {#-oidc4vp-}
+
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
     <a href="https://openid.net/foundation/">OpenID Foundation</a>
@@ -700,7 +700,7 @@ This standard formalizes the protocol for presentation exchange by specifying th
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-openid-connect4ci">OIDC4CI</a>, <a href="#-self-issued-openid-provider">SIOP</a>,
+    <a href="#-oidc4ci-">OIDC4CI</a>, <a href="#-self-issued-openid-provider">SIOP</a>,
     <a href="#-presentation-exchange">presentation exchange</a>, <a href="#-vp">VP</a>
 </div> 
 <br></br>
@@ -754,7 +754,7 @@ Overview: Link to RWOT Credential Comparison Matrix + Paper.
 
 In the next sections we will describe the credential formats that are standardised. Note that these still have a lot of degrees of freedom in there, as choices can be made in the used signature algorithm, revocation mechanism, identifiers... 
 
-##### Verifiable Credential (VC)
+##### Verifiable Credential
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -821,7 +821,7 @@ The standard for Verifiable Credentials leaves some room for choices in **claim 
 
 The standard for Verifiable Presentations (VPs) leaves some room for choices in credential (JSON vs JSON-LD) and proof (JWT vs linked data proofs) format. -->
 
-##### mobile Driving License (mDL)
+##### mobile Driving License
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -845,7 +845,8 @@ The standard for Verifiable Presentations (VPs) leaves some room for choices in 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-openid-connect4ci-">OIDC4CI</a>, 
+    <a href="#-oidc4ci-">OIDC4CI</a>, 
+    <a href="#-oidc4vp-">OIDC4VP</a>,
     <a href="#-vical-mdoc-">VICAL</a>
 </div> 
 <br></br>
@@ -1004,22 +1005,22 @@ It's very useful to be able to delegate and mandate rights and duties towards a 
 </div> 
 <br></br>
 
-#### CHAPI
+#### Credential Handler API {#-chapi-}
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://www.w3.org/">W3C</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
 <div>
-    -
+    1.0
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
 <div>
-    -
+    23-06-2021
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://w3c-ccg.github.io/credential-handler-api/">Credential Handler API 1.0</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>

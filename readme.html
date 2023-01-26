@@ -342,7 +342,7 @@ Last revision: 23-01-2023</p>
 <h4 class="mume-header" id="-identifier-">Identifier</h4>
 
 <div style="text-align: justify"> An identifier is used to identify a party and this identifier can be authenticated by another party. Identifiers in this context are usually bound to a key somehow. Strong identifiers must be self-certifying, i.e. there should be a strong binding between key and identifier.</div>
-<h5 class="mume-header" id="-did-">DID</h5>
+<h5 class="mume-header" id="-decentralised-identifier-">Decentralised Identifier</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div><a href="https://www.w3.org/">W3C</a></div>
@@ -376,7 +376,7 @@ Last revision: 23-01-2023</p>
     <a href="#-present-proof-protocol-">Present Proof Protocol</a>
 </div>  
 <br><br>
-<p>Decentralised identifiers that allow for the authentication of decentralised digital identities of a <a href="https://w3c.github.io/did-core/#did-subject">DID subject</a>. A DID is a URI that associates the DID subject with a DID document, which describes the DID subject and how they can authenticate themselves using cryptographic keys. DID documents are generated using a specific <a href="https://w3c.github.io/did-spec-registries/#did-methods">DID method</a>. It depends on the DID method whether the DID is a self-certifying identifier.</p>
+<p>Decentralised identifiers (DIDs) allow for the authentication of decentralised digital identities of a <a href="https://w3c.github.io/did-core/#did-subject">DID subject</a>. A DID is a URI that associates the DID subject with a DID document, which describes the DID subject and how they can authenticate themselves using cryptographic keys. DID documents are generated using a specific <a href="https://w3c.github.io/did-spec-registries/#did-methods">DID method</a>. It depends on the DID method whether the DID is a self-certifying identifier.</p>
 <p>A DID can be a global unique identifier, but parties can also have multiple (<a href="https://identity.foundation/peer-did-method-spec/">peer</a>)DIDs to separate domains/personas.</p>
 <h5 class="mume-header" id="-x509-">X.509</h5>
 
@@ -398,13 +398,13 @@ Last revision: 23-01-2023</p>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-did-">DID</a>,
+    <a href="#-decentralised-identifier-">DID</a>,
     <a href="#-link-secret-">link secret</a>,
     <a href="#-raw-public-key-">raw public key</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-openid-connect-">OIDC</a>
+    <a href="#-oidc-">OIDC</a>
 </div>
 <br><br>
 <p>X.509 certificates are very widely used to define the binding between a party&apos;s (partial) identity and a public key. This certificate can be signed by a certificate authority, or it can be self-signed. It forms the basis for protocols like TLS in HTTPS. Because you can put attributes in the certificate, X.509 certificates can also be used as <a href="#-credential-">credential</a> format.</p>
@@ -428,7 +428,7 @@ Last revision: 23-01-2023</p>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-did-">DID</a>, 
+    <a href="#-decentralised-identifier-">DID</a>, 
     <a href="#-x509-">X.509</a>, 
     <a href="#-raw-public-key-">raw public key</a>
 </div>
@@ -450,7 +450,7 @@ Based on <a href="https://www.cs.cornell.edu/courses/cs754/2001fa/129.PDF">Peder
 <h4 class="mume-header" id="-decentralised-public-key-infrastructure-">Decentralised Public Key Infrastructure</h4>
 
 <p>As the name suggests, this is the decentralised version of the classic public key infrastructure. This ensures that no single party can compromise the integrity and security of the system as a whole. In decentralised PKI, there is no need to have a trusted third party.</p>
-<h5 class="mume-header" id="-keri-">KERI</h5>
+<h5 class="mume-header undefined" id="-keri-">Key Event Receipt Infrastructure</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -474,7 +474,7 @@ Based on <a href="https://www.cs.cornell.edu/courses/cs754/2001fa/129.PDF">Peder
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-did-">DID</a>
+    <a href="#-decentralised-identifier-">DID</a>
 </div> 
 <br><br>
 <p>KERI is a novel technology for Decentralised Key Management Infrastructure (DKMI). It has been brought under in an informational standard.<br>
@@ -510,7 +510,7 @@ Primary key management operation is key rotation, that can be performed using ke
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-did-">DID</a>
+    <a href="#-decentralised-identifier-">DID</a>
 </div> 
 <br><br>
 Hyperledger is a collection of projects related to DLTs and creates open-source DLT. Hyperledger falls under guardianship of the Linux Foundation.
@@ -555,7 +555,7 @@ Hyperledger is a collection of projects related to DLTs and creates open-source 
 <h6 class="mume-header" id="-trusted-issuer-">Trusted Issuer</h6>
 
 <p>Link Oskar</p>
-<p>In the <a href="#-mobile-driving-license-mdl-">mDL</a> standard, the notion of Verified Issuer Certificate Authority List (VICAL) is introduced. This list can be used as a trust anchor for verifiers.</p>
+<p>In the <a href="#-mobile-driving-license-">mDL</a> standard, the notion of Verified Issuer Certificate Authority List (VICAL) is introduced. This list can be used as a trust anchor for verifiers.</p>
 <h6 class="mume-header" id="-trusted-verifier-">Trusted Verifier</h6>
 
 <p>Link Oskar</p>
@@ -603,7 +603,7 @@ Hyperledger is a collection of projects related to DLTs and creates open-source 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-did-">DID</a>,
+    <a href="#-decentralised-identifier-">DID</a>,
     <a href="#-did-exchange-protocol-">DID exchange protocol</a>,
 </div>
 <div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div>
@@ -642,7 +642,7 @@ Hyperledger is a collection of projects related to DLTs and creates open-source 
     <a href="#-didcomm-">DIDComm</a>
 </div> 
 <br><br>
-<h5 class="mume-header" id="-openid-connect-">OpenID Connect</h5>
+<h5 class="mume-header undefined" id="-oidc-">OpenID Connect</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -666,14 +666,14 @@ Hyperledger is a collection of projects related to DLTs and creates open-source 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-self-issued-openid-provider-">SIOP</a>, 
+    <a href="#-siop-">SIOP</a>, 
     <a href="#-oidc4ci-">OIDC4CI</a>, 
     <a href="#-oidc4vp-">OIDC4VP</a>, 
     <a href="#--">presentation exchange</a>
 </div> 
 <br><br>
 Used in many systems. Less or no migration needed compared to moving to a DIDComm-based system
-<h5 class="mume-header" id="-self-issued-openid-provider-">Self-Issued OpenID Provider</h5>
+<h5 class="mume-header undefined" id="-siop-">Self-Issued OpenID Provider</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -697,7 +697,7 @@ Used in many systems. Less or no migration needed compared to moving to a DIDCom
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-openid-connect-">OIDC</a>
+    <a href="#-oidc-">OIDC</a>
 </div> 
 <br><br>
 <hr>
@@ -727,16 +727,16 @@ Used in many systems. Less or no migration needed compared to moving to a DIDCom
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-openid-connect4ci">OIDC4CI</a>
+    <a href="#-oidc4ci-">OIDC4CI</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-did">DID</a>, <a href="#-link-secret">link secret</a>, <a href="#-DIDComm">DIDComm</a>
+    <a href="#-did-">DID</a>, <a href="#-link-secret">link secret</a>, <a href="#-DIDComm-">DIDComm</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> 
 <div>
-    <a href="#-didcomm">DIDComm</a>,
-    <a href="#-did-exchange-protocol">DID exchange protocol</a>, <a href="#-present-proof-protocol">present proof protocol</a>
+    <a href="#-didcomm-">DIDComm</a>,
+    <a href="#-did-exchange-protocol-">DID exchange protocol</a>, <a href="#-present-proof-protocol-">present proof protocol</a>
 </div>
 <br><br>
 <p>This standard formalizes the protocol to issue credentials by specifying the following four messages in the protocol:</p>
@@ -747,7 +747,7 @@ Used in many systems. Less or no migration needed compared to moving to a DIDCom
 <li>Issuer <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&#x2192;</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">&#x2192;</span></span></span></span> holder: issue the credential.</li>
 </ul>
 <p>The <strong>proof type</strong> can be JWT, JSON-LID or ZKP.</p>
-<h5 class="mume-header" id="-oidc4ci-">OIDC4CI</h5>
+<h5 class="mume-header undefined" id="-oidc4ci-">OpenID Connect for Verifiable Credential Issuance</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -771,10 +771,10 @@ Used in many systems. Less or no migration needed compared to moving to a DIDCom
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-openid-connect-">OIDC</a>, 
-    <a href="#-self-issued-openid-provider-">SIOP</a>, 
+    <a href="#-oidc-">OIDC</a>, 
+    <a href="#-siop-">SIOP</a>, 
     <a href="#-mdl-">mDL</a>, 
-    <a href="#-verifiable-credential-vc-">VC</a>
+    <a href="#-verifiable-credential-">VC</a>
 </div> 
 <br><br>
 <p>This standard describes an API for credential issuance via OIDC (and OAuth2.0), by defining what the <strong>credential offer</strong> and <strong>credential offer response</strong> should look like.<br>
@@ -852,7 +852,7 @@ The <strong>proof type</strong> must be JWT.</p>
 <li>Verifier <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&#x2192;</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">&#x2192;</span></span></span></span> prover: request a presentation.</li>
 <li>Prover <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&#x2192;</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">&#x2192;</span></span></span></span> verifier: provide the presentation.</li>
 </ul>
-<h5 class="mume-header" id="-oid4vp-">OID4VP</h5>
+<h5 class="mume-header undefined" id="-oidc4vp-">OpenID Connect for Verifiable Presentations</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -876,7 +876,7 @@ The <strong>proof type</strong> must be JWT.</p>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-openid-connect4ci">OIDC4CI</a>, <a href="#-self-issued-openid-provider">SIOP</a>,
+    <a href="#-oidc4ci-">OIDC4CI</a>, <a href="#-self-issued-openid-provider">SIOP</a>,
     <a href="#-presentation-exchange">presentation exchange</a>, <a href="#-vp">VP</a>
 </div> 
 <br><br>
@@ -925,7 +925,7 @@ The <strong>proof type</strong> must be JWT.</p>
 
 <p>Overview: Link to RWOT Credential Comparison Matrix + Paper.</p>
 <p>In the next sections we will describe the credential formats that are standardised. Note that these still have a lot of degrees of freedom in there, as choices can be made in the used signature algorithm, revocation mechanism, identifiers...</p>
-<h5 class="mume-header" id="-verifiable-credential-vc-">Verifiable Credential (VC)</h5>
+<h5 class="mume-header" id="-verifiable-credential-">Verifiable Credential</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -960,7 +960,7 @@ The <strong>proof type</strong> must be JWT.</p>
 <br><br>
 <p>The data model defines the terms <strong>claim</strong>, <strong>credential</strong> and <strong>presentation</strong> that form the basis for the verifiable credentials. Verifiable credentials and verifiable presentations are defined by giving a format on how to specify them.<br>
 The standard for Verifiable Credentials leaves some room for choices in <strong>claim format</strong> (JSON vs JSON-LD) and <strong>proof format</strong> (JWT vs linked data proofs).</p>
-<h5 class="mume-header" id="-mobile-driving-license-mdl-">mobile Driving License (mDL)</h5>
+<h5 class="mume-header" id="-mobile-driving-license-">mobile Driving License</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -984,7 +984,8 @@ The standard for Verifiable Credentials leaves some room for choices in <strong>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-openid-connect4ci-">OIDC4CI</a>, 
+    <a href="#-oidc4ci-">OIDC4CI</a>, 
+    <a href="#-oidc4vp-">OIDC4VP</a>,
     <a href="#-vical-mdoc-">VICAL</a>
 </div> 
 <br><br>
@@ -1136,23 +1137,23 @@ The standard for Verifiable Credentials leaves some room for choices in <strong>
     <a href="#--">-</a>
 </div> 
 <br><br>
-<h4 class="mume-header" id="-chapi-">CHAPI</h4>
+<h4 class="mume-header undefined" id="-chapi-">Credential Handler API</h4>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://www.w3.org/">W3C</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
 <div>
-    -
+    1.0
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
 <div>
-    -
+    23-06-2021
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://w3c-ccg.github.io/credential-handler-api/">Credential Handler API 1.0</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
