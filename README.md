@@ -115,11 +115,11 @@ Compatible with: -->
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div> 
 <br></br>
 
@@ -149,23 +149,27 @@ Compatible with: -->
 <div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
 <div><a href="https://w3c.github.io/did-core/">Decentralised Identifiers (DIDs)</a></div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
-<div><a href="#x509">X.509</a>, <a href="#link-secret">link secret</a>, <a href="#raw-public-key">raw public key</a></div>
+<div>
+    <a href="#-x509-">X.509</a>, 
+    <a href="#-link-secret-">link secret</a>, 
+    <a href="#-raw-public-key-">raw public key</a>
+</div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#did-exchange-protocol">DID Exchange Protocol</a>, 
-    <a href="#didcomm">DIDComm</a>, 
+    <a href="#-did-exchange-protocol-">DID Exchange Protocol</a>, 
+    <a href="#-didcomm-">DIDComm</a>, 
 </div> 
 <div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with</div> 
 <div>
-    <a href="#issue-credential-protocol">Issue Credential Protocol,</a>
+    <a href="#-issue-credential-protocol-">Issue Credential Protocol,</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with</div>
 <div>
-    <a href="#presentation-exchange">Presentation Exchange,</a>
+    <a href="#-presentation-exchange-">Presentation Exchange,</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with</div> 
 <div>
-    <a href="#present-proof-protocol">Present Proof Protocol</a>
+    <a href="#-present-proof-protocol-">Present Proof Protocol</a>
 </div>  
 <br></br>
 
@@ -193,17 +197,17 @@ A DID can be a global unique identifier, but parties can also have multiple ([pe
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#did">DID</a>,
-    <a href="#link-secret">link secret</a>,
-    <a href="#raw-public-key">raw public key</a>
+    <a href="#-did-">DID</a>,
+    <a href="#-link-secret-">link secret</a>,
+    <a href="#-raw-public-key-">raw public key</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#openid-connect">OIDC</a>
+    <a href="#-openid-connect-">OIDC</a>
 </div>
 <br></br>
 
-X.509 certificates are very widely used to define the binding between a party's (partial) identity and a public key. This certificate can be signed by a certificate authority, or it can be self-signed. It forms the basis for protocols like TLS in HTTPS. Because you can put attributes in the certificate, X.509 certificates can also be used as [credential](#credential) format.
+X.509 certificates are very widely used to define the binding between a party's (partial) identity and a public key. This certificate can be signed by a certificate authority, or it can be self-signed. It forms the basis for protocols like TLS in HTTPS. Because you can put attributes in the certificate, X.509 certificates can also be used as [credential](#-credential-) format.
 
 ##### Link Secret
 
@@ -225,11 +229,14 @@ X.509 certificates are very widely used to define the binding between a party's 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#did">DID</a>, <a href="#x509">X.509</a>, <a href="#raw-public-key">raw public key</a>
+    <a href="#-did-">DID</a>, 
+    <a href="#-x509-">X.509</a>, 
+    <a href="#-raw-public-key-">raw public key</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">AnonCred</a>, <a href="#didcomm">DIDComm</a>
+    <a href="#--">AnonCred</a>, 
+    <a href="#-didcomm-">DIDComm</a>
 </div> 
 <br></br>
 
@@ -273,7 +280,7 @@ As the name suggests, this is the decentralised version of the classic public ke
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#did">DID</a>
+    <a href="#-did-">DID</a>
 </div> 
 <br></br>
 
@@ -309,11 +316,11 @@ A blockchain is a distributed database, without a single central authority that 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#distributed-ledger-technology">Other DLTs</a>
+    <a href="#-distributed-ledger-technology-">Other DLTs</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#did">DID</a>
+    <a href="#-did-">DID</a>
 </div> 
 <br></br>
 Hyperledger is a collection of projects related to DLTs and creates open-source DLT. Hyperledger falls under guardianship of the Linux Foundation.
@@ -338,11 +345,11 @@ Hyperledger is a collection of projects related to DLTs and creates open-source 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#distributed-ledger-technology">Other DLTs</a>
+    <a href="#-distributed-ledger-technology-">Other DLTs</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#trusted-issuer">Trusted Issuer</a>
+    <a href="#-trusted-issuer-">Trusted Issuer</a>
 </div> 
 <br></br>
 
@@ -361,7 +368,7 @@ The European Blockchain Services Infrastructure (EBSI) is a European consortium 
 ###### Trusted Issuer
 Link Oskar
 
-In the [mDL](#mobile-driving-license-mdl) standard, the notion of Verified Issuer Certificate Authority List (VICAL) is introduced. This list can be used as a trust anchor for verifiers.
+In the [mDL](#-mobile-driving-license-mdl-) standard, the notion of Verified Issuer Certificate Authority List (VICAL) is introduced. This list can be used as a trust anchor for verifiers.
 
 ###### Trusted Verifier
 Link Oskar
@@ -408,20 +415,20 @@ To exchange data, first a trusted (mutually) authenticated channel has to be set
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#openid-connect">OIDC</a>
+    <a href="#-openid-connect">OIDC</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#did">DID</a>,
-    <a href="#did-exchange-protocol">DID exchange protocol</a>,
+    <a href="#-did-">DID</a>,
+    <a href="#-did-exchange-protocol-">DID exchange protocol</a>,
 </div>
 <div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div>
 <div>
-    <a href="#issue-credential-protocol">issue credential protocol</a>,
+    <a href="#-issue-credential-protocol-">issue credential protocol</a>,
 </div>
 <div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div>
 <div>
-    <a href="#present-proof-protocol">present proof protocol</a>,
+    <a href="#-present-proof-protocol-">present proof protocol</a>,
 </div> 
 <br></br>
 
@@ -444,11 +451,11 @@ To exchange data, first a trusted (mutually) authenticated channel has to be set
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#didcomm">DIDComm</a>
+    <a href="#-didcomm-">DIDComm</a>
 </div> 
 <br></br>
 
@@ -471,11 +478,14 @@ To exchange data, first a trusted (mutually) authenticated channel has to be set
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#didcomm">DIDComm</a>
+    <a href="#-didcomm-">DIDComm</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">SIOP</a>, <a href="#-">OIDC4CI</a>, <a href="#-">OIDC4VP</a>, <a href="#-">presentation exchange</a>
+    <a href="#-self-issued-openid-provider-">SIOP</a>, 
+    <a href="#-oidc4ci-">OIDC4CI</a>, 
+    <a href="#-oidc4vp-">OIDC4VP</a>, 
+    <a href="#--">presentation exchange</a>
 </div> 
 <br></br>
 Used in many systems. Less or no migration needed compared to moving to a DIDComm-based system
@@ -500,11 +510,11 @@ Used in many systems. Less or no migration needed compared to moving to a DIDCom
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#openid-connect">OIDC</a>
+    <a href="#-openid-connect-">OIDC</a>
 </div> 
 <br></br>
 
@@ -534,16 +544,16 @@ This section describes protocols related to the issuance of credentials. We desc
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#openid-connect4ci">OIDC4CI</a>
+    <a href="#-openid-connect4ci">OIDC4CI</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#did">DID</a>, <a href="#link-secret">link secret</a>, <a href="#DIDComm">DIDComm</a>
+    <a href="#-did">DID</a>, <a href="#-link-secret">link secret</a>, <a href="#-DIDComm">DIDComm</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> 
 <div>
-    <a href="#didcomm">DIDComm</a>,
-    <a href="#did-exchange-protocol">DID exchange protocol</a>, <a href="#present-proof-protocol">present proof protocol</a>
+    <a href="#-didcomm">DIDComm</a>,
+    <a href="#-did-exchange-protocol">DID exchange protocol</a>, <a href="#-present-proof-protocol">present proof protocol</a>
 </div>
 <br></br>
 
@@ -575,11 +585,14 @@ The **proof type** can be JWT, JSON-LID or ZKP.
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#issue-credential-protocol">issue credential protocol</a>
+    <a href="#-issue-credential-protocol-">issue credential protocol</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#openid-connect">OIDC</a>, <a href="#self-issued-openid-provider">SIOP</a>, <a href="#mdl">mDL</a>, <a href="#verifiable-credential-vc">VC</a>
+    <a href="#-openid-connect-">OIDC</a>, 
+    <a href="#-self-issued-openid-provider-">SIOP</a>, 
+    <a href="#-mdl-">mDL</a>, 
+    <a href="#-verifiable-credential-vc-">VC</a>
 </div> 
 <br></br>
 
@@ -606,25 +619,26 @@ The **proof type** must be JWT.
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    JSON-based credentials, <a href="#oidc4ci">OIDC4CI</a>,
-    <a href="#issue-credential-protocol">issue credential protocol</a>,
+    JSON-based credentials, 
+    <a href="#-oidc4ci-">OIDC4CI</a>,
+    <a href="#-issue-credential-protocol-">issue credential protocol</a>,
 </div> 
 <div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> 
 <div>
-    <a href="#chapi">CHAPI</a>
+    <a href="#-chapi-">CHAPI</a>
 </div> 
 <br></br>
 
 In order for the issuer to send the soon-to-be holder a credential, the issuer needs to know some information about the subject. This specification a data format named the **credential manifest**, describing the inputs a subject must provide to an issuer in which format, in order for the issuer to determine whether to issue the credential to the subject. The subject, i.e. the user agent, discovers the credential manifest and can then form a **credential application**, containing the information on the subject that the issuer needs. The issuer can then determine whether this application is accepted or declined and sends a **credential response**. The formats for the credential application and credential response are also specified in this standard.
 
-We assume that the credential manifest is **claim format** and transport envelope agnostic, just like the formats in [presentation exchange](#presentation-exchange). However, this has not been clearly specified in this standard, but there are some hints.
+We assume that the credential manifest is **claim format** and transport envelope agnostic, just like the formats in [presentation exchange](#-presentation-exchange-). However, this has not been clearly specified in this standard, but there are some hints.
 
 
-The credential manifest is the issuance equivalent to the **presentation definition** specified in [presentation exchange](#presentation-exchange).
+The credential manifest is the issuance equivalent to the **presentation definition** specified in [presentation exchange](#-presentation-exchange-).
 
 #### Verification Protocol
 
@@ -647,13 +661,13 @@ The credential manifest is the issuance equivalent to the **presentation definit
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#openid-connect4vp">OIDC4VP</a>
+    <a href="#-openid-connect4vp">OIDC4VP</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#didcomm">DIDComm</a>,
-    <a href="#issue-credential-protocol">issue credential protocol</a>, 
-    <a href="#presentation-exchange">presentation exchange</a>
+    <a href="#-didcomm">DIDComm</a>,
+    <a href="#-issue-credential-protocol">issue credential protocol</a>, 
+    <a href="#-presentation-exchange">presentation exchange</a>
 </div> 
 <br></br>
 
@@ -682,12 +696,12 @@ This standard formalizes the protocol for presentation exchange by specifying th
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#present-proof-protocol">present proof protocol</a>
+    <a href="#-present-proof-protocol">present proof protocol</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#openid-connect4ci">OIDC4CI</a>, <a href="#self-issued-openid-provider">SIOP</a>,
-    <a href="#presentation-exchange">presentation exchange</a>, <a href="#vp">VP</a>
+    <a href="#-openid-connect4ci">OIDC4CI</a>, <a href="#-self-issued-openid-provider">SIOP</a>,
+    <a href="#-presentation-exchange">presentation exchange</a>, <a href="#-vp">VP</a>
 </div> 
 <br></br>
 
@@ -713,16 +727,17 @@ OIDC for Verifiable Presentations is, as the name suggests, an extension to OIDC
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    JSON-based credentials, <a href="#oidc4vp">OIDC4VP</a>,
-    <a href="#present-proof-protocol">present proof protocol</a>,
+    JSON-based credentials, 
+    <a href="#-oidc4vp-">OIDC4VP</a>,
+    <a href="#-present-proof-protocol-">present proof protocol</a>,
 </div> 
 <div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> 
 <div>
-    <a href="#chapi">CHAPI</a>
+    <a href="#-chapi-">CHAPI</a>
 </div> 
 <br></br>
 
@@ -732,7 +747,7 @@ In order for the holder to send the verifier a presentation, the holder needs to
 
 These formats are **claim format** and transport envelope agnostic, as long as the claim format can be serialized as JSON.
 
-The presentation definition is the verification equivalent of the [credential manifest](#credential-manifest).
+The presentation definition is the verification equivalent of the [credential manifest](#-credential-manifest-).
 
 #### Credential
 Overview: Link to RWOT Credential Comparison Matrix + Paper.
@@ -759,16 +774,17 @@ In the next sections we will describe the credential formats that are standardis
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">other credential formats</a>
+    <a href="#--">other credential formats</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#oidc4ci">OIDC4CI</a>, <a href="#oidc4vp">OIDC4VP</a>, 
-    <a href="#issue-credential-protocol">issue credential protocol</a>,
+    <a href="#-oidc4ci-">OIDC4CI</a>, 
+    <a href="#-oidc4vp-">OIDC4VP</a>, 
+    <a href="#-issue-credential-protocol-">issue credential protocol</a>,
 </div>
 <div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div> 
 <div>
-    <a href="#present-proof-protocol">present proof protocol</a>
+    <a href="#-present-proof-protocol-">present proof protocol</a>
 </div> 
 <br></br>
 
@@ -795,11 +811,11 @@ The standard for Verifiable Credentials leaves some room for choices in **claim 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div> 
 <br></br>
 
@@ -825,11 +841,12 @@ The standard for Verifiable Presentations (VPs) leaves some room for choices in 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">other credential formats</a>
+    <a href="#--">other credential formats</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#openid-connect4ci">OIDC4CI</a>, <a href="#vical-mdoc">VICAL</a>
+    <a href="#-openid-connect4ci-">OIDC4CI</a>, 
+    <a href="#-vical-mdoc-">VICAL</a>
 </div> 
 <br></br>
 
@@ -859,11 +876,11 @@ The standard specifies the implementation of a driving license in association wi
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div> 
 <br></br>
 
@@ -895,11 +912,11 @@ It's very useful to be able to delegate and mandate rights and duties towards a 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div> 
 <br></br>
 
@@ -924,11 +941,11 @@ It's very useful to be able to delegate and mandate rights and duties towards a 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div> 
 <br></br>
 
@@ -952,11 +969,11 @@ It's very useful to be able to delegate and mandate rights and duties towards a 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div> 
 <br></br>
 
@@ -979,11 +996,11 @@ It's very useful to be able to delegate and mandate rights and duties towards a 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div> 
 <br></br>
 
@@ -1006,11 +1023,11 @@ It's very useful to be able to delegate and mandate rights and duties towards a 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div> 
 <br></br>
 
@@ -1033,7 +1050,7 @@ It's very useful to be able to delegate and mandate rights and duties towards a 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-">-</a>
+    <a href="#--">-</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
