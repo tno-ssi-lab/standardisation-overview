@@ -1,5 +1,6 @@
 plugins:
   - jekyll-relative-links
+theme: minima 
 relative_links:
   enabled: true
   collections: true
@@ -12,4 +13,3 @@ include:
   - CONTRIBUTING.md
   - ISSUE_TEMPLATE.md
   - PULL_REQUEST_TEMPLATE.md
-theme:minima
