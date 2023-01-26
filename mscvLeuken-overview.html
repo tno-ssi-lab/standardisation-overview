@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>README</title>
+      <title>mscvLeuken-overview</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -960,7 +960,7 @@ The <strong>proof type</strong> must be JWT.</p>
 <br><br>
 <p>The data model defines the terms <strong>claim</strong>, <strong>credential</strong> and <strong>presentation</strong> that form the basis for the verifiable credentials. Verifiable credentials and verifiable presentations are defined by giving a format on how to specify them.<br>
 The standard for Verifiable Credentials leaves some room for choices in <strong>claim format</strong> (JSON vs JSON-LD) and <strong>proof format</strong> (JWT vs linked data proofs).</p>
-<h5 class="mume-header" id="-mobile-driving-license-">mobile Driving License</h5>
+<h5 class="mume-header undefined" id="-mdoc-">Mobile Document</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -995,6 +995,7 @@ The standard for Verifiable Credentials leaves some room for choices in <strong>
 <li>the interface between the <strong>mDL reader</strong> and the issuing authority infrastructure</li>
 <li>how to tie the <strong>mDL</strong> to the <strong>mDL holder</strong> (where the holder must be equal to the <strong>data subject</strong>), through the use of a portrait image of the <strong>mDL holder</strong>.</li>
 </ul>
+<p>The credential format used for the mDL is the MDOC.</p>
 <h5 class="mume-header" id="-anoncred-">AnonCred</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
@@ -1029,11 +1030,11 @@ The standard for Verifiable Credentials leaves some room for choices in <strong>
 <h4 class="mume-header" id="-delegation-and-mandate-">Delegation and Mandate</h4>
 
 <p>It&apos;s very useful to be able to delegate and mandate rights and duties towards a third party to for example an employee.</p>
-<h5 class="mume-header" id="-acdc-">ACDC</h5>
+<h5 class="mume-header undefined" id="-acdc">Authentic Chained Data Containers</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://wiki.trustoverip.org/display/HOME/Trust+over+IP+Foundation">ToIP Foundation</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
 <div>
@@ -1041,11 +1042,11 @@ The standard for Verifiable Credentials leaves some room for choices in <strong>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
 <div>
-    -
+    15-09-2022
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="https://trustoverip.github.io/tswg-acdc-specification/draft-ssmith-acdc.html">Authentic Chained Data Containers (ACDC)</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
@@ -1056,6 +1057,11 @@ The standard for Verifiable Credentials leaves some room for choices in <strong>
     <a href="#--">-</a>
 </div> 
 <br><br>
+<p>The ACDC protocol aims to provide granular provenanced proof-of-authorship of the data contained via a chain of linked ACDCs.</p>
+<p>Variant of VC<br>
+KERI<br>
+JSON<br>
+claim formats: JSON, CBOR, MGPK, CESR</p>
 <h5 class="mume-header" id="-zcap-">ZCap</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
