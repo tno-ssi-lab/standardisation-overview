@@ -3,7 +3,7 @@ ___
 
 The graphical overview of SSI-related standards can be found [here](https://maaikevanleuken.github.io/SSI-Standardisation-Overview/).
 
-For an accompanying guide and more background information, see the [documentation](https://maaikevanleuken.github.io/SSI-Standardisation-Overview/mscvleuken-overview.html).
+For an accompanying guide and more background information, see the [documentation](https://maaikevanleuken.github.io/SSI-Standardisation-Overview/mscvLeuken-overview.html).
 
 ___
 
