@@ -30,6 +30,8 @@ The terms **credential application** and **credential response** are used as def
 
 The terms **self-sovereign identity**, **issuer**, **holder**, **verifier**, **subject**, **party**, **delegation**, **mandate** ... are defined in the [eSSIF-Lab Glossary](https://essif-lab.github.io/framework/docs/essifLab-glossary).
 
+The terms **self-certifying identifier** and **self-authenticated identifier** are used as defined in [tbd](#tbd).
+
 The terms **link secret**, **presentation definition** and **presentation submission** are defined in the [DIF Presentation Exchange Terminology](https://identity.foundation/presentation-exchange/#terminology).
 
 The terms **mdoc**, **mDL**, **mDL reader** and **mDL holder** are used as defined in [ISO/IEC 18013-5:2021 (mDL)](https://www.iso.org/standard/69084.html).
@@ -133,12 +135,12 @@ Compatible with: -->
 -->
 
 ### Layer 1: Trust Anchors
-<div style="text-align: justify">Trust anchors form the basis of the entire stack. Without a strong foundation to anchor your trust to, you cannot have trust in credentials that are exchanged in layer three etc. Technologies in this layer include identifiers, decentralised public key infrastructure and registries.</div>
+Trust anchors form the basis of the entire stack. Without a strong foundation to anchor your trust to, you cannot have trust in the information communicated on the higher layers, i.e. the credentials exchanged in layer 4. Technologies in layer 1 include [identifiers](#-id-), [decentralised public key infrastructure](#-dpki-) and [registries](#-registries-).
 
-#### Identifier
-<div style="text-align: justify"> An identifier is used to identify a party and this identifier can be authenticated by another party. Identifiers in this context are usually bound to a key somehow. Strong identifiers must be self-certifying, i.e. there should be a strong binding between key and identifier.</div>
+#### Identifier {#-id-}
+An **identifier** is used to identify a party in a certain context. This identifier can be authenticated by another party. Strong identifiers must be **self-certifying**, i.e. there should be a strong binding between the key and the corresponding identifier.
 
-##### Decentralised Identifier
+##### Decentralised Identifier {#-did-}
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div><a href="https://www.w3.org/">W3C</a></div>
@@ -173,7 +175,7 @@ Compatible with: -->
 </div>  
 <br></br>
 
-Decentralised identifiers (DIDs) allow for the authentication of decentralised digital identities of a [DID subject](https://w3c.github.io/did-core/#did-subject). A DID is a URI that associates the DID subject with a DID document, which describes the DID subject and how they can authenticate themselves using cryptographic keys. DID documents are generated using a specific [DID method](https://w3c.github.io/did-spec-registries/#did-methods). It depends on the DID method whether the DID is a self-certifying identifier.
+Decentralised identifiers (DIDs) allow for the authentication of decentralised digital identities of a [DID subject](https://w3c.github.io/did-core/#did-subject). A DID is a URI that associates the DID subject with a DID document, which describes the DID subject and how they can authenticate themselves using cryptographic keys. By resolving the DID Document, a sender can find the endpoint where to reach the receiver and the public key that the receiver will use in the communication with the sender. DID documents are generated using a specific [DID method](https://w3c.github.io/did-spec-registries/#did-methods). It depends on the DID method whether the DID is a **self-certifying identifier**. 
 
 A DID can be a global unique identifier, but parties can also have multiple ([peer](https://identity.foundation/peer-did-method-spec/))DIDs to separate domains/personas. 
 
@@ -197,7 +199,7 @@ A DID can be a global unique identifier, but parties can also have multiple ([pe
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-decentralised-identifier-">DID</a>,
+    <a href="#-did-">DID</a>,
     <a href="#-link-secret-">link secret</a>,
     <a href="#-raw-public-key-">raw public key</a>
 </div>
@@ -253,7 +255,7 @@ Raw public keys can be used as an identifier.
 
 https://sovrin.org/wp-content/uploads/2019/03/What-if-someone-steals-my-phone-110319.pdf
 
-#### Decentralised Public Key Infrastructure
+#### Decentralised Public Key Infrastructure {#-dpki-}
 As the name suggests, this is the decentralised version of the classic public key infrastructure. This ensures that no single party can compromise the integrity and security of the system as a whole. In decentralised PKI, there is no need to have a trusted third party.
 
 ##### Key Event Receipt Infrastructure {#-keri-}
@@ -290,10 +292,10 @@ Primary key management operation is key rotation, that can be performed using ke
 The trust is rooted in self-certifying identifiers. 
 
 
-#### Registry
+#### Registry {#-registry-}
 A registry is used to store information that could be checked by anyone. To provide more protection against malicious modifications and a single-point of failure, this registry should be implemented in a decentralised fashion. Examples of this are Decentralised File Systems (DFSs) or Decentralised Ledger Technologies (DLTs), such as a blockchain.
 
-##### Distributed Ledger Technology
+##### Distributed Ledger Technology {#-dlt-}
 A blockchain is a distributed database, without a single central authority that you must trust, leading to a higher level of privacy and security.
 
 ###### Hyperledger
@@ -324,7 +326,7 @@ A blockchain is a distributed database, without a single central authority that 
 <br></br>
 Hyperledger is a collection of projects related to DLTs and creates open-source DLT. Hyperledger falls under guardianship of the Linux Foundation.
 
-###### EBSI
+###### European Blockchain Services Infrastructure {#-ebsi-}
 
 <div style="width:250px; height:auto; float:left">Standardisation body:</div> 
 <div>
@@ -355,6 +357,7 @@ Hyperledger is a collection of projects related to DLTs and creates open-source 
 The European Blockchain Services Infrastructure (EBSI) is a European consortium that created a blockchain for the public sector. 
 
 ##### Registry Applications
+<!-- Explain in bullet points as these are not standards. -->
 
 ###### Identifier
 
@@ -376,7 +379,9 @@ Link Oskar
 
 #### Revocation Method
 
-##### Status List 2021
+##### Revocation List
+Status List 2021
+<!-- if standard &rarr; table, otherwise just listed. -->
 
 ##### Cryptographic Accumulator
 
@@ -390,10 +395,11 @@ https://github.com/hyperledger/indy-sdk/blob/main/docs/concepts/revocation/cred-
 (?)
 ___
 
-### Layer 2: Peer-to-Peer Connections
-To exchange data, first a trusted (mutually) authenticated channel has to be set up. Peer-to-peer connections have to be established.
+### Layer 2: Peer-to-Peer Connection
+To exchange data, first a trusted (mutually) authenticated channel has to be set up. Peer-to-peer connections have to be established between agents of the communicating parties.
 
-#### Protocols
+#### Peer-to-Peer Protocol
+A peer-to-peer protocol establishes a secure and private communication between [](#-agent-).
 
 ##### DIDComm
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
@@ -430,6 +436,15 @@ To exchange data, first a trusted (mutually) authenticated channel has to be set
     <a href="#-present-proof-protocol-">present proof protocol</a>,
 </div> 
 <br></br>
+
+By resolving the DID Document, a sender can find the endpoint where to reach the receiver and the public key that the receiver will use in the communication with the sender. 
+
+Various message types are defined: 
+- DIDComm plaintext messages
+- DIDComm signed messages
+- DIDComm encrypted messages
+
+<!-- Messages are explained, where is the protocol explained? -->
 
 ##### DID Exchange Protocol
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
@@ -517,6 +532,15 @@ Used in many systems. Less or no migration needed compared to moving to a DIDCom
 </div> 
 <br></br>
 
+#### Agent {#-agent-}
+
+##### Wallet
+
+###### Wallet Rendering
+
+###### DKMS
+
+
 ___
 ### Layer 3: Credential Exchange Protocols 
 Now that a connection tunnel has been set up, credentials can be exchanged. This layer is about the trust triangle (or diamond).
@@ -557,10 +581,10 @@ This section describes protocols related to the issuance of credentials. We desc
 <br></br>
 
 This standard formalizes the protocol to issue credentials by specifying the following four messages in the protocol:
-- Holder $\rightarrow$ issuer: what credential the holder would like to receive from the issuer.
-- Issuer $\rightarrow$ holder: offer the credential and possibly its notify the price.
-- Holder $\rightarrow$ issuer: request the credential.
-- Issuer $\rightarrow$ holder: issue the credential.
+- Holder &rarr; issuer: what credential the holder would like to receive from the issuer.
+- Issuer &rarr; holder: offer the credential and possibly its notify the price.
+- Holder &rarr; issuer: request the credential.
+- Issuer &rarr; holder: issue the credential.
 
 The **proof type** can be JWT, JSON-LID or ZKP.
 
@@ -671,9 +695,9 @@ The credential manifest is the issuance equivalent to the **presentation definit
 <br></br>
 
 This standard formalizes the protocol for presentation exchange by specifying the following three messages in the protocol:
-- Prover $\rightarrow$ verifier: propose what the presentation would look like.
-- Verifier $\rightarrow$ prover: request a presentation.
-- Prover $\rightarrow$ verifier: provide the presentation.
+- Prover &rarr; verifier: propose what the presentation would look like.
+- Verifier &rarr; prover: request a presentation.
+- Prover &rarr; verifier: provide the presentation.
 
 
 ##### OpenID Connect for Verifiable Presentations {#-oidc4vp-}
@@ -908,11 +932,11 @@ It's very useful to be able to delegate and mandate rights and duties towards a 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
 <div>
-    15-09-2022
+    25-04-2022
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
 <div>
-    <a href="https://trustoverip.github.io/tswg-acdc-specification/draft-ssmith-acdc.html">Authentic Chained Data Containers (ACDC)</a>
+    <a href="https://www.ietf.org/archive/id/draft-ssmith-acdc-01.html">Authentic Chained Data Containers (ACDC)</a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
@@ -924,7 +948,7 @@ It's very useful to be able to delegate and mandate rights and duties towards a 
 </div> 
 <br></br>
 
-The ACDC protocol aims to provide granular provenanced proof-of-authorship of the data contained via a chain of linked ACDCs.
+The ACDC protocol aims to provide granular provenanced proof-of-authorship of the data contained via a chain of linked ACDCs. It allows for delegation of credentials by setting up a verifiable chain-of-custody.
 
 Variant of VC
 KERI
@@ -1072,9 +1096,7 @@ claim formats: JSON, CBOR, MGPK, CESR
 
 ## To Research
 - Sovrin governance & trust framework
-- AIP
 - Decentralised file system?
-- OCA
 - Timestamping
-- AnonCred accumulator
 - Presentation definition and submission
+- Gordian envelopes
