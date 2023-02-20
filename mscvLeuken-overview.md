@@ -1,6 +1,12 @@
+<style>
+    p {
+        text-align: justify;
+    }
+</style>
+
 #  SSI Standardisation Overview
 By [Maaike van Leuken](mailto:maaike.vanleuken@tno.nl) (TNO)\
-Last revision: 23-01-2023
+Last revision: 30-01-2023
 ___
 ## Glossary
 
@@ -32,9 +38,28 @@ The terms **self-sovereign identity**, **issuer**, **holder**, **verifier**, **s
 
 The terms **self-certifying identifier** and **self-authenticated identifier** are used as defined in [tbd](#tbd).
 
-The terms **link secret**, **presentation definition** and **presentation submission** are defined in the [DIF Presentation Exchange Terminology](https://identity.foundation/presentation-exchange/#terminology).
+The terms **identifier**, **link secret**, **presentation definition** and **presentation submission** are defined in the [DIF Presentation Exchange Terminology](https://identity.foundation/presentation-exchange/#terminology).
 
 The terms **mdoc**, **mDL**, **mDL reader** and **mDL holder** are used as defined in [ISO/IEC 18013-5:2021 (mDL)](https://www.iso.org/standard/69084.html).
+___
+
+## Abbreviations
+
+DID
+
+DPKI
+
+SSI
+
+OIDC
+
+DDIP
+
+AIP
+
+<!-- will be a long long list -->
+
+
 ___
 
 ## Introduction
@@ -209,7 +234,7 @@ A DID can be a global unique identifier, but parties can also have multiple ([pe
 </div>
 <br></br>
 
-X.509 certificates are very widely used to define the binding between a party's (partial) identity and a public key. This certificate can be signed by a certificate authority, or it can be self-signed. It forms the basis for protocols like TLS in HTTPS. Because you can put attributes in the certificate, X.509 certificates can also be used as [credential](#-credential-) format.
+X.509 certificates are very widely used to define the binding between a party's (partial) identity and a public key. This certificate can be signed by a certificate authority, such as is done for protocols like TLS in HTTPS. X.509 certificates can also be self-signed. Since you can put attributes in the certificate, X.509 certificates can also be used as [credential](#-credential-) format.
 
 ##### Link Secret
 
@@ -231,7 +256,7 @@ X.509 certificates are very widely used to define the binding between a party's 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
 <div>
-    <a href="#-decentralised-identifier-">DID</a>, 
+    <a href="#-did-">DID</a>, 
     <a href="#-x509-">X.509</a>, 
     <a href="#-raw-public-key-">raw public key</a>
 </div>
@@ -256,7 +281,7 @@ Raw public keys can be used as an identifier.
 https://sovrin.org/wp-content/uploads/2019/03/What-if-someone-steals-my-phone-110319.pdf
 
 #### Decentralised Public Key Infrastructure {#-dpki-}
-As the name suggests, this is the decentralised version of the classic public key infrastructure. This ensures that no single party can compromise the integrity and security of the system as a whole. In decentralised PKI, there is no need to have a trusted third party.
+As the name suggests, this is the decentralised version of the classic, centralised public key infrastructure. The decentralisation ensures that no single party can compromise the integrity and security of the system as a whole. In decentralised PKI, there is no need to have a trusted third party.
 
 ##### Key Event Receipt Infrastructure {#-keri-}
 
@@ -282,26 +307,26 @@ As the name suggests, this is the decentralised version of the classic public ke
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-decentralised-identifier-">DID</a>
+    <a href="#-did-">DID</a>
 </div> 
 <br></br>
 
 KERI is a novel technology for Decentralised Key Management Infrastructure (DKMI). It has been brought under in an informational standard.
-Primary key management operation is key rotation, that can be performed using key event receipt logs (KERL).
+The primary operation for key management is key rotation, that can be performed using key event receipt logs (KERL).
 
 The trust is rooted in self-certifying identifiers. 
 
 
 #### Registry {#-registry-}
-A registry is used to store information that could be checked by anyone. To provide more protection against malicious modifications and a single-point of failure, this registry should be implemented in a decentralised fashion. Examples of this are Decentralised File Systems (DFSs) or Decentralised Ledger Technologies (DLTs), such as a blockchain.
+A registry is used to store information that could be checked by anyone. To provide more protection against malicious modifications and a single-point of failure, this registry should be implemented in a decentralised fashion. Decentralised Ledger Technologies (DLTs), such as a blockchain, can be used for this. Note that SSI solution do not necessarily require the usage of DLTs. [IRMA](https://irma.app/) for example is a ledger-less SSI solution.
 
 ##### Distributed Ledger Technology {#-dlt-}
-A blockchain is a distributed database, without a single central authority that you must trust, leading to a higher level of privacy and security.
+A blockchain is a distributed database, without a single point of failure or a single central authority that you must trust, leading to a higher level of privacy and security.
 
 ###### Hyperledger
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="-"></a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
 <div>
@@ -321,7 +346,7 @@ A blockchain is a distributed database, without a single central authority that 
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-decentralised-identifier-">DID</a>
+    <a href="#-did-">DID</a>
 </div> 
 <br></br>
 Hyperledger is a collection of projects related to DLTs and creates open-source DLT. Hyperledger falls under guardianship of the Linux Foundation.
@@ -424,7 +449,7 @@ A peer-to-peer protocol establishes a secure and private communication between [
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
 <div>
-    <a href="#-decentralised-identifier-">DID</a>,
+    <a href="#-did-">DID</a>,
     <a href="#-did-exchange-protocol-">DID exchange protocol</a>,
 </div>
 <div style="width:250px; height:auto; float:left; display:inline; opacity:0">Compatible with:</div>
