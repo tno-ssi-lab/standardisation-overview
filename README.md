@@ -5,7 +5,7 @@ Technologies within the context of SSI range from technical solutions like decen
 -	Is this technology compatible with or competitive to other standard y?
 -	Is this standard part of an interoperability profile?
 
-To answer these questions, we have developed a [graphical overview](https://tno-ssi-lab.github.io/Standardisation-Overview/) of SSI-related standards and an accompanying [documentation](https://tno-ssi-lab.github.io/Standardisation-Overview/docs.html).
+To answer these questions, we have developed a [graphical overview](https://tno-ssi-lab.github.io/Standardisation-Overview/) of SSI-related standards and an accompanying [documentation](https://tno-ssi-lab.github.io/Standardisation-Overview/docs.html). The overview is structured along the [ToIP Technology Stack](https://trustoverip.org/toip-model/).
 
 ## Contributions
 We welcome contributions. You can contribute through raising issues or by forking the repository. You can also contact us via [email](mailto:maaike.vanleuken@tno.nl).
