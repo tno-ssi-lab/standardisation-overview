@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>mscvLeuken-overview</title>
+      <title>docs</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -290,6 +290,15 @@ Last revision: 30-01-2023</p>
 <p>The terms <strong>identifier</strong>, <strong>link secret</strong>, <strong>presentation definition</strong> and <strong>presentation submission</strong> are defined in the <a href="https://identity.foundation/presentation-exchange/#terminology">DIF Presentation Exchange Terminology</a>.</p>
 <p>The terms <strong>mdoc</strong>, <strong>mDL</strong>, <strong>mDL reader</strong> and <strong>mDL holder</strong> are used as defined in <a href="https://www.iso.org/standard/69084.html">ISO/IEC 18013-5:2021 (mDL)</a>.</p>
 <hr>
+<h2 class="mume-header" id="-abbreviations-">Abbreviations</h2>
+
+<p>DID</p>
+<p>DPKI</p>
+<p>SSI</p>
+<p>OIDC</p>
+<p>DDIP</p>
+<p>AIP</p>
+<hr>
 <h2 class="mume-header" id="-introduction-">Introduction</h2>
 
 <p>There is a large amount of standardisation developed and in development within the context of <strong>Self-Sovereign Identities (SSI)</strong>. The <strong>standards</strong> and <strong>specifications</strong> vary from legacy technologies to new and upcoming technologies, from specifications on cryptographic signature schemes to usability and inclusivity concepts such as guardianship. Whenever looking into a standard or specification, it can be hard to place it in the bigger picture:</p>
@@ -413,7 +422,7 @@ Last revision: 30-01-2023</p>
     <a href="#-oidc-">OIDC</a>
 </div>
 <br><br>
-<p>X.509 certificates are very widely used to define the binding between a party&apos;s (partial) identity and a public key. This certificate can be signed by a certificate authority, or it can be self-signed. It forms the basis for protocols like TLS in HTTPS. Because you can put attributes in the certificate, X.509 certificates can also be used as <a href="#-credential-">credential</a> format.</p>
+<p>X.509 certificates are very widely used to define the binding between a party&apos;s (partial) identity and a public key. This certificate can be signed by a certificate authority, such as is done for protocols like TLS in HTTPS. X.509 certificates can also be self-signed. Since you can put attributes in the certificate, X.509 certificates can also be used as <a href="#-credential-">credential</a> format.</p>
 <h5 class="mume-header" id="-link-secret-">Link Secret</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
@@ -455,7 +464,7 @@ Based on <a href="https://www.cs.cornell.edu/courses/cs754/2001fa/129.PDF">Peder
 <p><a href="https://sovrin.org/wp-content/uploads/2019/03/What-if-someone-steals-my-phone-110319.pdf">https://sovrin.org/wp-content/uploads/2019/03/What-if-someone-steals-my-phone-110319.pdf</a></p>
 <h4 class="mume-header undefined" id="-dpki-">Decentralised Public Key Infrastructure</h4>
 
-<p>As the name suggests, this is the decentralised version of the classic public key infrastructure. This ensures that no single party can compromise the integrity and security of the system as a whole. In decentralised PKI, there is no need to have a trusted third party.</p>
+<p>As the name suggests, this is the decentralised version of the classic, centralised public key infrastructure. The decentralisation ensures that no single party can compromise the integrity and security of the system as a whole. In decentralised PKI, there is no need to have a trusted third party.</p>
 <h5 class="mume-header undefined" id="-keri-">Key Event Receipt Infrastructure</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
@@ -484,19 +493,19 @@ Based on <a href="https://www.cs.cornell.edu/courses/cs754/2001fa/129.PDF">Peder
 </div> 
 <br><br>
 <p>KERI is a novel technology for Decentralised Key Management Infrastructure (DKMI). It has been brought under in an informational standard.<br>
-Primary key management operation is key rotation, that can be performed using key event receipt logs (KERL).</p>
+The primary operation for key management is key rotation, that can be performed using key event receipt logs (KERL).</p>
 <p>The trust is rooted in self-certifying identifiers.</p>
 <h4 class="mume-header undefined" id="-registry-">Registry</h4>
 
-<p>A registry is used to store information that could be checked by anyone. To provide more protection against malicious modifications and a single-point of failure, this registry should be implemented in a decentralised fashion. Examples of this are Decentralised File Systems (DFSs) or Decentralised Ledger Technologies (DLTs), such as a blockchain.</p>
+<p>A registry is used to store information that could be checked by anyone. To provide more protection against malicious modifications and a single-point of failure, this registry should be implemented in a decentralised fashion. Decentralised Ledger Technologies (DLTs), such as a blockchain, can be used for this. Note that SSI solution do not necessarily require the usage of DLTs. <a href="https://irma.app/">IRMA</a> for example is a ledger-less SSI solution.</p>
 <h5 class="mume-header undefined" id="-dlt-">Distributed Ledger Technology</h5>
 
-<p>A blockchain is a distributed database, without a single central authority that you must trust, leading to a higher level of privacy and security.</p>
+<p>A blockchain is a distributed database, without a single point of failure or a single central authority that you must trust, leading to a higher level of privacy and security.</p>
 <h6 class="mume-header" id="-hyperledger-">Hyperledger</h6>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
-    <a href="-">-</a>
+    <a href="-"></a>
 </div>
 <div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
 <div>
