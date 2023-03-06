@@ -1,4 +1,4 @@
-#  SSI Standardisation Overview
+#  [DRAFT] SSI Standardisation Overview
 
 Technologies within the context of SSI range from technical solutions like decentralised public key infrastructure (DPKI) to high-level concepts like guardianship. When encountering a new standard, it can be hard to figure out its context:
 -	What does the technology described in the standard achieve?
