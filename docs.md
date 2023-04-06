@@ -6,7 +6,7 @@
 
 #  [DRAFT] SSI Standardisation Overview
 By [Maaike van Leuken](mailto:maaike.vanleuken@tno.nl) (TNO)\
-Last revision: 06-03-2023
+Last revision: 06-04-2023
 ___
 ## Glossary
 
@@ -798,6 +798,34 @@ These formats are **claim format** and transport envelope agnostic, as long as t
 
 The presentation definition is the verification equivalent of the [credential manifest](#-credential-manifest-).
 
+##### Device Binding Attachments
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="https://github.com/hyperledger/aries-rfcs">Aries RFC</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    07-04-2022
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="https://github.com/hyperledger/aries-rfcs/tree/main/features/0728-device-binding-attachments">Aries RFC 0728: Device Binding Attachments</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href="">SECDSA</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href="#-present-proof-protocol">present proof protocol</a>,
+    <a href="#-anoncred-">AnonCred</a>
+</div> 
+<br></br>
+
 #### Credential
 Overview: Link to RWOT Credential Comparison Matrix + Paper.
 
@@ -870,7 +898,7 @@ The standard for Verifiable Credentials leaves some room for choices in **claim 
 
 The standard for Verifiable Presentations (VPs) leaves some room for choices in credential (JSON vs JSON-LD) and proof (JWT vs linked data proofs) format. -->
 
-##### Mobile Document {#-mdoc-                                }
+##### Mobile Document {#-mdoc-}
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -909,7 +937,7 @@ The credential format used for the mDL is the MDOC.
 <!-- Link to MDOC? -->
 
 
-##### AnonCred
+##### AnonCred {#-anoncred-}
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>

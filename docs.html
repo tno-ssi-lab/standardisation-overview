@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///c:\Users\leukenmscv\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.7\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///c:\Users\leukenmscv\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.8\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
       
@@ -266,12 +266,12 @@ pre[data-line] .line-highlight[data-end]:after {
         text-align: justify;
     }
 </style>
-<h1 class="mume-header" id="--draft-ssi-standardisation-overview-">[DRAFT] SSI Standardisation Overview</h1>
+<h1 class="mume-header" id="draft-ssi-standardisation-overview">[DRAFT] SSI Standardisation Overview</h1>
 
 <p>By <a href="mailto:maaike.vanleuken@tno.nl">Maaike van Leuken</a> (TNO)<br>
-Last revision: 06-03-2023</p>
+Last revision: 06-04-2023</p>
 <hr>
-<h2 class="mume-header" id="-glossary-">Glossary</h2>
+<h2 class="mume-header" id="glossary">Glossary</h2>
 
 <p><strong>Standard</strong>: a <em>neat</em> document written by a <strong>standardisation body</strong> in which a <strong>technology</strong> is defined.</p>
 <p><strong>Specification</strong>: a <em>neat</em> document in which a <strong>technology</strong> is defined. The difference with a standard is that the document was not written by a recognised <strong>standardisation body</strong>.</p>
@@ -290,7 +290,7 @@ Last revision: 06-03-2023</p>
 <p>The terms <strong>identifier</strong>, <strong>link secret</strong>, <strong>presentation definition</strong> and <strong>presentation submission</strong> are defined in the <a href="https://identity.foundation/presentation-exchange/#terminology">DIF Presentation Exchange Terminology</a>.</p>
 <p>The terms <strong>mdoc</strong>, <strong>mDL</strong>, <strong>mDL reader</strong> and <strong>mDL holder</strong> are used as defined in <a href="https://www.iso.org/standard/69084.html">ISO/IEC 18013-5:2021 (mDL)</a>.</p>
 <hr>
-<h2 class="mume-header" id="-abbreviations-">Abbreviations</h2>
+<h2 class="mume-header" id="abbreviations">Abbreviations</h2>
 
 <p>DID</p>
 <p>DPKI</p>
@@ -299,7 +299,7 @@ Last revision: 06-03-2023</p>
 <p>DDIP</p>
 <p>AIP</p>
 <hr>
-<h2 class="mume-header" id="-introduction-">Introduction</h2>
+<h2 class="mume-header" id="introduction">Introduction</h2>
 
 <p>There is a large amount of standardisation developed and in development within the context of <strong>Self-Sovereign Identities (SSI)</strong>. The <strong>standards</strong> and <strong>specifications</strong> vary from legacy technologies to new and upcoming technologies, from specifications on cryptographic signature schemes to usability and inclusivity concepts such as guardianship. Whenever looking into a standard or specification, it can be hard to place it in the bigger picture:</p>
 <ul>
@@ -317,15 +317,15 @@ Last revision: 06-03-2023</p>
 <li><em>AIP</em> shows the <a href="https://github.com/hyperledger/aries-rfcs/blob/main/concepts/0302-aries-interop-profile/README.md">Aries Interop Profile</a>.</li>
 </ul>
 <p>The overview graphically answers the questions above more or less. This document will describe the structure of the graphical overview and give a description for each technology mentioned in the graphical display.</p>
-<h3 class="mume-header" id="-audience-">Audience</h3>
+<h3 class="mume-header" id="audience">Audience</h3>
 
 <p>This document is made in such a manner that it is accessible to all parties working with or wanting to work with SSI. We will explain each technology in the overview on a high level. Links to the specification are given for further (more technical) reading.</p>
-<h3 class="mume-header" id="-context-and-continuation-">Context and Continuation</h3>
+<h3 class="mume-header" id="context-and-continuation">Context and Continuation</h3>
 
 <p>This document has been developed for the Dutch Blockchain Coalition (DBC) and has been discussed with multiple technical experts.</p>
 <p>Both this document and the graphical overview are living documents. The amount of specifications is ever-growing and updates of specifications are brought out periodically. We will try our best to keep our resources up-to-date. We also welcome any input from technical experts on the standards and their context. If you have any suggestions or questions, please contact us.</p>
 <hr>
-<h2 class="mume-header" id="-description-of-the-model-">Description of the Model</h2>
+<h2 class="mume-header" id="description-of-the-model">Description of the Model</h2>
 
 <p>The <a href="https://trustoverip.org/toip-model/">Trust over IP (ToIP) model</a> consists of two stacks: the technology stack and the governance stack. We will here restrict ourselves to the technology stack, since we aim to give context for <em>technologies</em>. The stack consists of the following four layers:</p>
 <ol>
@@ -351,7 +351,7 @@ Last revision: 06-03-2023</p>
 </li>
 <li>give a short description of what the technology does</li>
 </ul>
-<h3 class="mume-header" id="-layer-1-trust-anchors-">Layer 1: Trust Anchors</h3>
+<h3 class="mume-header" id="layer-1-trust-anchors">Layer 1: Trust Anchors</h3>
 
 <p>Trust anchors form the basis of the entire stack. Without a strong foundation to anchor your trust to, you cannot have trust in the information communicated on the higher layers, i.e. the credentials exchanged in layer 4. Technologies in layer 1 include <a href="#-id-">identifiers</a>, <a href="#-dpki-">decentralised public key infrastructure</a> and <a href="#-registries-">registries</a>.</p>
 <h4 class="mume-header undefined" id="-id-">Identifier</h4>
@@ -393,7 +393,7 @@ Last revision: 06-03-2023</p>
 <br><br>
 <p>Decentralised identifiers (DIDs) allow for the authentication of decentralised digital identities of a <a href="https://w3c.github.io/did-core/#did-subject">DID subject</a>. A DID is a URI that associates the DID subject with a DID document, which describes the DID subject and how they can authenticate themselves using cryptographic keys. By resolving the DID Document, a sender can find the endpoint where to reach the receiver and the public key that the receiver will use in the communication with the sender. DID documents are generated using a specific <a href="https://w3c.github.io/did-spec-registries/#did-methods">DID method</a>. It depends on the DID method whether the DID is a <strong>self-certifying identifier</strong>.</p>
 <p>A DID can be a global unique identifier, but parties can also have multiple (<a href="https://identity.foundation/peer-did-method-spec/">peer</a>)DIDs to separate domains/personas.</p>
-<h5 class="mume-header" id="-x509-">X.509</h5>
+<h5 class="mume-header" id="x509">X.509</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -423,7 +423,7 @@ Last revision: 06-03-2023</p>
 </div>
 <br><br>
 <p>X.509 certificates are very widely used to define the binding between a party&apos;s (partial) identity and a public key. This certificate can be signed by a certificate authority, such as is done for protocols like TLS in HTTPS. X.509 certificates can also be self-signed. Since you can put attributes in the certificate, X.509 certificates can also be used as <a href="#-credential-">credential</a> format.</p>
-<h5 class="mume-header" id="-link-secret-">Link Secret</h5>
+<h5 class="mume-header" id="link-secret">Link Secret</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -456,10 +456,10 @@ Last revision: 06-03-2023</p>
 <p>A link secret is a non-correlatable secret only known to the holder. During credential issuance, the link secret is sent as a blind attribute to the issuer. The issuer thus doesn&apos;t know the value of the link secret. The issuer can then sign all claims, including the blinded link secret. The holder can prove ownership over the credentials to a verifier without disclosing a persistent identifier.</p>
 <p>Not a standard, but a cryptographic technique.<br>
 Based on <a href="https://www.cs.cornell.edu/courses/cs754/2001fa/129.PDF">Pedersen commitments</a>, see <a href="https://www.evernym.com/blog/how-does-a-verifier-know-the-credential-is-yours/">link secrets</a>.</p>
-<h5 class="mume-header" id="-raw-public-key-">Raw Public Key</h5>
+<h5 class="mume-header" id="raw-public-key">Raw Public Key</h5>
 
 <p>Raw public keys can be used as an identifier.</p>
-<h5 class="mume-header" id="-recovery-">Recovery</h5>
+<h5 class="mume-header" id="recovery">Recovery</h5>
 
 <p><a href="https://sovrin.org/wp-content/uploads/2019/03/What-if-someone-steals-my-phone-110319.pdf">https://sovrin.org/wp-content/uploads/2019/03/What-if-someone-steals-my-phone-110319.pdf</a></p>
 <h4 class="mume-header undefined" id="-dpki-">Decentralised Public Key Infrastructure</h4>
@@ -501,7 +501,7 @@ The primary operation for key management is key rotation, that can be performed 
 <h5 class="mume-header undefined" id="-dlt-">Distributed Ledger Technology</h5>
 
 <p>A blockchain is a distributed database, without a single point of failure or a single central authority that you must trust, leading to a higher level of privacy and security.</p>
-<h6 class="mume-header" id="-hyperledger-">Hyperledger</h6>
+<h6 class="mume-header" id="hyperledger">Hyperledger</h6>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -557,46 +557,46 @@ Hyperledger is a collection of projects related to DLTs and creates open-source 
 </div> 
 <br><br>
 <p>The European Blockchain Services Infrastructure (EBSI) is a European consortium that created a blockchain for the public sector.</p>
-<h5 class="mume-header" id="-registry-applications-">Registry Applications</h5>
+<h5 class="mume-header" id="registry-applications">Registry Applications</h5>
 
-<h6 class="mume-header" id="-identifier-">Identifier</h6>
+<h6 class="mume-header" id="identifier">Identifier</h6>
 
-<h6 class="mume-header" id="-schema-">Schema</h6>
+<h6 class="mume-header" id="schema">Schema</h6>
 
-<h6 class="mume-header" id="-revocation-">Revocation</h6>
+<h6 class="mume-header" id="revocation">Revocation</h6>
 
-<h6 class="mume-header" id="-delegation-">Delegation</h6>
+<h6 class="mume-header" id="delegation">Delegation</h6>
 
-<h6 class="mume-header" id="-trusted-issuer-">Trusted Issuer</h6>
+<h6 class="mume-header" id="trusted-issuer">Trusted Issuer</h6>
 
 <p>Link Oskar</p>
 <p>In the <a href="#-mobile-driving-license-">mDL</a> standard, the notion of Verified Issuer Certificate Authority List (VICAL) is introduced. This list can be used as a trust anchor for verifiers.</p>
-<h6 class="mume-header" id="-trusted-verifier-">Trusted Verifier</h6>
+<h6 class="mume-header" id="trusted-verifier">Trusted Verifier</h6>
 
 <p>Link Oskar</p>
-<h6 class="mume-header" id="-trusted-app-">Trusted App</h6>
+<h6 class="mume-header" id="trusted-app">Trusted App</h6>
 
-<h4 class="mume-header" id="-revocation-method-">Revocation Method</h4>
+<h4 class="mume-header" id="revocation-method">Revocation Method</h4>
 
-<h5 class="mume-header" id="-revocation-list-">Revocation List</h5>
+<h5 class="mume-header" id="revocation-list">Revocation List</h5>
 
 <p>Status List 2021</p>
-<h5 class="mume-header" id="-cryptographic-accumulator-">Cryptographic Accumulator</h5>
+<h5 class="mume-header" id="cryptographic-accumulator">Cryptographic Accumulator</h5>
 
 <p><a href="https://link.springer.com/content/pdf/10.1007/978-3-642-00468-1_27.pdf">https://link.springer.com/content/pdf/10.1007/978-3-642-00468-1_27.pdf</a></p>
 <p><a href="https://github.com/hyperledger/anoncreds-spec/blob/main/spec/ursaAnonCreds.pdf">https://github.com/hyperledger/anoncreds-spec/blob/main/spec/ursaAnonCreds.pdf</a></p>
 <p><a href="https://github.com/hyperledger/indy-sdk/blob/main/docs/concepts/revocation/cred-revocation.md">https://github.com/hyperledger/indy-sdk/blob/main/docs/concepts/revocation/cred-revocation.md</a></p>
-<h4 class="mume-header" id="-oca-definition-">OCA Definition</h4>
+<h4 class="mume-header" id="oca-definition">OCA Definition</h4>
 
 <p>(?)</p>
 <hr>
-<h3 class="mume-header" id="-layer-2-peer-to-peer-connection-">Layer 2: Peer-to-Peer Connection</h3>
+<h3 class="mume-header" id="layer-2-peer-to-peer-connection">Layer 2: Peer-to-Peer Connection</h3>
 
 <p>To exchange data, first a trusted (mutually) authenticated channel has to be set up. Peer-to-peer connections have to be established between agents of the communicating parties.</p>
-<h4 class="mume-header" id="-peer-to-peer-protocol-">Peer-to-Peer Protocol</h4>
+<h4 class="mume-header" id="peer-to-peer-protocol">Peer-to-Peer Protocol</h4>
 
 <p>A peer-to-peer protocol establishes a secure and private communication between <a href="#-agent-"></a>.</p>
-<h5 class="mume-header" id="-didcomm-">DIDComm</h5>
+<h5 class="mume-header" id="didcomm">DIDComm</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -639,7 +639,7 @@ Hyperledger is a collection of projects related to DLTs and creates open-source 
 <li>DIDComm signed messages</li>
 <li>DIDComm encrypted messages</li>
 </ul>
-<h5 class="mume-header" id="-did-exchange-protocol-">DID Exchange Protocol</h5>
+<h5 class="mume-header" id="did-exchange-protocol">DID Exchange Protocol</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -726,20 +726,20 @@ Used in many systems. Less or no migration needed compared to moving to a DIDCom
 <br><br>
 <h4 class="mume-header undefined" id="-agent-">Agent</h4>
 
-<h5 class="mume-header" id="-wallet-">Wallet</h5>
+<h5 class="mume-header" id="wallet">Wallet</h5>
 
-<h6 class="mume-header" id="-wallet-rendering-">Wallet Rendering</h6>
+<h6 class="mume-header" id="wallet-rendering">Wallet Rendering</h6>
 
-<h6 class="mume-header" id="-dkms-">DKMS</h6>
+<h6 class="mume-header" id="dkms">DKMS</h6>
 
 <hr>
-<h3 class="mume-header" id="-layer-3-credential-exchange-protocols--">Layer 3: Credential Exchange Protocols</h3>
+<h3 class="mume-header" id="layer-3-credential-exchange-protocols">Layer 3: Credential Exchange Protocols</h3>
 
 <p>Now that a connection tunnel has been set up, credentials can be exchanged. This layer is about the trust triangle (or diamond).</p>
-<h4 class="mume-header" id="-issuance-protocol-">Issuance Protocol</h4>
+<h4 class="mume-header" id="issuance-protocol">Issuance Protocol</h4>
 
 <p>This section describes protocols related to the issuance of credentials. We describe to standards to do so. Additionally, we also discuss the credential manifest.</p>
-<h5 class="mume-header" id="-issue-credential-protocol-">Issue Credential Protocol</h5>
+<h5 class="mume-header" id="issue-credential-protocol">Issue Credential Protocol</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -811,7 +811,7 @@ Used in many systems. Less or no migration needed compared to moving to a DIDCom
 <br><br>
 <p>This standard describes an API for credential issuance via OIDC (and OAuth2.0), by defining what the <strong>credential offer</strong> and <strong>credential offer response</strong> should look like.<br>
 The <strong>proof type</strong> must be JWT.</p>
-<h5 class="mume-header" id="-credential-manifest-">Credential Manifest</h5>
+<h5 class="mume-header" id="credential-manifest">Credential Manifest</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -847,9 +847,9 @@ The <strong>proof type</strong> must be JWT.</p>
 <p>In order for the issuer to send the soon-to-be holder a credential, the issuer needs to know some information about the subject. This specification a data format named the <strong>credential manifest</strong>, describing the inputs a subject must provide to an issuer in which format, in order for the issuer to determine whether to issue the credential to the subject. The subject, i.e. the user agent, discovers the credential manifest and can then form a <strong>credential application</strong>, containing the information on the subject that the issuer needs. The issuer can then determine whether this application is accepted or declined and sends a <strong>credential response</strong>. The formats for the credential application and credential response are also specified in this standard.</p>
 <p>We assume that the credential manifest is <strong>claim format</strong> and transport envelope agnostic, just like the formats in <a href="#-presentation-exchange-">presentation exchange</a>. However, this has not been clearly specified in this standard, but there are some hints.</p>
 <p>The credential manifest is the issuance equivalent to the <strong>presentation definition</strong> specified in <a href="#-presentation-exchange-">presentation exchange</a>.</p>
-<h4 class="mume-header" id="-verification-protocol-">Verification Protocol</h4>
+<h4 class="mume-header" id="verification-protocol">Verification Protocol</h4>
 
-<h5 class="mume-header" id="-present-proof-protocol-">Present Proof Protocol</h5>
+<h5 class="mume-header" id="present-proof-protocol">Present Proof Protocol</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -913,7 +913,7 @@ The <strong>proof type</strong> must be JWT.</p>
 </div> 
 <br><br>
 <p>OIDC for Verifiable Presentations is, as the name suggests, an extension to OIDC allowing the exchange of verifiable presentations (in a <strong>VP token</strong>) in addition to an <strong>ID token</strong>. The standard defines the protocol for this, by defining what the request and response must look like.</p>
-<h5 class="mume-header" id="-presentation-exchange-">Presentation Exchange</h5>
+<h5 class="mume-header" id="presentation-exchange">Presentation Exchange</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -953,11 +953,39 @@ The <strong>proof type</strong> must be JWT.</p>
 </ol>
 <p>These formats are <strong>claim format</strong> and transport envelope agnostic, as long as the claim format can be serialized as JSON.</p>
 <p>The presentation definition is the verification equivalent of the <a href="#-credential-manifest-">credential manifest</a>.</p>
-<h4 class="mume-header" id="-credential-">Credential</h4>
+<h5 class="mume-header" id="device-binding-attachments">Device Binding Attachments</h5>
+
+<div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
+<div>
+    <a href="https://github.com/hyperledger/aries-rfcs">Aries RFC</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Most recent version:</div> 
+<div>
+    -
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Published on:</div> 
+<div>
+    07-04-2022
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Link:</div> 
+<div>
+    <a href="https://github.com/hyperledger/aries-rfcs/tree/main/features/0728-device-binding-attachments">Aries RFC 0728: Device Binding Attachments</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Competitive to:</div> 
+<div>
+    <a href>SECDSA</a>
+</div>
+<div style="width:250px; height:auto; float:left; display:inline">Compatible with:</div> 
+<div>
+    <a href="#-present-proof-protocol">present proof protocol</a>,
+    <a href="#-anoncred-">AnonCred</a>
+</div> 
+<br><br>
+<h4 class="mume-header" id="credential">Credential</h4>
 
 <p>Overview: Link to RWOT Credential Comparison Matrix + Paper.</p>
 <p>In the next sections we will describe the credential formats that are standardised. Note that these still have a lot of degrees of freedom in there, as choices can be made in the used signature algorithm, revocation mechanism, identifiers...</p>
-<h5 class="mume-header" id="-verifiable-credential-">Verifiable Credential</h5>
+<h5 class="mume-header" id="verifiable-credential">Verifiable Credential</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -1028,7 +1056,7 @@ The standard for Verifiable Credentials leaves some room for choices in <strong>
 <li>how to tie the <strong>mDL</strong> to the <strong>mDL holder</strong> (where the holder must be equal to the <strong>data subject</strong>), through the use of a portrait image of the <strong>mDL holder</strong>.</li>
 </ul>
 <p>The credential format used for the mDL is the MDOC.</p>
-<h5 class="mume-header" id="-anoncred-">AnonCred</h5>
+<h5 class="mume-header undefined" id="-anoncred-">AnonCred</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -1056,10 +1084,10 @@ The standard for Verifiable Credentials leaves some room for choices in <strong>
 </div> 
 <br><br>
 <hr>
-<h3 class="mume-header" id="-layer-4-application-ecosystems-">Layer 4: Application Ecosystems</h3>
+<h3 class="mume-header" id="layer-4-application-ecosystems">Layer 4: Application Ecosystems</h3>
 
 <p>TBD</p>
-<h4 class="mume-header" id="-delegation-and-mandate-">Delegation and Mandate</h4>
+<h4 class="mume-header" id="delegation-and-mandate">Delegation and Mandate</h4>
 
 <p>It&apos;s very useful to be able to delegate and mandate rights and duties towards a third party to for example an employee.</p>
 <h5 class="mume-header undefined" id="-acdc">Authentic Chained Data Containers</h5>
@@ -1094,7 +1122,7 @@ The standard for Verifiable Credentials leaves some room for choices in <strong>
 KERI<br>
 JSON<br>
 claim formats: JSON, CBOR, MGPK, CESR</p>
-<h5 class="mume-header" id="-zcap-">ZCap</h5>
+<h5 class="mume-header" id="zcap">ZCap</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -1121,7 +1149,7 @@ claim formats: JSON, CBOR, MGPK, CESR</p>
     <a href="#--">-</a>
 </div> 
 <br><br>
-<h5 class="mume-header" id="-chained-credential-">Chained Credential</h5>
+<h5 class="mume-header" id="chained-credential">Chained Credential</h5>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -1148,7 +1176,7 @@ claim formats: JSON, CBOR, MGPK, CESR</p>
     <a href="#--">-</a>
 </div> 
 <br><br>
-<h4 class="mume-header" id="-guardianship-">Guardianship</h4>
+<h4 class="mume-header" id="guardianship">Guardianship</h4>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -1202,7 +1230,7 @@ claim formats: JSON, CBOR, MGPK, CESR</p>
     <a href="#--">-</a>
 </div> 
 <br><br>
-<h4 class="mume-header" id="-eassi-">EASSI</h4>
+<h4 class="mume-header" id="eassi">EASSI</h4>
 
 <div style="width:250px; height:auto; float:left; display:inline">Standardisation body:</div> 
 <div>
@@ -1229,9 +1257,9 @@ claim formats: JSON, CBOR, MGPK, CESR</p>
     A variety of wallets
 </div> 
 <br><br>
-<h4 class="mume-header" id="-accessibility-">Accessibility</h4>
+<h4 class="mume-header" id="accessibility">Accessibility</h4>
 
-<h2 class="mume-header" id="-to-research-">To Research</h2>
+<h2 class="mume-header" id="to-research">To Research</h2>
 
 <ul>
 <li>Sovrin governance &amp; trust framework</li>
